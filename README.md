@@ -1,82 +1,44 @@
 # RailFleet Express: Train Ticket Reservation & Dynamic Fleet Management System
 
-An enterprise-grade, high-availability train ticket reservation and dynamic fleet management system (architected along the lines of IRCTC, Amtrak, and Amadeus) designed to satisfy all 2nd-year B.Tech Computer Science curriculum requirements for Relational Database Management Systems (RDBMS), Operating System concurrency control, and full-stack software engineering.
+Author: Tushar Debnath
+
+A train ticket reservation and dynamic fleet management system built as a 2nd-year B.Tech Computer Science project, covering Relational Database Management Systems (RDBMS), Operating System concurrency control, and full-stack software engineering.
 
 ---
 
-## 1. Architectural Overview & System Design
+## Features
+
+- Route search and schedule matrix
+- Visual carriage seat grid with real-time availability
+- PNR booking, lookup, history, and cancellation with refund calculation
+- Dynamic fare calculation and 10-digit PNR generation
+- Fleet admin metrics and audit logs
+- Concurrency-safe reservations (zero double-booking)
+
+## Tech Stack
+
+- Frontend: React + Vite + Tailwind CSS (`src/`), served on port 3000
+- Secondary mock API: Node + Express (`server_5500.ts`), port 5500
+- Backend: FastAPI (Python) + Pydantic, port 8000
+- Database: SQLite3 (`railway.db`) with foreign keys ON and CHECK constraints
+
+## Architecture
 
 ```
-+----------------------------------------------------------------------------------------------------+
-|                                         PRESENTATION TIER                                          |
-|  Pure HTML5 + Modular CSS3 (Grid/Flexbox) + Native ES6+ Fetch Async UI State Re-syncing            |
-|  Pages: Route Search | Schedule Matrix | Visual Carriage Seat Grid | PNR Checkout | Dashboard | Admin  |
-+----------------------------------------------------------------------------------------------------+
-                                                  │
-                                                  │ Asynchronous REST (JSON)
-                                                  ▼
-+----------------------------------------------------------------------------------------------------+
-|                                           APPLICATION TIER                                         |
-|  FastAPI (Python 3.10+) Asynchronous Micro-framework with Pydantic DTO Validation & OpenAPI Specs  |
-|  - Rate-limit resilient endpoint routers                                                           |
-|  - Fare calculation & cryptographic 10-digit PNR generator                                         |
-|  - Concurrency Lock Coordinator (`BEGIN EXCLUSIVE` wrapper)                                        |
-+----------------------------------------------------------------------------------------------------+
-                                                  │
-                                                  │ Direct Engine / Foreign Keys ON
-                                                  ▼
-+----------------------------------------------------------------------------------------------------+
-|                                          PERSISTENCE TIER                                          |
-|  SQLite3 Relational Database Engine (`railway.db`)                                                 |
-|  - Strict Foreign Key integrity (`PRAGMA foreign_keys = ON;`)                                       |
-|  - Status CHECK constraints (`is_booked IN (0, 1)`, `status IN ('CONFIRMED', 'CANCELLED')`)        |
-|  - Transaction Isolation: `BEGIN EXCLUSIVE` (Full serialized locking, Zero Double-Booking)         |
-+----------------------------------------------------------------------------------------------------+
+Browser (React UI :3000)
+  │ REST / JSON (proxied /api -> :5500)
+  ▼
+FastAPI backend (:8000) — fare calc, PNR gen, BEGIN EXCLUSIVE booking
+  │ SQL + foreign keys
+  ▼
+SQLite3 (stations, trains, coaches, seats, bookings, passengers)
 ```
 
----
+## Concurrency Control
 
-## 2. 10-Member Team Task Distribution Matrix
+Bookings use SQLite `BEGIN EXCLUSIVE` so only one transaction can check-and-reserve a seat at a time. A second concurrent request for the same seat waits, then sees `is_booked = 1` and gets HTTP 409 Conflict. Result: no double-booking.
 
-To guarantee verifiable Git commit history (`git log --author`) and clear division of labor across engineering disciplines:
-
-| Sub-Team | Member Name | Role & Academic Focus | Primary File Ownership & Deliverables |
-|:---|:---|:---|:---|
-| **Sub-Team A** | **Rajesh Kumar** | Lead Database Architect | `backend/database.py`, Relational DDL, Foreign Key Pragma & Indices |
-| **Sub-Team A** | **Priya Sharma** | Storage Systems Engineer | `backend/database.py`, Initial fleet seeding, Coach & Berth topologies |
-| **Sub-Team A** | **Amit Patel** | Transaction Integrity Lead | `backend/crud.py`, `BEGIN EXCLUSIVE` locking engine, Atomic rollbacks |
-| **Sub-Team B** | **Sneha Gupta** | Backend Tech Lead | `backend/main.py`, FastAPI app lifecycle, CORS, OpenAPI documentation |
-| **Sub-Team B** | **Vikram Malhotra**| API & Pydantic Specialist | `backend/models.py`, DTO schema contracts, Input validators |
-| **Sub-Team B** | **Ananya Roy** | Business Logic Engineer | `backend/crud.py`, Cryptographic PNR generation, Dynamic fare calculations |
-| **Sub-Team C** | **Rahul Verma** | Frontend Layout Designer | `frontend/index.html`, `trains.html`, `seats.html`, Visual Carriage UI |
-| **Sub-Team C** | **Divya Nair** | UI/UX & Responsive CSS | `frontend/booking.html`, `dashboard.html`, `admin.html`, `style.css` |
-| **Sub-Team D** | **Karthik Subramanian** | Client State & Async Lead | `frontend/app.js`, Async Fetch API wrappers, DOM state re-syncing |
-| **Sub-Team D** | **Neha Deshmukh** | QA & Concurrency Engineer | `tests/test_concurrency.py`, `test_api.py`, Multi-threaded stress lab |
-
----
-
-## 3. Concurrency Safety: Mathematical Elimination of Race Conditions
-
-### The Critical Double-Booking Problem in Railway PRS
-In high-demand reservation moments (such as Tatkal booking opening), hundreds of concurrent threads compete for the same last remaining seat in a coach. Under default database isolation (`READ COMMITTED`), two concurrent transactions $T_1$ and $T_2$ can execute:
-
-$$\text{Time } t_0: T_1 \text{ reads } \text{is\_booked} = 0$$
-$$\text{Time } t_1: T_2 \text{ reads } \text{is\_booked} = 0$$
-$$\text{Time } t_2: T_1 \text{ writes } \text{is\_booked} = 1 \text{ (Allocates to User 1)}$$
-$$\text{Time } t_3: T_2 \text{ writes } \text{is\_booked} = 1 \text{ (Allocates to User 2 - DOUBLE BOOKING!)}$$
-
-### The Solution: SQLite `BEGIN EXCLUSIVE`
-By executing `BEGIN EXCLUSIVE`, RailFleet Express acquires an immediate write lock on the entire database file before any read check occurs:
-
-1. When $T_1$ executes `BEGIN EXCLUSIVE`, it holds exclusive control.
-2. When $T_2$ attempts `BEGIN EXCLUSIVE`, it is blocked and must wait for $T_1$ to finish.
-3. When $T_1$ finishes verifying and marks the seat as `is_booked = 1` and commits, $T_2$ is unblocked.
-4. $T_2$ now reads the updated database, immediately sees `is_booked = 1`, triggers an automatic `ROLLBACK`, and returns HTTP 409 Conflict.
-5. **Double-booking probability is mathematically 0.00%.**
-
----
-
-## 4. Database Schema Specification (DDL)
+## Database Schema (DDL)
 
 ```sql
 PRAGMA foreign_keys = ON;
@@ -155,62 +117,39 @@ CREATE TABLE passengers (
 );
 ```
 
----
+## Project Structure
 
-## 5. Verification & Concurrency Test Results
+```
+backend/   FastAPI service (main.py, models.py, crud.py, database.py)
+src/       React frontend (components, services, types)
+frontend/  Vanilla HTML reference UI
+tests/     API + concurrency stress tests
+server_5500.ts  Secondary Express mock API
+```
 
-Run the multi-threaded concurrency stress test:
+## How to Run
+
+Backend (FastAPI):
+
 ```bash
-python3 tests/test_concurrency.py
+py -m pip install -r requirements.txt
+py -m uvicorn backend.main:app --host 0.0.0.0 --port 8000
 ```
 
-### Verified Test Log Output:
-```text
-======================================================================
-[*] LAUNCHING CONCURRENCY STRESS TEST WITH 25 PARALLEL THREADS
-[*] Target Seat: Seat #10 on Coach #1
-[*] Transaction Isolation Strategy: SQLite BEGIN EXCLUSIVE
-======================================================================
-  [+] Thread 17 SUCCESS: Reserved Seat ID 10 (PNR: 2844315023) in 7.00ms
+Swagger UI: `http://localhost:8000/docs`
 
-======================================================================
-CONCURRENCY STRESS TEST RESULTS SUMMARY
-======================================================================
-Total Parallel Threads Launched:   25
-Successful Reservations:           1
-Blocked Conflicts Handled:         24
-Database Final Seat is_booked:     1
-Confirmed Bookings on Seat:        1
-Wall Clock Time:                   1.573 seconds
-Average Thread Latency:            636.81 ms
+Frontend (React + Vite):
 
-[VERIFICATION PASSED] ZERO DOUBLE-BOOKINGS DETECTED!
->> SQLite BEGIN EXCLUSIVE transaction locking successfully serialized all concurrent accesses.
->> 1 thread acquired the seat, 24 threads were safely blocked.
-```
-
----
-
-## 6. How to Run the System
-
-### Running Backend FastAPI Service:
 ```bash
-python3 -m pip install -r requirements.txt
-python3 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
+npm install --legacy-peer-deps
+node ./node_modules/vite/bin/vite.js --port=3000 --host=0.0.0.0
 ```
-Swagger UI available at: `http://localhost:8000/docs`
 
-### Running Automated Test Suite:
+Website: `http://localhost:3000/`
+
+Tests:
+
 ```bash
-python3 -m unittest tests/test_api.py
-python3 tests/test_concurrency.py
+py -m unittest tests/test_api.py
+py tests/test_concurrency.py
 ```
-
-
-
-
-
-
-Website (React+Vite): http://localhost:3000/ — 200 OK, opened in browser
-Real backend (FastAPI): http://localhost:8000/ — {"status":"HEALTHY"...} — docs at http://localhost:8000/docs, opened in browser
-
