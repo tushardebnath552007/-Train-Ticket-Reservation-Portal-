@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Booking History & Ticket Management - RailFleet Express</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">🚆</div>
+      <span>RailFleet Express</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Search Trains</a></li>
+      <li><a href="dashboard.html" class="active">My Bookings</a></li>
+      <li><a href="admin.html">Fleet Console</a></li>
+    </ul>
+    <div>
+      <span class="system-badge">
+        <span class="status-dot"></span> User Portal Connected
+      </span>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem;">User Booking History & Ticket Lifecycle</h1>
+    <p style="color: var(--text-muted); margin-bottom: 2rem;">Lookup reservations by 10-digit PNR code or registered passenger email. Cancel confirmed tickets with automated refund computation.</p>
+
+    <!-- Search / Filter Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;">
+      
+      <!-- Lookup by Email -->
+      <div class="search-card" style="margin-bottom: 0;">
+        <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--accent-gold);">Lookup by Traveler Email</h3>
+        <div style="display: flex; gap: 0.75rem;">
+          <input type="email" id="search-user-email" class="form-control" placeholder="traveler@email.com" value="aris.thorne@quantum.rail">
+          <button id="lookup-user-btn" class="btn-primary" style="white-space: nowrap;">Find Bookings</button>
+        </div>
+      </div>
+
+      <!-- Lookup by Specific PNR -->
+      <div class="search-card" style="margin-bottom: 0;">
+        <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--accent-blue);">Direct 10-Digit PNR Lookup</h3>
+        <div style="display: flex; gap: 0.75rem;">
+          <input type="text" id="lookup-pnr" class="form-control" placeholder="e.g. 2844315023" maxlength="10">
+          <button id="lookup-pnr-btn" class="btn-secondary" style="white-space: nowrap;">Fetch PNR</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Booking History Table -->
+    <section>
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">Reservation Records</h3>
+      
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>PNR Number</th>
+              <th>Train Name</th>
+              <th>Route</th>
+              <th>Journey Date</th>
+              <th>Fare Paid</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="bookings-tbody">
+            <tr>
+              <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 2.5rem;">
+                Enter your email address or PNR above to fetch active reservations.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>RailFleet Express • User Booking History & Automated Refund System</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

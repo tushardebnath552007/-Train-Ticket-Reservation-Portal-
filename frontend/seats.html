@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Coach Grid & Seat Selector - RailFleet Express</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">🚆</div>
+      <span>RailFleet Express</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="javascript:history.back()">Back to Trains</a></li>
+      <li><a href="dashboard.html">My Bookings</a></li>
+    </ul>
+    <div>
+      <span class="system-badge">
+        <span class="status-dot"></span> Live Carriage Telemetry
+      </span>
+    </div>
+  </nav>
+
+  <main class="container">
+    
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem;">
+      <div>
+        <h1 style="font-size: 1.75rem; font-weight: 800;">Carriage Seat Allocation Grid</h1>
+        <p id="seat-train-meta" style="color: var(--accent-gold); font-size: 0.95rem; font-weight: 600;">Loading train and coach specifications...</p>
+      </div>
+      <div class="seat-legend" style="margin: 0;">
+        <div class="legend-item"><span class="legend-swatch swatch-available"></span> Available</div>
+        <div class="legend-item"><span class="legend-swatch swatch-booked"></span> Booked</div>
+        <div class="legend-item"><span class="legend-swatch swatch-selected"></span> Selected</div>
+      </div>
+    </div>
+
+    <!-- 2-Column Layout: Coach Shell on left, Pricing & Action sidebar on right -->
+    <div class="checkout-layout">
+      
+      <!-- Carriage View -->
+      <div>
+        <div class="carriage-container">
+          <div class="carriage-shell">
+            <div class="carriage-head">
+              <span>◄ ENGINE / VESTIBULE</span>
+              <span>CARRIAGE GANGWAY</span>
+              <span>PANTRY / EXIT ►</span>
+            </div>
+            
+            <!-- Dynamic Seat Grid -->
+            <div id="seat-grid" class="seat-layout-grid">
+              <div style="grid-column: span 8; text-align: center; color: var(--text-muted); padding: 3rem;">
+                Fetching real-time seat lock state...
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size: 0.85rem; color: var(--text-muted); background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+          <strong>Note:</strong> Berth preferences (Lower, Middle, Upper, Window, Aisle) are indicated per seat. Concurrency isolation ensures that selected seats will be exclusively locked at checkout commit time.
+        </div>
+      </div>
+
+      <!-- Pricing Sidebar -->
+      <aside>
+        <div class="fare-breakdown-card">
+          <h3 style="font-size: 1.15rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
+            Selection Summary
+          </h3>
+
+          <div class="fare-row">
+            <span style="color: var(--text-muted);">Selected Seats:</span>
+            <strong id="selected-count">0</strong>
+          </div>
+
+          <div class="fare-row">
+            <span style="color: var(--text-muted);">Max Allowed Seats:</span>
+            <span>6 Per PNR</span>
+          </div>
+
+          <div class="fare-row">
+            <span style="color: var(--text-muted);">Concurrency Lock:</span>
+            <span style="color: var(--accent-emerald);">BEGIN EXCLUSIVE</span>
+          </div>
+
+          <div class="fare-total fare-row">
+            <span>Total Estimated Fare:</span>
+            <span id="total-price">₹0</span>
+          </div>
+
+          <button id="proceed-to-checkout-btn" class="btn-primary" style="width: 100%; margin-top: 1.5rem;" disabled>
+            <span>Proceed to Passenger Details</span>
+            <span>➔</span>
+          </button>
+        </div>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>RailFleet Express • Visual Coach Matrix & Seat Selection</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

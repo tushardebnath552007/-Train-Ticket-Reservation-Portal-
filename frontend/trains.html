@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Available Trains & Schedule Matrix - RailFleet Express</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">🚆</div>
+      <span>RailFleet Express</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Modify Route</a></li>
+      <li><a href="dashboard.html">My Bookings</a></li>
+      <li><a href="admin.html">Fleet Console</a></li>
+    </ul>
+    <div>
+      <span class="system-badge">
+        <span class="status-dot"></span> Real-Time Availability Synced
+      </span>
+    </div>
+  </nav>
+
+  <main class="container">
+    
+    <!-- Results Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <div>
+        <h1 style="font-size: 1.75rem; font-weight: 800;" id="results-route-header">Loading Matching Corridors...</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Select your preferred coach class tier to inspect the live carriage seat map.</p>
+      </div>
+      <a href="index.html" class="btn-secondary">← Change Route</a>
+    </div>
+
+    <!-- Filter & Sort Toggles -->
+    <div style="background: var(--bg-surface); padding: 1rem 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); display: flex; gap: 1.5rem; margin-bottom: 2rem; align-items: center; flex-wrap: wrap;">
+      <span style="font-weight: 600; font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase;">Quick Filter:</span>
+      <button class="btn-secondary" style="font-size: 0.85rem; padding: 0.35rem 0.75rem;">⚡ Vande Bharat Only</button>
+      <button class="btn-secondary" style="font-size: 0.85rem; padding: 0.35rem 0.75rem;">Early Morning (04:00 - 10:00)</button>
+      <button class="btn-secondary" style="font-size: 0.85rem; padding: 0.35rem 0.75rem;">Fastest Duration</button>
+    </div>
+
+    <!-- Trains List Dynamic Container -->
+    <div id="trains-container">
+      <div style="text-align: center; padding: 4rem; color: var(--text-muted);">
+        Querying SQLite schedule matrix...
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div id="empty-state" style="display: none; text-align: center; padding: 4rem; background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px dashed var(--border-color);">
+      <h3>No Direct Trains Found</h3>
+      <p style="color: var(--text-muted); margin: 1rem 0;">No active fleet schedules found for this corridor and date combination.</p>
+      <a href="index.html" class="btn-primary">Try Another Route</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>RailFleet Express • Schedule Matrix & Real-Time Berth Availability</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

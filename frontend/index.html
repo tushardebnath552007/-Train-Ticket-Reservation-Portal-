@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RailFleet Express - Indian Railways Passenger Reservation & GPS Radar</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Advisory Bar -->
+  <div style="background: #050811; border-bottom: 1px solid #1e293b; padding: 0.4rem 2rem; font-size: 0.75rem; font-family: monospace; display: flex; justify-content: space-between; color: #94a3b8;">
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <span class="status-dot"></span>
+      <span style="color: var(--accent-gold); font-weight: bold;">RAIL ADVISORY:</span>
+      <span>Train #22436 Vande Bharat on time • Tatkal booking window active • Concurrency engine locked with SQLite BEGIN EXCLUSIVE</span>
+    </div>
+    <div style="display: flex; gap: 1rem;">
+      <span>Helpline: <strong style="color: #fff;">139</strong></span>
+      <span>|</span>
+      <span style="color: var(--accent-emerald);">CRIS Protocol Active</span>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">🚆</div>
+      <span>RailFleet Express</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Route Search</a></li>
+      <li><a href="#tracking-section" style="color: var(--accent-blue);">Live Train Map</a></li>
+      <li><a href="dashboard.html">My Bookings & PNR</a></li>
+      <li><a href="admin.html">Fleet Console</a></li>
+    </ul>
+    <div>
+      <span class="system-badge">
+        <span class="status-dot"></span>
+        SQLite EXCLUSIVE Lock Active
+      </span>
+    </div>
+  </nav>
+
+  <!-- Main Container -->
+  <main class="container">
+    
+    <!-- Breadcrumbs -->
+    <div style="font-size: 0.75rem; font-family: monospace; color: var(--text-muted); margin-bottom: 1.5rem;">
+      <span style="color: var(--accent-gold);">Portal</span> / Passenger Reservation System / National Route Search & GPS Radar
+    </div>
+
+    <!-- Hero Section with Background Banner -->
+    <section class="hero" style="position: relative; overflow: hidden; border-radius: var(--radius-lg); border: 1px solid var(--border-color); background: #0f172a; margin-bottom: 2rem;">
+      <div style="position: relative; z-index: 10; padding: 3rem 1.5rem;">
+        <span class="system-badge" style="margin-bottom: 1rem;">⚡ Next-Gen High-Availability PRS</span>
+        <h1>Direct Corridors, Atomic Booking & Live Radar</h1>
+        <p>Decoupled high-availability booking engine powered by FastAPI, SQLite3 exclusive transaction locking (<code>BEGIN EXCLUSIVE</code>), and real-time carriage seat allocation.</p>
+      </div>
+    </section>
+
+    <!-- Page 1: Route Search Portal -->
+    <section class="search-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); pb-1rem;">
+        <h2 style="font-size: 1.25rem;">Book High-Speed & Superfast Express Tickets</h2>
+        <span style="font-size: 0.75rem; font-family: monospace; color: var(--accent-emerald);">● Server Cluster #1 Online</span>
+      </div>
+
+      <form id="search-trains-form">
+        <div class="search-grid">
+          
+          <div class="form-group">
+            <label for="source-station">Source Station</label>
+            <select id="source-station" class="form-control" required>
+              <option value="NDLS">New Delhi (NDLS)</option>
+              <option value="MMCT">Mumbai Central (MMCT)</option>
+              <option value="HWH">Howrah Junction (HWH)</option>
+              <option value="SBC">KSR Bengaluru (SBC)</option>
+              <option value="MAS">Chennai Central (MAS)</option>
+              <option value="ADI">Ahmedabad (ADI)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="dest-station">Destination Station</label>
+            <select id="dest-station" class="form-control" required>
+              <option value="HWH">Howrah Junction (HWH)</option>
+              <option value="NDLS">New Delhi (NDLS)</option>
+              <option value="MMCT">Mumbai Central (MMCT)</option>
+              <option value="SBC">KSR Bengaluru (SBC)</option>
+              <option value="MAS">Chennai Central (MAS)</option>
+              <option value="ADI">Ahmedabad (ADI)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="travel-date">Journey Date</label>
+            <input type="date" id="travel-date" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="coach-tier">Preferred Coach Class</label>
+            <select id="coach-tier" class="form-control">
+              <option value="ALL">All Classes (1A, 2A, 3A, CC, EC)</option>
+              <option value="EC">Executive Chair Car (EC)</option>
+              <option value="CC">AC Chair Car (CC)</option>
+              <option value="2A">AC 2-Tier (2A)</option>
+              <option value="3A">AC 3-Tier (3A)</option>
+              <option value="SL">Sleeper (SL)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-primary" style="height: 48px;">
+            <span>Search Available Trains</span>
+            <span>➔</span>
+          </button>
+
+        </div>
+      </form>
+    </section>
+
+    <!-- Live Train Tracking Map Section -->
+    <section id="tracking-section" style="margin-bottom: 3rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem;">
+        <div>
+          <span style="font-size: 0.75rem; font-family: monospace; color: var(--accent-blue); font-weight: bold; text-transform: uppercase;">
+            📡 Real-Time Train Information System (RTIS)
+          </span>
+          <h2 style="font-size: 1.5rem; font-weight: 800; margin-top: 0.25rem;">Live National Train Tracking Map</h2>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Satellite GPS telemetry tracking Train #22436 Vande Bharat Express with live speed and waypoints.</p>
+        </div>
+        <span class="system-badge"><span class="status-dot"></span> Speed: 128 km/h</span>
+      </div>
+
+      <div style="background: #090e17; border: 2px solid var(--border-color); border-radius: var(--radius-lg); padding: 1.5rem; position: relative;">
+        <div style="height: 220px; position: relative; display: flex; align-items: center; justify-content: center;">
+          <svg style="width: 100%; height: 100%;" viewBox="0 0 800 200">
+            <path d="M 50 100 Q 250 50 450 120 T 750 80" fill="none" stroke="#1e293b" stroke-width="8" stroke-linecap="round" />
+            <path d="M 50 100 Q 250 50 450 120 T 750 80" fill="none" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 4" />
+            <!-- Moving Train Circle -->
+            <circle cx="380" cy="100" r="12" fill="#f59e0b" stroke="#ffffff" stroke-width="2" />
+            <text x="380" y="80" text-anchor="middle" fill="#f8fafc" font-size="11" font-weight="bold">🚆 128 km/h (On Time)</text>
+            <!-- Station Nodes -->
+            <circle cx="50" cy="100" r="6" fill="#38bdf8" />
+            <text x="50" y="125" text-anchor="middle" fill="#94a3b8" font-size="10">NDLS (0 km)</text>
+            <circle cx="280" cy="75" r="5" fill="#38bdf8" />
+            <text x="280" y="60" text-anchor="middle" fill="#94a3b8" font-size="10">CNB (440 km)</text>
+            <circle cx="520" cy="120" r="5" fill="#f59e0b" />
+            <text x="520" y="145" text-anchor="middle" fill="#f59e0b" font-size="10">PRYJ (Current)</text>
+            <circle cx="750" cy="80" r="6" fill="#10b981" />
+            <text x="750" y="105" text-anchor="middle" fill="#10b981" font-size="10">HWH (1445 km)</text>
+          </svg>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.8rem; font-family: monospace; color: var(--text-muted); border-top: 1px solid var(--border-color); padding-top: 0.75rem;">
+          <span>Origin: New Delhi (06:00)</span>
+          <span style="color: var(--accent-emerald);">● 0 Min Delay at Prayagraj</span>
+          <span>Destination: Howrah (14:00)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Passenger Amenities Section -->
+    <section style="margin-bottom: 3rem;">
+      <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">Passenger Amenities & Railway Services</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+        <div class="train-card" style="margin-bottom: 0;">
+          <h4 style="color: var(--accent-gold); margin-bottom: 0.5rem;">☕ E-Catering Meals</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Hot hygienic regional meals delivered straight to your allocated berth.</p>
+        </div>
+        <div class="train-card" style="margin-bottom: 0;">
+          <h4 style="color: var(--accent-blue); margin-bottom: 0.5rem;">📶 RailWire High-Speed Wi-Fi</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Unlimited high-speed optical fiber internet at over 6,000 railway stations.</p>
+        </div>
+        <div class="train-card" style="margin-bottom: 0;">
+          <h4 style="color: var(--accent-emerald); margin-bottom: 0.5rem;">🛡️ Travel Insurance (₹0.45)</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Coverage up to ₹10 Lakhs against hospitalizations or transit delays.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Comprehensive Enterprise Footer -->
+  <footer style="background: #050811; border-top: 1px solid var(--border-color); padding: 3rem 2rem 1.5rem; text-align: left; font-size: 0.85rem; color: var(--text-muted);">
+    <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+      <div>
+        <h4 style="color: #fff; margin-bottom: 0.75rem;">RailFleet Express Portal</h4>
+        <p style="font-size: 0.8rem; line-height: 1.6;">Official 2nd-Year B.Tech CSE Relational Database Management System (RDBMS) architecture with SQLite BEGIN EXCLUSIVE transaction locking.</p>
+      </div>
+      <div>
+        <h4 style="color: #fff; margin-bottom: 0.75rem;">Helplines & Support</h4>
+        <ul style="list-style: none; space-y: 0.5rem; font-size: 0.8rem;">
+          <li>Rail Madad 24x7: <strong>139</strong></li>
+          <li>Railway Security GRP: <strong>182</strong></li>
+          <li>Senior Citizen Berth Quota</li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color: #fff; margin-bottom: 0.75rem;">Security & Verification</h4>
+        <p style="font-size: 0.8rem;">● Zero Double-Bookings Guaranteed<br>● Foreign Keys Strict Enforced<br>● 10-Member Traceable Git History</p>
+      </div>
+    </div>
+    <div style="border-top: 1px solid #1e293b; padding-top: 1rem; text-align: center; font-size: 0.75rem;">
+      © 2026 RailFleet Express • Train Ticket Reservation & Dynamic Fleet Management System
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

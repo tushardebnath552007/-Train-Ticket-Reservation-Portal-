@@ -1,0 +1,6 @@
+{
+  "name": "RailFleet Express - Train Ticket Reservation & Dynamic Fleet Management",
+  "description": "Enterprise-grade high-availability train ticket reservation and dynamic fleet management system with SQLite exclusive concurrency locking, interactive seat selection, and PNR lifecycle.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

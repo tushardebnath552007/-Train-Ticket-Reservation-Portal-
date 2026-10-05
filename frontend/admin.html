@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Railway Administrator Fleet Console - RailFleet Express</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html" class="brand">
+      <div class="brand-icon">🚆</div>
+      <span>RailFleet Operations Console</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Passenger Portal</a></li>
+      <li><a href="dashboard.html">Bookings</a></li>
+      <li><a href="admin.html" class="active">Fleet Console</a></li>
+    </ul>
+    <div>
+      <span class="system-badge" style="background: rgba(245,158,11,0.15); color: var(--accent-gold); border-color: rgba(245,158,11,0.3);">
+        <span class="status-dot" style="background: var(--accent-gold); box-shadow: 0 0 8px var(--accent-gold);"></span>
+        Admin Privileges Granted
+      </span>
+    </div>
+  </nav>
+
+  <main class="container">
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <div>
+        <h1 style="font-size: 1.75rem; font-weight: 800;">Fleet Performance & Concurrency Telemetry</h1>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Real-time metrics, dynamic inventory monitors, and SQLite exclusive transaction locks.</p>
+      </div>
+      <button class="btn-secondary" onclick="window.location.reload()">⟳ Refresh Metrics</button>
+    </div>
+
+    <!-- System Metrics Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem;">
+      
+      <div class="train-card" style="margin-bottom: 0;">
+        <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Active Fleet Trains</div>
+        <div id="admin-active-trains" style="font-size: 2.25rem; font-weight: 800; color: #fff; margin-top: 0.25rem;">--</div>
+        <div style="font-size: 0.75rem; color: var(--accent-emerald); margin-top: 0.25rem;">● 100% Operational Readiness</div>
+      </div>
+
+      <div class="train-card" style="margin-bottom: 0;">
+        <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">System Occupancy</div>
+        <div id="admin-occupancy-rate" style="font-size: 2.25rem; font-weight: 800; color: var(--accent-blue); margin-top: 0.25rem;">--%</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Across all scheduled coaches</div>
+      </div>
+
+      <div class="train-card" style="margin-bottom: 0;">
+        <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Total Net Revenue</div>
+        <div id="admin-total-revenue" style="font-size: 2.25rem; font-weight: 800; color: var(--accent-gold); margin-top: 0.25rem;">₹--</div>
+        <div style="font-size: 0.75rem; color: var(--accent-emerald); margin-top: 0.25rem;">Live ticket settlement pool</div>
+      </div>
+
+      <div class="train-card" style="margin-bottom: 0;">
+        <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 600;">Lock Isolation Mode</div>
+        <div style="font-size: 1.6rem; font-weight: 800; color: var(--accent-emerald); margin-top: 0.4rem; font-family: monospace;">EXCLUSIVE</div>
+        <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Race-condition prevention</div>
+      </div>
+
+    </div>
+
+    <!-- Live Audit Log Viewer -->
+    <section>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 700;">SQLite Exclusive Lock Audit Log</h3>
+        <span style="font-size: 0.8rem; color: var(--text-muted);">Real-time serialized transaction history</span>
+      </div>
+
+      <div class="data-table-wrapper">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Log ID</th>
+              <th>Action Type</th>
+              <th>Lock Mode</th>
+              <th>Latency</th>
+              <th>Audit Payload / Seat Details</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
+          <tbody id="audit-logs-tbody">
+            <tr>
+              <td colspan="6" style="text-align: center; color: var(--text-muted); padding: 2rem;">Loading audit trail...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>RailFleet Express • Central Operations & Fleet Administration Console</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
