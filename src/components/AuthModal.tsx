@@ -121,7 +121,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
         {/* Brand header */}
         <div className="space-y-1.5 text-center sm:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-600/10 border border-rose-600/30 text-amber-400 text-xs font-mono font-bold">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>National Railway Single Sign-On (SSO)</span>
           </div>
@@ -142,7 +142,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => { setMode('signin'); setErrorMsg(''); setOtpSent(false); }}
             className={`py-2 rounded-xl transition-all ${
               mode === 'signin'
-                ? 'bg-amber-500 text-slate-950 font-black shadow-md shadow-amber-500/20'
+                ? 'bg-rose-600 text-white font-black shadow-md shadow-rose-600/20'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -153,7 +153,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
             onClick={() => { setMode('signup'); setErrorMsg(''); setOtpSent(false); }}
             className={`py-2 rounded-xl transition-all ${
               mode === 'signup'
-                ? 'bg-amber-500 text-slate-950 font-black shadow-md shadow-amber-500/20'
+                ? 'bg-rose-600 text-white font-black shadow-md shadow-rose-600/20'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -210,7 +210,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 placeholder="e.g. Vikram Malhotra"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-white text-xs font-medium focus:outline-none focus:border-amber-500"
+                className="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-white text-xs font-medium focus:outline-none focus:border-rose-600"
               />
             </div>
           )}
@@ -225,7 +225,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
               placeholder="name@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-white text-xs font-medium focus:outline-none focus:border-amber-500"
+              className="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-white text-xs font-medium focus:outline-none focus:border-rose-600"
             />
           </div>
 
@@ -263,7 +263,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                 placeholder="••••••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-white text-xs font-medium focus:outline-none focus:border-amber-500"
+                className="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-white text-xs font-medium focus:outline-none focus:border-rose-600"
               />
             </div>
           ) : (
@@ -279,7 +279,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
                   placeholder={otpSent ? "829143" : "Click 'Send OTP'"}
                   value={otpCode}
                   onChange={(e) => setOtpCode(e.target.value)}
-                  className="flex-1 bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-white text-xs font-mono font-bold tracking-widest focus:outline-none focus:border-amber-500"
+                  className="flex-1 bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-white text-xs font-mono font-bold tracking-widest focus:outline-none focus:border-rose-600"
                 />
                 {!otpSent && (
                   <button
@@ -302,7 +302,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-xl shadow-amber-500/25 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            className="w-full py-4 rounded-2xl bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-xl shadow-rose-600/25 transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
           >
             {isLoading ? (
               <span>Verifying Credentials...</span>

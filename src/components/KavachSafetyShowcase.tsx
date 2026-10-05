@@ -76,7 +76,7 @@ export const KavachSafetyShowcase: React.FC = () => {
         {/* Digital Concurrency Protection: SQLite Exclusive Lock */}
         <div className="rounded-3xl bg-slate-950 border border-slate-800 p-6 sm:p-8 space-y-5">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold">
+            <div className="w-10 h-10 rounded-xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400 font-bold">
               <Lock className="w-5 h-5" />
             </div>
             <div>

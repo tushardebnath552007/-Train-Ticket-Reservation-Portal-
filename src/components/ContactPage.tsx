@@ -108,14 +108,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
         </div>
 
         <div className="relative z-10 p-6 sm:p-12 lg:p-16 max-w-3xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-600/15 border border-rose-600/30 text-amber-400 text-xs font-mono font-bold">
             <Headphones className="w-3.5 h-3.5 animate-pulse" />
             <span>24x7 NATIONAL RAIL MADAD HELPLINE & CITIZEN CHARTER</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
             We are here to assist <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-400 to-amber-200">
               every mile of your journey
             </span>
           </h1>
@@ -127,7 +127,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
           <div className="flex flex-wrap items-center gap-3 pt-2">
             <a
               href="tel:139"
-              className="px-5 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg shadow-amber-500/25 transition-all hover:scale-105 cursor-pointer"
+              className="px-5 py-3 rounded-2xl bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg shadow-rose-600/25 transition-all hover:scale-105 cursor-pointer"
             >
               <PhoneCall className="w-4 h-4" />
               <span>Dial 139 (Toll-Free Rail Madad)</span>
@@ -143,8 +143,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
       {/* Emergency Helplines Cards Grid */}
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
-        <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-3 relative overflow-hidden group hover:border-amber-500/50 transition-all">
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+        <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-3 relative overflow-hidden group hover:border-rose-600/50 transition-all">
+          <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
             <PhoneCall className="w-6 h-6" />
           </div>
           <div>
@@ -205,7 +205,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
           
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-amber-500 flex items-center justify-center text-slate-950 font-black">
+              <div className="w-8 h-8 rounded-xl bg-rose-600 flex items-center justify-center text-white font-black">
                 🚆
               </div>
               <div>
@@ -251,7 +251,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
               <select
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold text-white focus:outline-none focus:border-amber-500 transition-colors"
+                className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold text-white focus:outline-none focus:border-rose-600 transition-colors"
               >
                 <option value="REFUND_CANCELLATION">Ticket Cancellation, TDR & Instant Refund Status</option>
                 <option value="MEDICAL_EMERGENCY">Medical Emergency Onboard (Priority Dispatch)</option>
@@ -276,7 +276,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
                   value={pnr}
                   onChange={(e) => setPnr(e.target.value)}
                   placeholder="Enter 10-digit PNR"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm font-mono text-white focus:outline-none focus:border-amber-500 transition-colors"
+                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm font-mono text-white focus:outline-none focus:border-rose-600 transition-colors"
                 />
               </div>
 
@@ -289,7 +289,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
                   value={trainNumber}
                   onChange={(e) => setTrainNumber(e.target.value)}
                   placeholder="e.g. 22436 Vande Bharat"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500 transition-colors"
+                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-rose-600 transition-colors"
                 />
               </div>
             </div>
@@ -306,7 +306,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your Name"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500 transition-colors"
+                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-rose-600 transition-colors"
                 />
               </div>
 
@@ -320,7 +320,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="+91 98765 43210"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm font-mono text-white focus:outline-none focus:border-amber-500 transition-colors"
+                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm font-mono text-white focus:outline-none focus:border-rose-600 transition-colors"
                 />
               </div>
 
@@ -333,7 +333,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@domain.com"
-                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500 transition-colors"
+                  className="w-full bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-rose-600 transition-colors"
                 />
               </div>
             </div>
@@ -349,14 +349,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Please describe the incident, coach number, seat/berth, and what assistance is required..."
-                className="w-full bg-slate-900 border border-slate-800 rounded-xl p-4 text-xs sm:text-sm text-white focus:outline-none focus:border-amber-500 transition-colors resize-none"
+                className="w-full bg-slate-900 border border-slate-800 rounded-xl p-4 text-xs sm:text-sm text-white focus:outline-none focus:border-rose-600 transition-colors resize-none"
               ></textarea>
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-black text-sm flex items-center justify-center gap-2 shadow-xl shadow-amber-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+              className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-amber-400 hover:to-rose-500 text-white hover:text-slate-950 font-black text-sm flex items-center justify-center gap-2 shadow-xl shadow-rose-600/25 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
             >
               {isSubmitting ? (
                 <span>Dispatching Ticket to Rail Madad...</span>
@@ -403,7 +403,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
           </div>
 
           {/* Citizen Charter & SLA Box */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-amber-500/10 via-slate-950 to-slate-950 border border-amber-500/30 space-y-3">
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-rose-600/10 via-slate-950 to-slate-950 border border-rose-600/30 space-y-3">
             <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
               <ShieldCheck className="w-4 h-4" />
               <span>Indian Railways Citizen Charter 2026</span>
@@ -457,6 +457,29 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
         </div>
 
       </section>
+
+      {/* We're at every station — photo strip */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          { src: "/src/assets/images/modern_rail_terminal_1791007356836.jpg", label: "Smart terminals", sub: "Help desks on every platform" },
+          { src: "/src/assets/images/station_executive_lounge_1791008973049.jpg", label: "Passenger lounges", sub: "Meet our station teams" },
+          { src: "/src/assets/images/rail_madad_support_1791012407656.jpg", label: "Rail Madad on wheels", sub: "Onboard assistance crews" }
+        ].map((c, i) => (
+          <div key={i} className="relative rounded-3xl overflow-hidden border border-slate-800 group h-44 sm:h-52">
+            <img
+              src={c.src}
+              alt={c.label}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+            <div className="absolute bottom-3 left-3 right-3">
+              <div className="text-sm font-black text-white">{c.label}</div>
+              <div className="text-[11px] font-mono text-amber-400">{c.sub}</div>
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* 4-Tier Rail Madad Escalation Hierarchy Matrix */}
       <section className="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
@@ -555,6 +578,72 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
               In untoward incident situations under Section 124A, immediate interim ex-gratia relief of ₹50,000 is released within hours, followed by statutory RCT determination.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Zonal Railway Headquarters Directory */}
+      <section className="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
+        <div>
+          <span className="text-xs font-mono text-sky-400 font-bold uppercase tracking-widest block mb-1">
+            NATIONAL RAIL NETWORK DIRECTORY
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-white">
+            Zonal Railway Headquarters & Helplines
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">
+            Indian Railways runs through 19 zones. Contact the headquarters controlling your journey leg for quota releases, parcel claims and station development issues:
+          </p>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr className="border-b border-slate-800 text-slate-400 font-mono uppercase text-[11px]">
+                <th className="py-3 px-4">Zone</th>
+                <th className="py-3 px-4">Headquarters</th>
+                <th className="py-3 px-4">Major Stations Covered</th>
+                <th className="py-3 px-4">Control Helpline</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-800/60 font-sans text-slate-300">
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3 px-4 font-bold text-white">Northern Railway (NR)</td>
+                <td className="py-3 px-4">New Delhi</td>
+                <td className="py-3 px-4">NDLS, Lucknow, Amritsar, Kalka</td>
+                <td className="py-3 px-4 font-mono text-amber-400">011-2336-6149</td>
+              </tr>
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3 px-4 font-bold text-white">Eastern Railway (ER)</td>
+                <td className="py-3 px-4">Kolkata (Fairlie Place)</td>
+                <td className="py-3 px-4">Howrah, Sealdah, Asansol, Malda</td>
+                <td className="py-3 px-4 font-mono text-amber-400">033-2230-3234</td>
+              </tr>
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3 px-4 font-bold text-white">Western Railway (WR)</td>
+                <td className="py-3 px-4">Mumbai (Churchgate)</td>
+                <td className="py-3 px-4">Mumbai Central, Ahmedabad, Rajkot</td>
+                <td className="py-3 px-4 font-mono text-amber-400">022-2200-9542</td>
+              </tr>
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3 px-4 font-bold text-white">Southern Railway (SR)</td>
+                <td className="py-3 px-4">Chennai</td>
+                <td className="py-3 px-4">Chennai Central, Madurai, Kochi</td>
+                <td className="py-3 px-4 font-mono text-amber-400">044-2533-0753</td>
+              </tr>
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3 px-4 font-bold text-white">South Western Railway (SWR)</td>
+                <td className="py-3 px-4">Hubballi</td>
+                <td className="py-3 px-4">Bengaluru, Mysuru, Goa (via KR)</td>
+                <td className="py-3 px-4 font-mono text-amber-400">0836-236-0210</td>
+              </tr>
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3 px-4 font-bold text-white">East Central Railway (ECR)</td>
+                <td className="py-3 px-4">Hajipur</td>
+                <td className="py-3 px-4">Patna, Gaya, Varanasi (part)</td>
+                <td className="py-3 px-4 font-mono text-amber-400">06224-272-725</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 

@@ -58,12 +58,12 @@ export const FareAndBaggageCalculator: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+          <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400">
             <Calculator className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-rose-600/20 text-amber-300 border border-rose-600/30 uppercase tracking-wider">
                 INTERACTIVE ESTIMATOR
               </span>
               <span className="text-xs text-slate-400 font-mono">Official PRS Fare Slabs</span>
@@ -101,7 +101,7 @@ export const FareAndBaggageCalculator: React.FC = () => {
               step={25}
               value={distanceKm}
               onChange={(e) => setDistanceKm(Number(e.target.value))}
-              className="w-full accent-amber-500 h-2 bg-slate-800 rounded-lg cursor-pointer"
+              className="w-full accent-rose-600 h-2 bg-slate-800 rounded-lg cursor-pointer"
             />
             <div className="flex justify-between text-[10px] text-slate-500 font-mono">
               <span>Short Intercity (50 km)</span>
@@ -130,7 +130,7 @@ export const FareAndBaggageCalculator: React.FC = () => {
                   onClick={() => setSelectedClass(c.id as any)}
                   className={`p-2.5 rounded-xl text-center text-xs font-black border transition-all ${
                     selectedClass === c.id
-                      ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-md shadow-amber-500/20'
+                      ? 'bg-rose-600 text-white border-amber-400 shadow-md shadow-rose-600/20'
                       : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'
                   }`}
                 >
@@ -214,7 +214,7 @@ export const FareAndBaggageCalculator: React.FC = () => {
 
             {/* Excess Status */}
             {excessWeight > 0 ? (
-              <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-xs space-y-1">
+              <div className="p-4 rounded-2xl bg-rose-600/10 border border-rose-600/30 text-xs space-y-1">
                 <div className="font-bold text-amber-400 flex items-center gap-1.5">
                   <AlertTriangle className="w-4 h-4" /> Excess Baggage: {excessWeight} kg
                 </div>

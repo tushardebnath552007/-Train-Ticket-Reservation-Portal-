@@ -11,6 +11,100 @@
   }
 }
 
+/* Rich hover micro-interactions across the whole site */
+@layer base {
+  /* Table rows: crimson tint + gold left bar on hover */
+  tbody tr {
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  tbody tr:hover {
+    background-color: rgba(244, 63, 94, 0.07);
+    box-shadow: inset 3px 0 0 #fbbf24;
+  }
+
+  /* Buttons: subtle brighten + press-down feel */
+  button {
+    transition: filter 0.25s ease, transform 0.2s ease, background-color 0.25s ease;
+  }
+  button:hover {
+    filter: brightness(1.1);
+  }
+  button:active {
+    transform: scale(0.98);
+  }
+
+  /* Images: smooth zoom foundation; grouped cards zoom on hover */
+  img {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+  }
+  .group:hover img {
+    transform: scale(1.06);
+  }
+
+  /* Form fields: crimson focus glow */
+  input:focus,
+  select:focus,
+  textarea:focus {
+    border-color: rgba(244, 63, 94, 0.65) !important;
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.18);
+    outline: none;
+  }
+
+  /* Links and clickable pills: gold underline sweep */
+  a {
+    transition: color 0.25s ease;
+  }
+
+  /* Keyboard focus visibility */
+  :focus-visible {
+    outline: 2px solid #fbbf24;
+    outline-offset: 2px;
+  }
+
+  /* Cards with hover border states glow a touch stronger */
+  div[class*="hover:border-rose"]:hover,
+  div[class*="hover:border-amber"]:hover {
+    box-shadow: 0 10px 40px -10px rgba(244, 63, 94, 0.35);
+  }
+}
+
+/* Refined editorial paragraph style — larger, brighter, more readable */
+@layer base {
+  p {
+    font-size: 0.975rem !important;
+    line-height: 1.8;
+    letter-spacing: 0.012em;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Gothic blackletter headlines (𝕿𝖞𝖕𝖊 𝖘𝖔𝖒𝖊𝖙𝖍𝖎𝖓𝖌 style) + enlarged sizes */
+@layer base {
+  h1, h2, h3 {
+    font-family: 'UnifrakturCook', 'Plus Jakarta Sans', serif !important;
+    letter-spacing: 0.015em;
+  }
+  h1 {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.25rem) !important;
+    line-height: 1.12;
+  }
+  h2:not([class*="text-base"]):not([class*="text-lg"]):not([class*="text-xl"]) {
+    font-size: clamp(2rem, 3.5vw + 1rem, 3rem) !important;
+    line-height: 1.15;
+  }
+  h2[class*="text-base"],
+  h2[class*="text-lg"],
+  h2[class*="text-xl"] {
+    font-size: 1.65rem !important;
+    line-height: 1.2;
+  }
+  h3 {
+    font-size: clamp(1.6rem, 2.5vw + 1rem, 2.4rem) !important;
+    line-height: 1.2;
+  }
+}
+
 /* Custom rail track animation & styling */
 @keyframes trainGlow {
   0%, 100% { opacity: 0.6; transform: translateX(0); }
@@ -30,7 +124,7 @@
 }
 
 .rail-glow {
-  box-shadow: 0 0 35px -5px rgba(245, 158, 11, 0.15);
+  box-shadow: 0 0 35px -5px rgba(225, 29, 72, 0.18);
 }
 
 /* Custom scrollbars */

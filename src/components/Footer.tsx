@@ -65,14 +65,14 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Brand & Mission & Social Media Icons (Col 1-2) */}
           <div className="lg:col-span-2 space-y-5">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-600 flex items-center justify-center text-slate-950 font-black shadow-md shadow-amber-500/20">
+              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-600 to-rose-700 flex items-center justify-center text-white font-black shadow-md shadow-rose-600/20">
                 <Train className="w-5 h-5 text-slate-950" />
               </div>
               <div>
                 <span className="font-extrabold text-base tracking-tight text-white">
                   RailFleet Express
                 </span>
-                <span className="ml-2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30">
+                <span className="ml-2 text-[10px] font-mono px-1.5 py-0.5 rounded bg-rose-600/15 text-amber-400 border border-rose-600/30">
                   PRS v1.0
                 </span>
               </div>
@@ -94,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://twitter.com/RailMinIndia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500 hover:bg-amber-500/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-rose-600 hover:bg-rose-600/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
                   title="Twitter / X (@RailMinIndia)"
                   aria-label="Twitter / X"
                 >
@@ -234,7 +234,7 @@ export const Footer: React.FC<FooterProps> = ({
                 <button
                   type="button"
                   onClick={onNavigateToContact}
-                  className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 transition-all shadow-md cursor-pointer"
+                  className="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-amber-400 hover:to-rose-500 text-white hover:text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 transition-all shadow-md cursor-pointer"
                 >
                   <Mail className="w-3.5 h-3.5" />
                   <span>Open Contact & Helpdesk</span>

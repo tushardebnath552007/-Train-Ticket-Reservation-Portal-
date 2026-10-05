@@ -193,7 +193,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                     required
                     value={contactName}
                     onChange={(e) => setContactName(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-500 font-medium"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-rose-600 font-medium"
                   />
                 </div>
 
@@ -206,7 +206,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                     required
                     value={contactEmail}
                     onChange={(e) => setContactEmail(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-500 font-medium"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-rose-600 font-medium"
                   />
                 </div>
 
@@ -220,7 +220,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                     pattern="[0-9]{10}"
                     value={contactPhone}
                     onChange={(e) => setContactPhone(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-amber-500 font-mono"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-rose-600 font-mono"
                   />
                 </div>
               </div>
@@ -255,7 +255,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                           value={p.fullName}
                           onChange={(e) => handlePassengerChange(idx, 'fullName', e.target.value)}
                           placeholder="e.g. Rahul Sharma"
-                          className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-white text-xs focus:outline-none focus:border-amber-500"
+                          className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-white text-xs focus:outline-none focus:border-rose-600"
                         />
                       </div>
 
@@ -268,7 +268,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                           max={120}
                           value={p.age}
                           onChange={(e) => handlePassengerChange(idx, 'age', parseInt(e.target.value) || 0)}
-                          className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-white text-xs focus:outline-none focus:border-amber-500 font-mono"
+                          className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-white text-xs focus:outline-none focus:border-rose-600 font-mono"
                         />
                       </div>
 
@@ -277,7 +277,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                         <select
                           value={p.gender}
                           onChange={(e) => handlePassengerChange(idx, 'gender', e.target.value)}
-                          className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-white text-xs focus:outline-none focus:border-amber-500 cursor-pointer"
+                          className="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 text-white text-xs focus:outline-none focus:border-rose-600 cursor-pointer"
                         >
                           <option value="Male">Male</option>
                           <option value="Female">Female</option>
@@ -328,7 +328,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                         onClick={() => setSelectedMeal(m.id as any)}
                         className={`p-2.5 rounded-xl text-[11px] font-bold text-center border transition-all ${
                           selectedMeal === m.id
-                            ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-sm'
+                            ? 'bg-rose-600 text-white border-amber-400 shadow-sm'
                             : 'bg-slate-950 text-slate-400 border-slate-800 hover:text-white'
                         }`}
                       >
@@ -353,7 +353,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                     type="checkbox"
                     checked={optInsurance}
                     onChange={(e) => setOptInsurance(e.target.checked)}
-                    className="mt-0.5 accent-amber-500 w-4 h-4 cursor-pointer"
+                    className="mt-0.5 accent-rose-600 w-4 h-4 cursor-pointer"
                   />
                   <div>
                     <strong className="text-white">Opt-in for Railway Travel Insurance (₹0.45 / person)</strong>
@@ -368,7 +368,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                     type="checkbox"
                     checked={optAutoUpgrade}
                     onChange={(e) => setOptAutoUpgrade(e.target.checked)}
-                    className="mt-0.5 accent-amber-500 w-4 h-4 cursor-pointer"
+                    className="mt-0.5 accent-rose-600 w-4 h-4 cursor-pointer"
                   />
                   <div>
                     <strong className="text-white">Consider for Free Automatic Class Upgradation</strong>
@@ -398,7 +398,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                     onClick={() => setPaymentMode(mode.id as any)}
                     className={`p-4 rounded-2xl border cursor-pointer transition-all ${
                       paymentMode === mode.id
-                        ? 'bg-amber-500/10 border-amber-500 text-white shadow-sm'
+                        ? 'bg-rose-600/10 border-rose-600 text-white shadow-sm'
                         : 'bg-slate-950 border-slate-800 text-slate-400 hover:border-slate-700'
                     }`}
                   >
@@ -408,7 +408,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                         type="radio"
                         checked={paymentMode === mode.id}
                         onChange={() => {}}
-                        className="accent-amber-500"
+                        className="accent-rose-600"
                       />
                     </div>
                     <span className="text-[11px] text-slate-400">{mode.desc}</span>
@@ -441,7 +441,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                     placeholder="e.g. RAILFEST10"
                     value={promoCode}
                     onChange={(e) => setPromoCode(e.target.value)}
-                    className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white text-xs font-mono uppercase focus:outline-none focus:border-amber-500"
+                    className="flex-1 bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-white text-xs font-mono uppercase focus:outline-none focus:border-rose-600"
                   />
                   <button
                     type="button"
@@ -503,7 +503,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
               <button
                 type="submit"
                 disabled={isProcessing}
-                className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 disabled:opacity-50 text-slate-950 font-black text-sm flex items-center justify-center gap-2 shadow-xl shadow-amber-500/25 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-rose-600 via-rose-500 to-rose-700 hover:from-amber-400 hover:to-rose-500 disabled:opacity-50 text-white hover:text-slate-950 font-black text-sm flex items-center justify-center gap-2 shadow-xl shadow-rose-600/25 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
               >
                 {isProcessing ? (
                   <>
@@ -533,6 +533,29 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
 
         </div>
       </form>
+
+      {/* Journey assurance strip */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {[
+          { src: "/src/assets/images/station_executive_lounge_1791008973049.jpg", label: "Executive Lounges", sub: "Rest at 40+ junctions" },
+          { src: "/src/assets/images/modern_rail_terminal_1791007356836.jpg", label: "Modern Terminals", sub: "Step-free smart stations" },
+          { src: "/src/assets/images/vande_express_viaduct_1791012422831.jpg", label: "Engineered Corridors", sub: "160 km/h ready tracks" }
+        ].map((c, i) => (
+          <div key={i} className="relative rounded-3xl overflow-hidden border border-slate-800 group h-40 sm:h-48">
+            <img
+              src={c.src}
+              alt={c.label}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+            <div className="absolute bottom-3 left-3 right-3">
+              <div className="text-sm font-black text-white">{c.label}</div>
+              <div className="text-[11px] font-mono text-amber-400">{c.sub}</div>
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* Comprehensive Travel Insurance Policy Schedule */}
       <section className="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
@@ -643,6 +666,51 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
         <p className="leading-relaxed">
           Under Section 143 of the Railways Act 1989, procuring or transferring railway tickets through automated scripts, unauthorized agencies, or fraudulent bots is a cognizable offense punishable with imprisonment for up to 3 years, a fine of up to ₹10,000, or both. RailFleet PRS employs behavioral biometric detection and cryptographic IP rate-limiting to protect public inventory.
         </p>
+      </section>
+
+      {/* Valid ID Proofs, Boarding Rules & TDR Filing Guide */}
+      <section className="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
+        <div>
+          <span className="text-xs font-mono text-sky-400 font-bold uppercase tracking-widest block mb-1">
+            MANDATORY TRAVEL DOCUMENTATION
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-white">
+            ID Proofs, Boarding Rules & Missed-Train TDR
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">
+            Carry one original government photo ID matching the lead passenger name. Ticket checkers verify PNR + ID together:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Accepted Photo ID Proofs (Original)</div>
+            <ul className="text-slate-400 leading-relaxed space-y-1 list-disc list-inside">
+              <li>Aadhaar card / mAadhaar (most common, fastest verification)</li>
+              <li>Voter ID (EPIC), Passport, Driving Licence</li>
+              <li>PAN card, Central/State Govt. employee ID</li>
+              <li>Student ID with photo (recognized school/college)</li>
+              <li>Passbook with laminated photo (nationalized banks)</li>
+            </ul>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Day-of-Travel Boarding Rules</div>
+            <ul className="text-slate-400 leading-relaxed space-y-1 list-disc list-inside">
+              <li>Report 30 minutes early; platform display shows coach position</li>
+              <li>E-ticket + ID is valid — no printout needed since 2016</li>
+              <li>Waitlisted e-tickets auto-cancel; do NOT board reserved coaches</li>
+              <li>Board only the booked coach; TTE can reallocate vacant berths</li>
+              <li>TDR must be filed online before the train reaches destination</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="p-5 rounded-2xl bg-slate-900/80 border border-rose-600/30 space-y-2 text-xs">
+          <div className="font-bold text-amber-400 text-sm">When to File a TDR (Ticket Deposit Receipt)</div>
+          <p className="text-slate-400 leading-relaxed">
+            File a TDR instead of cancelling when: the train is delayed over 3 hours and you skip the journey, the train is diverted away from your boarding/destination station, AC fails and no alternate berth is offered, or lower-class travel is forced without consent. Refunds are decided by the Railway Claims office within 60 days and credited to the source account.
+          </p>
+        </div>
       </section>
 
     </div>

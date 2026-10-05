@@ -57,7 +57,7 @@ export const MemberPortalSection: React.FC<MemberPortalSectionProps> = ({
             </button>
             <button
               onClick={() => onOpenAuthModal('signup')}
-              className="px-5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black transition-all shadow-md"
+              className="px-5 py-2 rounded-xl bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 text-xs font-black transition-all shadow-md"
             >
               Register Account
             </button>
@@ -70,13 +70,13 @@ export const MemberPortalSection: React.FC<MemberPortalSectionProps> = ({
         <div className="rounded-3xl bg-slate-950 border border-slate-800 p-6 sm:p-8 space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center font-black text-xl">
+              <div className="w-14 h-14 rounded-2xl bg-rose-600/20 border border-rose-600/40 text-amber-400 flex items-center justify-center font-black text-xl">
                 {currentUser.name.charAt(0)}
               </div>
               <div>
                 <div className="flex items-center gap-2">
                   <h3 className="text-xl font-black text-white">{currentUser.name}</h3>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold uppercase">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-rose-600/20 text-amber-300 border border-rose-600/30 font-bold uppercase">
                     {currentUser.role}
                   </span>
                 </div>
@@ -93,7 +93,7 @@ export const MemberPortalSection: React.FC<MemberPortalSectionProps> = ({
               </div>
               <button
                 onClick={onViewMyBookings}
-                className="px-5 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg transition-all"
+                className="px-5 py-3 rounded-2xl bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg transition-all"
               >
                 <Ticket className="w-4 h-4" />
                 <span>My Bookings</span>
@@ -136,7 +136,7 @@ export const MemberPortalSection: React.FC<MemberPortalSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           <div className="lg:col-span-7 space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-600/10 border border-rose-600/30 text-amber-400 text-xs font-mono font-bold">
               <Sparkles className="w-3.5 h-3.5" />
               <span>National Rail Pass Membership</span>
             </div>
@@ -150,7 +150,7 @@ export const MemberPortalSection: React.FC<MemberPortalSectionProps> = ({
             <div className="flex flex-wrap gap-3 pt-2">
               <button
                 onClick={() => onOpenAuthModal('signup')}
-                className="px-6 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg shadow-amber-500/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                className="px-6 py-3.5 rounded-2xl bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg shadow-rose-600/25 transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <span>Create Free Account</span>
                 <ArrowRight className="w-4 h-4" />

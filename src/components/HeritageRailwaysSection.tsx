@@ -12,7 +12,7 @@ export const HeritageRailwaysSection: React.FC<HeritageRailwaysSectionProps> = (
     {
       title: "Maharajas' Express",
       tag: "WORLD'S LEADING LUXURY TRAIN",
-      tagColor: "text-amber-400 bg-amber-500/15 border-amber-500/30",
+      tagColor: "text-amber-400 bg-rose-600/15 border-rose-600/30",
       description: "Presidential suites with private bathtubs, dedicated butler service, crystal-chandelier dining cars (Mayur Mahal & Rang Mahal), and royal safaris in Ranthambore.",
       route: "Delhi ➔ Agra ➔ Ranthambore ➔ Jaipur",
       duration: "7 Nights / 8 Days",
@@ -44,6 +44,42 @@ export const HeritageRailwaysSection: React.FC<HeritageRailwaysSectionProps> = (
       badge: "Heritage Circuit",
       source: "SBC",
       dest: "MAS"
+    },
+    {
+      title: "Fairy Queen Steam Express",
+      tag: "OLDEST WORKING STEAM LOCO • 1855",
+      tagColor: "text-rose-400 bg-rose-500/15 border-rose-500/30",
+      description: "Ride behind the Guinness-certified oldest operational steam locomotive in the world, running ceremonial Delhi ➔ Alwar runs with vintage coaches.",
+      route: "Delhi ➔ Rewari ➔ Alwar",
+      duration: "Heritage Steam Run",
+      image: "/src/assets/images/classic_fairy_queen_1791013004.jpg",
+      badge: "Est. 1855",
+      source: "NDLS",
+      dest: "ADI"
+    },
+    {
+      title: "Kalka–Shimla Himalayan Queen",
+      tag: "UNESCO TOY TRAIN • EST. 1903",
+      tagColor: "text-rose-400 bg-rose-500/15 border-rose-500/30",
+      description: "Climb 2,075 metres through 103 tunnels, 917 curves and 988 bridges on the legendary narrow-gauge British summer-capital line.",
+      route: "Kalka ➔ Barog ➔ Shimla",
+      duration: "96 km Mountain Climb",
+      image: "/src/assets/images/classic_kalka_shimla_toy_1791013002.jpg",
+      badge: "103 Tunnels",
+      source: "NDLS",
+      dest: "ADI"
+    },
+    {
+      title: "Nilgiri Blue Mountain Steam",
+      tag: "ABT RACK RAILWAY • EST. 1908",
+      tagColor: "text-cyan-400 bg-cyan-500/15 border-cyan-500/30",
+      description: "Steam-hauled climb from Mettupalayam to Ooty past tea estates and eucalyptus forests on India's only rack-and-pinion railway.",
+      route: "Mettupalayam ➔ Coonoor ➔ Ooty",
+      duration: "Tea Garden Ascent",
+      image: "/src/assets/images/classic_nilgiri_steam_1791013003.jpg",
+      badge: "Rack & Pinion",
+      source: "MAS",
+      dest: "SBC"
     }
   ];
 
@@ -68,14 +104,14 @@ export const HeritageRailwaysSection: React.FC<HeritageRailwaysSectionProps> = (
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30 shadow-sm">
+          <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-rose-600/20 text-amber-400 border border-rose-600/30 shadow-sm">
             ★ Living Heritage of India
           </span>
         </div>
       </div>
 
       {/* Featured Big Heritage Showcase Banner with Generated Steam Image */}
-      <div className="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-950 group hover:border-amber-500/60 transition-all duration-500 hover:shadow-[0_0_30px_rgba(245,158,11,0.15)]">
+      <div className="relative rounded-3xl overflow-hidden border border-slate-800 bg-slate-950 group hover:border-rose-600/60 transition-all duration-500 hover:shadow-[0_0_30px_rgba(225,29,72,0.15)]">
         <div className="h-80 sm:h-[26rem] w-full overflow-hidden relative">
           <img
             src="/src/assets/images/heritage_steam_rail_1791008350926.jpg"
@@ -88,7 +124,7 @@ export const HeritageRailwaysSection: React.FC<HeritageRailwaysSectionProps> = (
           
           {/* Floating Badges */}
           <div className="absolute top-5 left-5 flex flex-wrap gap-2">
-            <span className="bg-slate-950/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-mono font-black text-amber-400 border border-amber-500/40 shadow-lg">
+            <span className="bg-slate-950/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-mono font-black text-amber-400 border border-rose-600/40 shadow-lg">
               UNESCO World Heritage • Built 1899
             </span>
             <span className="bg-emerald-950/80 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-mono font-bold text-emerald-300 border border-emerald-500/30">
@@ -118,7 +154,7 @@ export const HeritageRailwaysSection: React.FC<HeritageRailwaysSectionProps> = (
 
             <button
               onClick={() => onSelectCorridor && onSelectCorridor('SBC', 'MAS')}
-              className="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg shadow-amber-500/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              className="px-6 py-3 rounded-2xl bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-black text-xs flex items-center gap-2 shadow-lg shadow-rose-600/20 transition-all hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span>Explore Mountain Train Timetable</span>
               <ArrowRight className="w-4 h-4" />
@@ -134,7 +170,7 @@ export const HeritageRailwaysSection: React.FC<HeritageRailwaysSectionProps> = (
             key={idx}
             onMouseEnter={() => setHoveredCard(idx)}
             onMouseLeave={() => setHoveredCard(null)}
-            className="group rounded-[2rem] bg-slate-950 border border-slate-800 overflow-hidden shadow-2xl hover:border-amber-500/60 hover:-translate-y-2.5 transition-all duration-500 flex flex-col justify-between"
+            className="group rounded-[2rem] bg-slate-950 border border-slate-800 overflow-hidden shadow-2xl hover:border-rose-600/60 hover:-translate-y-2.5 transition-all duration-500 flex flex-col justify-between"
           >
             {/* Image with zoom effect */}
             <div className="relative h-64 overflow-hidden">
@@ -152,7 +188,7 @@ export const HeritageRailwaysSection: React.FC<HeritageRailwaysSectionProps> = (
                 </span>
               </div>
 
-              <div className="absolute bottom-3 right-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-xl text-[11px] font-mono font-bold text-amber-400 border border-amber-500/30">
+              <div className="absolute bottom-3 right-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-xl text-[11px] font-mono font-bold text-amber-400 border border-rose-600/30">
                 {train.badge}
               </div>
             </div>
@@ -176,7 +212,7 @@ export const HeritageRailwaysSection: React.FC<HeritageRailwaysSectionProps> = (
 
                 <button
                   onClick={() => onSelectCorridor && onSelectCorridor(train.source, train.dest)}
-                  className="w-full py-2.5 rounded-xl bg-slate-900 group-hover:bg-amber-500 text-slate-300 group-hover:text-slate-950 border border-slate-800 group-hover:border-amber-400 text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-300"
+                  className="w-full py-2.5 rounded-xl bg-slate-900 group-hover:bg-rose-600 text-slate-300 group-hover:text-slate-950 border border-slate-800 group-hover:border-amber-400 text-xs font-bold flex items-center justify-center gap-1.5 transition-all duration-300"
                 >
                   <span>View Itinerary & Availability</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -186,6 +222,10 @@ export const HeritageRailwaysSection: React.FC<HeritageRailwaysSectionProps> = (
           </div>
         ))}
       </div>
+
+      <p className="text-[11px] font-mono text-slate-500 text-center pt-2">
+        Classic heritage photos: Wikimedia Commons contributors (CC BY-SA).
+      </p>
 
     </div>
   );

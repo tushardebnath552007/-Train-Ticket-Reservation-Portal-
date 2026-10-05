@@ -125,7 +125,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20">
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-rose-600/10 text-amber-400 border border-rose-600/20">
                 RESTRICTED
               </span>
               <span className="text-xs text-slate-400">Railway Staff & Dispatch Operations</span>
@@ -144,7 +144,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
           <div className="flex items-center gap-3">
             <button
               onClick={() => setShowAddForm(!showAddForm)}
-              className="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center gap-2 transition-all shadow-md"
+              className="px-4 py-2 rounded-xl bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-bold text-xs flex items-center gap-2 transition-all shadow-md"
             >
               <PlusCircle className="w-4 h-4" />
               <span>{showAddForm ? 'Close Form' : 'Schedule New Train'}</span>
@@ -162,9 +162,29 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
         </div>
       </div>
 
+      {/* Operations command banner */}
+      <div className="relative rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-2xl">
+        <img
+          src="/src/assets/images/modern_rail_terminal_1791007356836.jpg"
+          alt="Modern rail terminal operations"
+          referrerPolicy="no-referrer"
+          className="w-full h-56 sm:h-72 object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent"></div>
+        <div className="absolute inset-0 flex flex-col justify-center p-6 sm:p-10 max-w-xl">
+          <span className="text-[11px] font-mono font-bold text-amber-400 uppercase tracking-widest">
+            24×7 Network Operations Command
+          </span>
+          <p className="text-white font-black text-xl sm:text-3xl mt-1 drop-shadow-lg">
+            One console for every rake, berth and rupee on the network.
+          </p>
+          <span className="text-xs text-slate-300 mt-2 font-mono">Divisional control • Rolling stock • PRS audit</span>
+        </div>
+      </div>
+
       {/* Dynamic Schedule Creation Form (Collapsible) */}
       {showAddForm && (
-        <form onSubmit={handleAddTrain} className="bg-slate-900 border-2 border-amber-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
+        <form onSubmit={handleAddTrain} className="bg-slate-900 border-2 border-rose-600/40 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <div>
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
@@ -289,7 +309,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
                     onClick={() => handleToggleClass(cClass)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                       selectedClasses.includes(cClass)
-                        ? 'bg-amber-500 text-slate-950 shadow-sm'
+                        ? 'bg-rose-600 text-white shadow-sm'
                         : 'bg-slate-950 text-slate-500 border border-slate-800'
                     }`}
                   >
@@ -322,7 +342,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
             </button>
             <button
               type="submit"
-              className="px-6 py-2 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold text-xs shadow-md"
+              className="px-6 py-2 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-amber-400 hover:to-rose-500 text-white hover:text-slate-950 font-bold text-xs shadow-md"
             >
               Insert Schedule & Commit DDL
             </button>
@@ -640,6 +660,60 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
             <div className="font-bold text-white text-sm">Automated Level-Crossing Whistle</div>
             <p className="text-slate-400 leading-relaxed">
               RFID reader detects trackside beacons approaching level crossings and triggers dual tone acoustic horn automatically without requiring manual loco pilot intervention.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Fleet Operations Glossary & KPI Definitions */}
+      <section className="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
+        <div>
+          <span className="text-xs font-mono text-purple-400 font-bold uppercase tracking-widest block mb-1">
+            OPERATIONS REFERENCE
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-white">
+            Fleet KPI Glossary: What Each Metric Means
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">
+            Read the console numbers like a divisional operations manager:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Occupancy Rate (%)</div>
+            <p className="text-slate-400 leading-relaxed">
+              Booked berths ÷ total berths across active rakes. Above 85% signals peak-season demand — time to attach extra coaches or run festival specials. Below 50% flags a loss-making path needing timetable revision.
+            </p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Revenue (₹)</div>
+            <p className="text-slate-400 leading-relaxed">
+              Sum of confirmed booking fares minus processed refunds. Flexi-fare slabs and Tatkal premiums inflate this during festivals; track it per train to rank profitable vs. subsidized services.
+            </p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Cancellation Ratio</div>
+            <p className="text-slate-400 leading-relaxed">
+              Cancelled PNRs ÷ total PNRs. A rising ratio on one train hints at chronic delays or poor timings — cross-check with punctuality logs before adding capacity.
+            </p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Rake Utilization</div>
+            <p className="text-slate-400 leading-relaxed">
+              Hours a rake spends earning (running + turnaround cleaning) vs. idle in the yard. Target: 20+ hours/day. Low utilization means maintenance blocks or stabling congestion.
+            </p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Audit Ledger Events</div>
+            <p className="text-slate-400 leading-relaxed">
+              Every BEGIN EXCLUSIVE lock, commit, rollback and conflict is journaled with millisecond latency. Spikes in 409 conflicts reveal flash-sale stampedes on specific coaches.
+            </p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Active vs. Stabled Trains</div>
+            <p className="text-slate-400 leading-relaxed">
+              Active rakes run scheduled services; stabled rakes sit in maintenance or pit lines. The admin console toggles trains active for seasonal restore without deleting history.
             </p>
           </div>
         </div>

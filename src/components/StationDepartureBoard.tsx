@@ -37,7 +37,7 @@ export const StationDepartureBoard: React.FC<StationDepartureBoardProps> = ({
       expectedTime: '16:55',
       platform: '03',
       status: 'BOARDING',
-      statusColor: 'text-amber-400 bg-amber-500/15 border-amber-500/30 animate-pulse',
+      statusColor: 'text-amber-400 bg-rose-600/15 border-rose-600/30 animate-pulse',
       coaches: '20 Coaches (1A, 2A, 3A)',
       trainId: 2
     },
@@ -97,7 +97,7 @@ export const StationDepartureBoard: React.FC<StationDepartureBoardProps> = ({
       {/* Top Station Board Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+          <div className="w-10 h-10 rounded-xl bg-rose-600/10 border border-rose-600/30 flex items-center justify-center text-amber-400">
             <Radio className="w-5 h-5 animate-pulse" />
           </div>
           <div>
@@ -125,7 +125,7 @@ export const StationDepartureBoard: React.FC<StationDepartureBoardProps> = ({
               onClick={() => setSelectedCity(st.id as any)}
               className={`px-3 py-1.5 rounded-lg transition-all ${
                 selectedCity === st.id
-                  ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
+                  ? 'bg-rose-600 text-white font-black shadow-sm'
                   : 'text-slate-400 hover:text-white'
               }`}
             >
@@ -143,7 +143,7 @@ export const StationDepartureBoard: React.FC<StationDepartureBoardProps> = ({
           value={boardSearchQuery}
           onChange={(e) => setBoardSearchQuery(e.target.value)}
           placeholder="Filter departures by train name, train #, platform, destination, or status..."
-          className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-9 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
+          className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-9 py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-rose-600"
         />
         {boardSearchQuery && (
           <button
@@ -205,7 +205,7 @@ export const StationDepartureBoard: React.FC<StationDepartureBoardProps> = ({
                       const matched = trains.find(t => t.trainId === item.trainId);
                       if (matched) onSelectTrain(matched);
                     }}
-                    className="px-3 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500 text-amber-400 hover:text-slate-950 font-bold text-[11px] transition-colors border border-amber-500/30 cursor-pointer"
+                    className="px-3 py-1.5 rounded-lg bg-rose-600/10 hover:bg-rose-600 text-amber-400 hover:text-slate-950 font-bold text-[11px] transition-colors border border-rose-600/30 cursor-pointer"
                   >
                     Select
                   </button>

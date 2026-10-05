@@ -110,13 +110,13 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
 
       {/* Live Train Search Bar */}
       <div className="relative">
-        <Search className="w-4 h-4 text-amber-500 absolute left-4 top-3.5" />
+        <Search className="w-4 h-4 text-rose-600 absolute left-4 top-3.5" />
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search trains by name, number, coach class, or departure time (e.g. Vande Bharat, 22436, 12952, EC, CC)..."
-          className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-11 pr-10 py-3 text-white text-xs sm:text-sm font-medium focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 shadow-lg"
+          className="w-full bg-slate-900 border border-slate-800 rounded-2xl pl-11 pr-10 py-3 text-white text-xs sm:text-sm font-medium focus:outline-none focus:border-rose-600 focus:ring-2 focus:ring-rose-600/20 shadow-lg"
         />
         {searchQuery && (
           <button
@@ -147,7 +147,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
               onClick={() => setSelectedTypeFilter(btn.id)}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
                 selectedTypeFilter === btn.id
-                  ? 'bg-amber-500 text-slate-950 shadow-sm'
+                  ? 'bg-rose-600 text-white shadow-sm'
                   : 'bg-slate-950 text-slate-400 border border-slate-800 hover:text-white'
               }`}
             >
@@ -196,7 +196,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
           </p>
           <button
             onClick={onBackToSearch}
-            className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs shadow-md transition-all"
+            className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-bold text-xs shadow-md transition-all"
           >
             Return to Route Search
           </button>
@@ -221,7 +221,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
             return (
               <div
                 key={train.trainId}
-                className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-xl space-y-6 transition-all hover:border-amber-500/40 hover:shadow-2xl hover:shadow-amber-500/5 group animate-in fade-in slide-in-from-bottom-3 duration-300"
+                className="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden shadow-xl space-y-6 transition-all hover:border-rose-600/40 hover:shadow-2xl hover:shadow-rose-600/5 group animate-in fade-in slide-in-from-bottom-3 duration-300"
                 style={{ animationDelay: `${idx * 60}ms` }}
               >
                 
@@ -238,7 +238,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
                   {/* Floating badges on photo */}
                   <div className="absolute top-3 left-4 right-4 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="px-3 py-1 rounded-xl bg-slate-950/90 backdrop-blur-md border border-amber-500/40 font-mono font-black text-amber-400 text-xs shadow-lg">
+                      <span className="px-3 py-1 rounded-xl bg-slate-950/90 backdrop-blur-md border border-rose-600/40 font-mono font-black text-amber-400 text-xs shadow-lg">
                         #{train.trainNumber}
                       </span>
                       <span className="px-2.5 py-0.5 rounded-lg bg-emerald-500/20 backdrop-blur-md border border-emerald-500/40 text-emerald-300 text-[10px] font-mono font-bold flex items-center gap-1">
@@ -424,7 +424,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
                         <div
                           key={coach.coachId}
                           onClick={() => onSelectCoach(train, coach)}
-                          className="p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-amber-500/80 hover:bg-slate-850 cursor-pointer transition-all group flex flex-col justify-between shadow-sm"
+                          className="p-4 rounded-2xl bg-slate-950 border border-slate-800 hover:border-rose-600/80 hover:bg-slate-850 cursor-pointer transition-all group flex flex-col justify-between shadow-sm"
                         >
                           <div className="flex items-center justify-between mb-1.5">
                             <span className="font-black text-sm text-white group-hover:text-amber-400 transition-colors">
@@ -457,6 +457,26 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
           })}
         </div>
       )}
+
+      {/* Premier fleet banner */}
+      <div className="relative rounded-[2.5rem] overflow-hidden border border-slate-800 shadow-2xl">
+        <img
+          src="/src/assets/images/hero_train_speed_1791007315199.jpg"
+          alt="High-speed express at full pace"
+          referrerPolicy="no-referrer"
+          className="w-full h-56 sm:h-72 object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent"></div>
+        <div className="absolute inset-0 flex flex-col justify-center p-6 sm:p-10 max-w-xl">
+          <span className="text-[11px] font-mono font-bold text-amber-400 uppercase tracking-widest">
+            Flagship Rolling Stock
+          </span>
+          <p className="text-white font-black text-xl sm:text-3xl mt-1 drop-shadow-lg">
+            Five premier expresses, one live schedule matrix.
+          </p>
+          <span className="text-xs text-slate-300 mt-2 font-mono">Vande Bharat • Rajdhani • Shatabdi • Tejas</span>
+        </div>
+      </div>
 
       {/* Premier Express Train Fleet Comparative Benchmark */}
       <section className="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
@@ -592,6 +612,81 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
         <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-3xl">
           Under Ministry of Railways directives, the <strong>First Reservation Chart</strong> is generated at least <strong>4 hours before the scheduled train departure</strong> from the originating station. The <strong>Second and Final Chart</strong> is locked <strong>30 minutes prior to departure</strong> after releasing all unutilized emergency quotas, Tatkal cancellations, and VIP allocations to RAC/Waitlist passengers sequentially.
         </p>
+      </section>
+
+      {/* Quota System, Dynamic Fares & Concession Guide */}
+      <section className="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
+        <div>
+          <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest block mb-1">
+            BOOKING QUOTAS & FARE RULES
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-white">
+            Reservation Quotas, Flexi Fares & Travel Concessions
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">
+            Every train divides its seats into protected pools. Knowing which quota you book under decides your confirmation chances and fare:
+          </p>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr className="border-b border-slate-800 text-slate-400 font-mono uppercase text-[11px]">
+                <th className="py-3 px-4">Quota Code</th>
+                <th className="py-3 px-4">Who Can Book</th>
+                <th className="py-3 px-4">Booking Window</th>
+                <th className="py-3 px-4">Fare / Benefit</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-800/60 font-sans text-slate-300">
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3.5 px-4 font-bold text-white font-mono">GN — General</td>
+                <td className="py-3.5 px-4">All passengers, largest seat pool</td>
+                <td className="py-3.5 px-4 font-mono">120 days (ARP) before travel</td>
+                <td className="py-3.5 px-4 text-emerald-400 font-semibold">Base fare, highest confirmation odds</td>
+              </tr>
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3.5 px-4 font-bold text-white font-mono">TQ — Tatkal</td>
+                <td className="py-3.5 px-4">Last-minute travelers (ID proof mandatory)</td>
+                <td className="py-3.5 px-4 font-mono">AC: 10:00 AM, Non-AC: 11:00 AM, one day prior</td>
+                <td className="py-3.5 px-4 text-amber-400 font-semibold">Base + Tatkal premium (10–30%)</td>
+              </tr>
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3.5 px-4 font-bold text-white font-mono">SS — Senior Citizen</td>
+                <td className="py-3.5 px-4">Men 60+, Women 58+ with lower-berth priority</td>
+                <td className="py-3.5 px-4 font-mono">With General ARP window</td>
+                <td className="py-3.5 px-4 text-emerald-400 font-semibold">Fare concession + auto lower berth</td>
+              </tr>
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3.5 px-4 font-bold text-white font-mono">LD — Ladies</td>
+                <td className="py-3.5 px-4">Women 45+ and pregnant travelers</td>
+                <td className="py-3.5 px-4 font-mono">With General ARP window</td>
+                <td className="py-3.5 px-4 text-emerald-400 font-semibold">Reserved coupe + concession</td>
+              </tr>
+              <tr className="hover:bg-slate-900/60 transition-colors">
+                <td className="py-3.5 px-4 font-bold text-white font-mono">DP — Divyangjan</td>
+                <td className="py-3.5 px-4">Passengers with benchmark disability + escort</td>
+                <td className="py-3.5 px-4 font-mono">With General ARP window</td>
+                <td className="py-3.5 px-4 text-emerald-400 font-semibold">Up to 75% concession, SLRD coaches</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Flexi-Fare Surge Pricing (Rajdhani / Shatabdi / Duronto)</div>
+            <p className="text-slate-400 leading-relaxed">
+              Base fare rises in 10% slabs as seats fill: the first 10% of berths sell at base price, then +10% per slab up to a 50% cap (1.5×). Tatkal and premium-tatkal dynamic quotas stack above this. Booking early on the 120-day ARP opening captures slab-1 pricing.
+            </p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Vikalp Alternate-Train Accommodation</div>
+            <p className="text-slate-400 leading-relaxed">
+              Opting into Vikalp at booking time lets waitlisted passengers auto-shift to an alternate train on the same route within 12 hours with zero extra charge. Vikalp is free, protects the original fare, and historically confirms over 60% of GNWL tickets.
+            </p>
+          </div>
+        </div>
       </section>
 
     </div>

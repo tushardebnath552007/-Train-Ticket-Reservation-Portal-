@@ -109,7 +109,18 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#070b13] text-slate-100 flex flex-col font-sans selection:bg-amber-500 selection:text-slate-950">
+    <div className="min-h-screen text-slate-100 flex flex-col font-sans selection:bg-rose-600 selection:text-white relative">
+      {/* Full-site fixed picture background */}
+      <div className="fixed inset-0 -z-0 pointer-events-none" aria-hidden="true">
+        <img
+          src="/src/assets/images/vande_express_viaduct_1791012422831.jpg"
+          alt=""
+          referrerPolicy="no-referrer"
+          className="w-full h-[140vh] object-cover object-top opacity-60 blur-[2.5px] scale-105"
+        />
+        <div className="absolute inset-0 h-[140vh] bg-gradient-to-b from-[#070b13]/50 via-[#070b13]/68 to-[#070b13]/90"></div>
+      </div>
+      <div className="relative z-10 flex flex-col min-h-screen">
       
       {/* Universal Stylish Top Navigation */}
       <Navbar
@@ -258,6 +269,7 @@ export default function App() {
         initialMode={authModalMode}
       />
 
+      </div>
     </div>
   );
 }

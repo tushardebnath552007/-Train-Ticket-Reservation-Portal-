@@ -46,12 +46,12 @@ export const PnrStatusWidget: React.FC<PnrStatusWidgetProps> = ({ onViewBookingD
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+          <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400">
             <Ticket className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-rose-600/20 text-amber-300 border border-rose-600/30 uppercase tracking-wider">
                 REAL-TIME CRIS PNR LOOKUP
               </span>
               <span className="text-xs text-slate-400 font-mono">10-Digit National Identifier</span>
@@ -72,14 +72,14 @@ export const PnrStatusWidget: React.FC<PnrStatusWidgetProps> = ({ onViewBookingD
       <form onSubmit={handleSearchPnr} className="space-y-3">
         <div className="flex flex-col sm:flex-row gap-3">
           <div className="relative flex-1">
-            <Search className="w-5 h-5 text-amber-500 absolute left-4 top-4" />
+            <Search className="w-5 h-5 text-rose-600 absolute left-4 top-4" />
             <input
               type="text"
               maxLength={10}
               placeholder="Enter 10-Digit PNR Number (e.g., 2841234567)..."
               value={pnrInput}
               onChange={(e) => handleInputChange(e.target.value)}
-              className="w-full bg-slate-950 border border-slate-800 rounded-2xl pl-12 pr-10 py-4 text-white text-sm font-mono tracking-wider focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20"
+              className="w-full bg-slate-950 border border-slate-800 rounded-2xl pl-12 pr-10 py-4 text-white text-sm font-mono tracking-wider focus:outline-none focus:border-rose-600 focus:ring-2 focus:ring-rose-600/20"
             />
             {pnrInput && (
               <button
@@ -98,7 +98,7 @@ export const PnrStatusWidget: React.FC<PnrStatusWidgetProps> = ({ onViewBookingD
 
           <button
             type="submit"
-            className="px-8 py-4 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-sm flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer shrink-0"
+            className="px-8 py-4 rounded-2xl bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-black text-sm flex items-center justify-center gap-2 transition-all shadow-md cursor-pointer shrink-0"
           >
             <span>Check Status</span>
             <ArrowRight className="w-4 h-4" />

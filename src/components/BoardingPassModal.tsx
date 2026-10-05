@@ -12,12 +12,12 @@ export const BoardingPassModal: React.FC<BoardingPassModalProps> = ({ booking, o
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md">
-      <div className="bg-slate-900 border-2 border-amber-500/50 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative space-y-6">
+      <div className="bg-slate-900 border-2 border-rose-600/50 rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative space-y-6">
         
         {/* Top Header */}
         <div className="flex items-center justify-between border-b border-slate-800 pb-4">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-amber-500 flex items-center justify-center text-slate-950 font-black">
+            <div className="w-8 h-8 rounded-lg bg-rose-600 flex items-center justify-center text-white font-black">
               🚆
             </div>
             <div>
@@ -150,7 +150,7 @@ export const BoardingPassModal: React.FC<BoardingPassModalProps> = ({ booking, o
 
           <button
             onClick={onClose}
-            className="flex-1 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-md"
+            className="flex-1 py-3 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-amber-400 hover:to-rose-500 text-white hover:text-slate-950 font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-md"
           >
             <span>Done & Close</span>
           </button>

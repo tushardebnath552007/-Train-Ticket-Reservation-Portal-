@@ -115,7 +115,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Search by 10-Digit PNR, Email (e.g. anirudh.sen@iitd.ac.in), or Train..."
-                className="w-full bg-slate-950/90 backdrop-blur-md border border-slate-700/80 rounded-2xl pl-11 pr-4 py-3 text-white text-sm focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all font-medium"
+                className="w-full bg-slate-950/90 backdrop-blur-md border border-slate-700/80 rounded-2xl pl-11 pr-4 py-3 text-white text-sm focus:outline-none focus:border-rose-600 focus:ring-2 focus:ring-rose-600/20 transition-all font-medium"
               />
             </div>
           </div>
@@ -124,7 +124,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
 
       {/* Cancellation Notice Banner */}
       {cancellationResult && (
-        <div className="p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-start justify-between gap-3 text-xs">
+        <div className="p-5 rounded-2xl bg-rose-600/10 border border-rose-600/30 flex items-start justify-between gap-3 text-xs">
           <div className="flex items-start gap-2.5 text-amber-300">
             <RotateCcw className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
             <div>
@@ -167,7 +167,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-mono font-black text-sm">
+                    <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400 font-mono font-black text-sm">
                       PNR
                     </div>
                     <div>
@@ -403,6 +403,36 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
         </div>
       )}
 
+      {/* Relive-your-routes gallery */}
+      <section className="rounded-[2.5rem] bg-slate-950 border border-slate-800 p-6 sm:p-8 shadow-2xl space-y-4">
+        <div>
+          <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
+            Your travel memories
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-white">
+            Relive Your Routes
+          </h2>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          {[
+            { src: "/src/assets/images/winding_mountain_rail_hero_1791009627778.jpg", label: "Mountain winding routes" },
+            { src: "/src/assets/images/scenic_mountain_rail_1791007927403.jpg", label: "Ghats & valley runs" },
+            { src: "/src/assets/images/coastal_rail_bridge_1791008989586.jpg", label: "Coastal sea bridges" }
+          ].map((c, i) => (
+            <div key={i} className="relative rounded-3xl overflow-hidden border border-slate-800 group h-44 sm:h-52">
+              <img
+                src={c.src}
+                alt={c.label}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent"></div>
+              <div className="absolute bottom-3 left-3 text-sm font-black text-white drop-shadow">{c.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Official PNR Status Acronym Decoder & Probability Matrix */}
       <section className="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
         <div>
@@ -444,7 +474,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
 
           <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-rose-600/20 text-amber-400 border border-rose-600/30">
                 GNWL (GENERAL WAITLIST)
               </span>
               <span className="text-xs text-amber-400 font-bold font-mono">~82% Historical Avg</span>
@@ -468,10 +498,10 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
 
           <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-orange-500/20 text-orange-400 border border-orange-500/30">
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-rose-500/20 text-rose-400 border border-rose-500/30">
                 PQWL (POOLED QUOTA)
               </span>
-              <span className="text-xs text-orange-400 font-bold font-mono">~38% Historical Avg</span>
+              <span className="text-xs text-rose-400 font-bold font-mono">~38% Historical Avg</span>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">
               Shared between multiple smaller intermediate stations. Has lower clearance priority compared to primary GNWL passengers.
@@ -542,6 +572,45 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
             <p className="text-xs text-slate-400">
               Pod hotel sleeping capsules, shower kits, and airport-style flight/train display telemetry.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Refund Tracking, Failed-Payment Recovery & Wallet Guide */}
+      <section className="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
+        <div>
+          <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest block mb-1">
+            MONEY-BACK PLAYBOOK
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-white">
+            Refund Timelines, Failed Payments & Wallet Credits
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">
+            Every rupee is traceable. Match your situation below to know exactly when money returns:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Normal Cancellation Refund</div>
+            <p className="text-slate-400 leading-relaxed">
+              Credited to the source account (UPI, card, net-banking) within <strong>3–7 working days</strong> after clerkage deduction. No action needed — the PRS auto-pushes it. SMS confirmation arrives from your bank, not the railway.
+            </p>
+            <div className="text-[10px] font-mono text-emerald-400">TRACK: booking history ➔ refund status</div>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">Failed / Double-Charged Payment</div>
+            <p className="text-slate-400 leading-relaxed">
+              If money debited but no PNR generated, the gateway auto-reverses within <strong>24–72 hours</strong>. Never re-book in panic during Tatkal rush — wait for the reversal SMS, or pay via wallet balance which reverses instantly to your RailFleet wallet.
+            </p>
+            <div className="text-[10px] font-mono text-amber-400">TIP: wallet payments refund in minutes</div>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">RailFleet Wallet & Loyalty</div>
+            <p className="text-slate-400 leading-relaxed">
+              Cancellation refunds below ₹500 land instantly in your wallet for next booking. Earn <strong>1 loyalty point per ₹100</strong> of confirmed travel; 500 points unlock a ₹100 fare coupon auto-applied at checkout.
+            </p>
+            <div className="text-[10px] font-mono text-sky-400">BALANCE SHOWN NEXT TO YOUR NAME</div>
           </div>
         </div>
       </section>

@@ -88,12 +88,12 @@ export const StationFacilitiesGuide: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+          <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400">
             <Building2 className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-rose-600/20 text-amber-300 border border-rose-600/30 uppercase tracking-wider">
                 WORLD-CLASS CONCOURSES
               </span>
               <span className="text-xs text-slate-400 font-mono">Terminal Passenger Amenities</span>
@@ -113,7 +113,7 @@ export const StationFacilitiesGuide: React.FC = () => {
               onClick={() => setSelectedStation(code)}
               className={`px-3.5 py-1.5 rounded-xl transition-all duration-300 ${
                 selectedStation === code
-                  ? 'bg-amber-500 text-slate-950 font-black shadow-md shadow-amber-500/20 scale-105'
+                  ? 'bg-rose-600 text-white font-black shadow-md shadow-rose-600/20 scale-105'
                   : 'text-slate-400 hover:text-white hover:bg-slate-900'
               }`}
             >
@@ -127,7 +127,7 @@ export const StationFacilitiesGuide: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Photo Card 1: Executive Lounge */}
-        <div className="group rounded-3xl bg-slate-950 border border-slate-800 overflow-hidden shadow-xl hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-500">
+        <div className="group rounded-3xl bg-slate-950 border border-slate-800 overflow-hidden shadow-xl hover:border-rose-600/50 hover:-translate-y-1.5 transition-all duration-500">
           <div className="relative h-60 overflow-hidden">
             <img
               src="/src/assets/images/station_executive_lounge_1791008973049.jpg"
@@ -137,7 +137,7 @@ export const StationFacilitiesGuide: React.FC = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
             
-            <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-mono font-bold text-amber-400 border border-amber-500/30">
+            <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-mono font-bold text-amber-400 border border-rose-600/30">
               IRCTC Executive Lounge Facility
             </div>
             
@@ -207,7 +207,7 @@ export const StationFacilitiesGuide: React.FC = () => {
         {/* Grid of Facilities with hover lift */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           
-          <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 hover:border-amber-500/50 hover:bg-slate-900/80 transition-all duration-300">
+          <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 hover:border-rose-600/50 hover:bg-slate-900/80 transition-all duration-300">
             <div className="flex items-center gap-2 text-amber-400 font-bold text-xs">
               <Coffee className="w-4 h-4" />
               <span>IRCTC Executive Lounge</span>
@@ -239,8 +239,8 @@ export const StationFacilitiesGuide: React.FC = () => {
             <p className="text-xs text-slate-300 leading-relaxed">{current.divyangjan}</p>
           </div>
 
-          <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 hover:border-orange-500/50 hover:bg-slate-900/80 transition-all duration-300">
-            <div className="flex items-center gap-2 text-orange-400 font-bold text-xs">
+          <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 hover:border-rose-500/50 hover:bg-slate-900/80 transition-all duration-300">
+            <div className="flex items-center gap-2 text-rose-400 font-bold text-xs">
               <Coffee className="w-4 h-4" />
               <span>Food Plaza & Dining Vendors</span>
             </div>

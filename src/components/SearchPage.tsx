@@ -230,10 +230,10 @@ export const SearchPage: React.FC<SearchPageProps> = ({
           <div className="w-full max-w-xl relative">
             <form
               onSubmit={handleHeroSearchSubmit}
-              className="p-1.5 sm:p-2 rounded-full bg-white/95 backdrop-blur-xl shadow-2xl border border-white/40 flex items-center justify-between gap-2 transition-all focus-within:ring-4 focus-within:ring-amber-500/30"
+              className="p-1.5 sm:p-2 rounded-full bg-white/95 backdrop-blur-xl shadow-2xl border border-white/40 flex items-center justify-between gap-2 transition-all focus-within:ring-4 focus-within:ring-rose-600/30"
             >
               <div className="flex items-center gap-2 pl-3 sm:pl-4 flex-1">
-                <Search className="w-4 h-4 text-amber-500 shrink-0" />
+                <Search className="w-4 h-4 text-rose-600 shrink-0" />
                 <input
                   type="text"
                   value={heroSearchQuery}
@@ -260,7 +260,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
               </div>
               <button
                 type="submit"
-                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs flex items-center gap-1.5 shadow-md shadow-amber-500/20 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-black text-xs flex items-center gap-1.5 shadow-md shadow-rose-600/20 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0"
               >
                 <span>Find trains</span>
                 <span className="text-[10px]">➔</span>
@@ -302,7 +302,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                               <span className="text-slate-400 text-[11px] block">{st.city}, {st.state}</span>
                             </div>
                           </div>
-                          <span className="font-mono text-amber-400 font-bold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
+                          <span className="font-mono text-amber-400 font-bold bg-rose-600/10 px-2 py-0.5 rounded border border-rose-600/20">
                             {st.code}
                           </span>
                         </div>
@@ -405,7 +405,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                 onClick={() => setQuota(q.id)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
                   quota === q.id
-                    ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
+                    ? 'bg-rose-600 text-white shadow-md shadow-rose-600/20'
                     : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white'
                 }`}
               >
@@ -434,7 +434,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                 <select
                   value={source}
                   onChange={(e) => setSource(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-800 rounded-2xl px-4 py-4 text-white font-bold text-sm focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 cursor-pointer appearance-none"
+                  className="w-full bg-slate-900 border border-slate-800 rounded-2xl px-4 py-4 text-white font-bold text-sm focus:outline-none focus:border-rose-600 focus:ring-2 focus:ring-rose-600/20 cursor-pointer appearance-none"
                 >
                   {stations.map(st => (
                     <option key={st.code} value={st.code} disabled={st.code === destination}>
@@ -461,14 +461,14 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             {/* Destination */}
             <div className="md:col-span-4 space-y-1.5">
               <label className="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-orange-400" />
+                <MapPin className="w-3.5 h-3.5 text-rose-400" />
                 <span>To Destination</span>
               </label>
               <div className="relative">
                 <select
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
-                  className="w-full bg-slate-900 border border-slate-800 rounded-2xl px-4 py-4 text-white font-bold text-sm focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 cursor-pointer appearance-none"
+                  className="w-full bg-slate-900 border border-slate-800 rounded-2xl px-4 py-4 text-white font-bold text-sm focus:outline-none focus:border-rose-600 focus:ring-2 focus:ring-rose-600/20 cursor-pointer appearance-none"
                 >
                   {stations.map(st => (
                     <option key={st.code} value={st.code} disabled={st.code === source}>
@@ -491,7 +491,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                 min={today}
                 value={journeyDate}
                 onChange={(e) => setJourneyDate(e.target.value)}
-                className="w-full bg-slate-900 border border-slate-800 rounded-2xl px-4 py-3.5 text-white font-bold text-sm focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 cursor-pointer"
+                className="w-full bg-slate-900 border border-slate-800 rounded-2xl px-4 py-3.5 text-white font-bold text-sm focus:outline-none focus:border-rose-600 focus:ring-2 focus:ring-rose-600/20 cursor-pointer"
               />
             </div>
 
@@ -515,7 +515,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                   onClick={() => setCoachClass(tier.id)}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                     coachClass === tier.id
-                      ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20 font-black'
+                      ? 'bg-rose-600 text-white shadow-md shadow-rose-600/20 font-black'
                       : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700'
                   }`}
                 >
@@ -527,7 +527,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             <div className="sm:col-span-4">
               <button
                 type="submit"
-                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-black text-sm flex items-center justify-center gap-2.5 shadow-2xl shadow-amber-500/30 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-rose-600 via-rose-500 to-rose-700 hover:from-amber-400 hover:to-rose-500 text-white hover:text-slate-950 font-black text-sm flex items-center justify-center gap-2.5 shadow-2xl shadow-rose-600/30 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
               >
                 <span>Search Available Trains</span>
                 <ArrowRight className="w-5 h-5" />
@@ -587,6 +587,41 @@ export const SearchPage: React.FC<SearchPageProps> = ({
         <PnrStatusWidget />
       </section>
 
+      {/* Moments on the Network — photo marquee */}
+      <section className="space-y-4">
+        <div className="flex items-end justify-between gap-3">
+          <div>
+            <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
+              Postcards from the network
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black text-white">Moments on the Network</h2>
+          </div>
+          <span className="text-[11px] font-mono text-slate-500 hidden sm:block">swipe ➔</span>
+        </div>
+        <div className="flex gap-4 overflow-x-auto pb-2">
+          {[
+            { src: "/src/assets/images/classic_fairy_queen_1791013004.jpg", label: "Fairy Queen • 1855" },
+            { src: "/src/assets/images/hero_train_speed_1791007315199.jpg", label: "Full speed • 160 km/h" },
+            { src: "/src/assets/images/royal_dining_car_1791008958052.jpg", label: "Royal dining cars" },
+            { src: "/src/assets/images/classic_kalka_shimla_toy_1791013002.jpg", label: "Kalka–Shimla • 1903" },
+            { src: "/src/assets/images/coastal_rail_bridge_1791008989586.jpg", label: "Konkan sea viaducts" },
+            { src: "/src/assets/images/classic_darjeeling_steam_1791013001.jpg", label: "Darjeeling steam" },
+            { src: "/src/assets/images/station_executive_lounge_1791008973049.jpg", label: "Executive lounges" }
+          ].map((m, i) => (
+            <div key={i} className="relative shrink-0 w-56 sm:w-64 h-40 sm:h-44 rounded-3xl overflow-hidden border border-slate-800 group">
+              <img
+                src={m.src}
+                alt={m.label}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+              <div className="absolute bottom-2.5 left-3 text-xs font-bold text-white drop-shadow">{m.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Embedded Live Train Tracking Map Radar */}
       <section className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
@@ -628,7 +663,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Card 1: Scenic Mountain Rail */}
-          <div className="group rounded-[2.25rem] bg-slate-900 border border-slate-800 overflow-hidden shadow-2xl hover:border-amber-500/70 hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex flex-col justify-between">
+          <div className="group rounded-[2.25rem] bg-slate-900 border border-slate-800 overflow-hidden shadow-2xl hover:border-rose-600/70 hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex flex-col justify-between">
             <div className="relative h-64 overflow-hidden">
               <img
                 src="/src/assets/images/scenic_mountain_rail_1791007927403.jpg"
@@ -637,7 +672,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                 className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-mono font-bold text-amber-400 border border-amber-500/30">
+              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-mono font-bold text-amber-400 border border-rose-600/30">
                 🏔️ Mountain Railway Corridor
               </div>
             </div>
@@ -658,7 +693,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
           </div>
 
           {/* Card 2: Luxury First Class Private Sleeper Cabin */}
-          <div className="group rounded-[2.25rem] bg-slate-900 border border-slate-800 overflow-hidden shadow-2xl hover:border-amber-500/70 hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex flex-col justify-between">
+          <div className="group rounded-[2.25rem] bg-slate-900 border border-slate-800 overflow-hidden shadow-2xl hover:border-rose-600/70 hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex flex-col justify-between">
             <div className="relative h-64 overflow-hidden">
               <img
                 src="/src/assets/images/luxury_sleeper_cabin_1791007939769.jpg"
@@ -688,7 +723,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
           </div>
 
           {/* Card 3: Modern High-Speed Corridors */}
-          <div className="group rounded-[2.25rem] bg-slate-900 border border-slate-800 overflow-hidden shadow-2xl hover:border-amber-500/70 hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex flex-col justify-between">
+          <div className="group rounded-[2.25rem] bg-slate-900 border border-slate-800 overflow-hidden shadow-2xl hover:border-rose-600/70 hover:-translate-y-3 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex flex-col justify-between">
             <div className="relative h-64 overflow-hidden">
               <img
                 src="/src/assets/images/modern_rail_terminal_1791007356836.jpg"
@@ -766,7 +801,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
           </div>
 
           <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800/80 space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold">
+            <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400 font-bold">
               <Clock className="w-6 h-6" />
             </div>
             <h3 className="text-base font-black text-white">99.8% Punctuality Index</h3>
@@ -905,7 +940,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
               Indian Railways opens Tatkal quota berths exactly one day prior to train origin departure date. Concurrency spikes exceed 30,000 requests/sec.
             </p>
           </div>
-          <div className="px-4 py-2 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold flex items-center gap-2 self-start sm:self-auto">
+          <div className="px-4 py-2 rounded-2xl bg-rose-600/10 border border-rose-600/30 text-amber-400 text-xs font-mono font-bold flex items-center gap-2 self-start sm:self-auto">
             <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
             <span>NEXT TATKAL BELL: 10:00 AM IST</span>
           </div>
@@ -1079,7 +1114,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
       </section>
 
       {/* Newsletter / Bulletin Subscription Strip */}
-      <section className="p-8 sm:p-12 rounded-[2.5rem] bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-transparent border border-amber-500/30 flex flex-col md:flex-row items-center justify-between gap-6">
+      <section className="p-8 sm:p-12 rounded-[2.5rem] bg-gradient-to-r from-rose-600/10 via-rose-500/10 to-transparent border border-rose-600/30 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="space-y-1 max-w-xl text-center md:text-left">
           <h3 className="text-xl sm:text-2xl font-black text-white">Subscribe to National Railway Alerts</h3>
           <p className="text-xs text-slate-400">
@@ -1094,11 +1129,11 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             value={newsletterEmail}
             onChange={(e) => setNewsletterEmail(e.target.value)}
             placeholder="Enter your email address..."
-            className="bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-white text-xs w-full md:w-72 focus:outline-none focus:border-amber-500 font-medium"
+            className="bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-white text-xs w-full md:w-72 focus:outline-none focus:border-rose-600 font-medium"
           />
           <button
             type="submit"
-            className="px-6 py-3 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer whitespace-nowrap"
+            className="px-6 py-3 rounded-2xl bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-black text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer whitespace-nowrap"
           >
             <Send className="w-3.5 h-3.5" />
             <span>Join</span>

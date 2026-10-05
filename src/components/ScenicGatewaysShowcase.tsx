@@ -37,7 +37,7 @@ export const ScenicGatewaysShowcase: React.FC<ScenicGatewaysShowcaseProps> = ({ 
       title: "Gourmet Hot Dining & E-Catering",
       subtitle: "Central Base Kitchens Direct to Seat",
       tag: "FSSAI HYGIENE CERTIFIED",
-      tagColor: "bg-amber-500/20 text-amber-300 border-amber-500/40",
+      tagColor: "bg-rose-600/20 text-amber-300 border-rose-600/40",
       description: "Piping hot regional thalis, paneer butter masala, Hyderabadi biryani, and aromatic kulhad masala chai served to your berth.",
       price: "From ₹120",
       duration: "Delivered at Next Junction",
@@ -56,6 +56,30 @@ export const ScenicGatewaysShowcase: React.FC<ScenicGatewaysShowcaseProps> = ({ 
       image: "/src/assets/images/luxury_coach_interior_1791007329531.jpg",
       source: "SBC",
       dest: "MAS"
+    },
+    {
+      title: "Darjeeling Red Panda Steam Odyssey",
+      subtitle: "Darjeeling ➔ Ghum ➔ Kurseong Joy Ride",
+      tag: "CLASSIC TOY TRAIN",
+      tagColor: "bg-red-500/20 text-red-300 border-red-500/40",
+      description: "Chug behind a vintage 1889 B-Class steam engine past tea gardens and the Batasia Loop on India's most beloved mountain railway.",
+      price: "₹1,600",
+      duration: "Steam Joy Ride",
+      image: "/src/assets/images/classic_darjeeling_steam_1791013001.jpg",
+      source: "NDLS",
+      dest: "HWH"
+    },
+    {
+      title: "Royal Rajasthan Palace Circuit",
+      subtitle: "Jaipur ➔ Jodhpur ➔ Udaipur Regal Run",
+      tag: "CLASSIC LUXURY ICON",
+      tagColor: "bg-yellow-500/20 text-yellow-300 border-yellow-500/40",
+      description: "The original luxury rail icon of India — palace-like coaches, royal hospitality and princely-state grandeur across Rajasthan.",
+      price: "₹3,400",
+      duration: "Royal Sojourn",
+      image: "/src/assets/images/classic_palace_wheels_1791013005.jpg",
+      source: "NDLS",
+      dest: "MMCT"
     }
   ];
 
@@ -80,7 +104,7 @@ export const ScenicGatewaysShowcase: React.FC<ScenicGatewaysShowcaseProps> = ({ 
         </div>
 
         <div className="flex items-center gap-2">
-          <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30">
+          <span className="px-3.5 py-1.5 rounded-full text-xs font-mono font-bold bg-rose-600/20 text-amber-400 border border-rose-600/30">
             ★ Handcrafted Railway Odysseys
           </span>
         </div>
@@ -91,7 +115,7 @@ export const ScenicGatewaysShowcase: React.FC<ScenicGatewaysShowcaseProps> = ({ 
         {gateways.map((item, idx) => (
           <div
             key={idx}
-            className="group rounded-3xl bg-slate-950 border border-slate-800 overflow-hidden shadow-2xl hover:border-amber-500/60 hover:-translate-y-2.5 transition-all duration-500 flex flex-col justify-between"
+            className="group rounded-3xl bg-slate-950 border border-slate-800 overflow-hidden shadow-2xl hover:border-rose-600/60 hover:-translate-y-2.5 transition-all duration-500 flex flex-col justify-between"
           >
             {/* Image with zoom and gradient overlay */}
             <div className="relative h-64 overflow-hidden">
@@ -149,7 +173,7 @@ export const ScenicGatewaysShowcase: React.FC<ScenicGatewaysShowcaseProps> = ({ 
                 <button
                   type="button"
                   onClick={() => onSelectCorridor(item.source, item.dest)}
-                  className="w-full py-2.5 px-4 rounded-xl bg-slate-900 group-hover:bg-amber-500 text-slate-300 group-hover:text-slate-950 border border-slate-800 group-hover:border-amber-400 font-bold text-xs flex items-center justify-center gap-1.5 transition-all duration-300 cursor-pointer shadow-sm"
+                  className="w-full py-2.5 px-4 rounded-xl bg-slate-900 group-hover:bg-rose-600 text-slate-300 group-hover:text-slate-950 border border-slate-800 group-hover:border-amber-400 font-bold text-xs flex items-center justify-center gap-1.5 transition-all duration-300 cursor-pointer shadow-sm"
                 >
                   <span>Book This Journey</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

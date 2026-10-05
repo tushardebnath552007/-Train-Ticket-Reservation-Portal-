@@ -271,7 +271,7 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
       {/* Header & RTIS Satellite Telemetry Badge */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+          <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/30 flex items-center justify-center text-amber-400">
             <Radio className="w-6 h-6 animate-pulse" />
           </div>
           <div>
@@ -310,7 +310,7 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
             onClick={handlePlayHorn}
             className={`px-3.5 py-2 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-all ${
               isHornPlaying
-                ? 'bg-amber-500 text-slate-950 border-amber-400 scale-105 shadow-md shadow-amber-500/30'
+                ? 'bg-rose-600 text-white border-amber-400 scale-105 shadow-md shadow-rose-600/30'
                 : 'bg-slate-900 border-slate-700 text-slate-300 hover:text-white hover:border-slate-500'
             }`}
           >
@@ -363,7 +363,7 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
               onClick={() => setCorridorFilter(tab.id as any)}
               className={`px-3 py-1.5 rounded-xl transition-all ${
                 corridorFilter === tab.id
-                  ? 'bg-amber-500 text-slate-950 font-black shadow-md'
+                  ? 'bg-rose-600 text-white font-black shadow-md'
                   : 'text-slate-400 hover:text-white hover:bg-slate-900'
               }`}
             >
@@ -380,7 +380,7 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
             value={radarSearchQuery}
             onChange={(e) => setRadarSearchQuery(e.target.value)}
             placeholder="Find train #, station, or route..."
-            className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-amber-500"
+            className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-rose-600"
           />
           {radarSearchQuery && (
             <button
@@ -526,7 +526,7 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
 
             {/* Station Label */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">
-              <span className="px-2 py-0.5 rounded-md bg-slate-950/90 border border-slate-800 text-[10px] font-mono font-bold text-slate-300 group-hover:text-amber-400 group-hover:border-amber-500/50 shadow-md">
+              <span className="px-2 py-0.5 rounded-md bg-slate-950/90 border border-slate-800 text-[10px] font-mono font-bold text-slate-300 group-hover:text-amber-400 group-hover:border-rose-600/50 shadow-md">
                 {st.code}
               </span>
             </div>
@@ -589,7 +589,7 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
         {/* Hovered Station Tooltip Card */}
         {hoveredStation && (
           <div 
-            className="absolute z-40 p-4 rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-amber-500/40 shadow-2xl text-xs space-y-1.5 pointer-events-none animate-in fade-in duration-150"
+            className="absolute z-40 p-4 rounded-2xl bg-slate-900/95 backdrop-blur-xl border border-rose-600/40 shadow-2xl text-xs space-y-1.5 pointer-events-none animate-in fade-in duration-150"
             style={{
               left: `${Math.min(hoveredStation.x + 3, 75)}%`,
               top: `${Math.min(hoveredStation.y + 4, 75)}%`
@@ -700,6 +700,85 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
           </div>
         </div>
 
+      </div>
+
+      {/* Corridor photo strip */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          { src: "/src/assets/images/hero_train_speed_1791007315199.jpg", label: "Northern High-Speed", sub: "Delhi ➔ Howrah" },
+          { src: "/src/assets/images/coastal_rail_bridge_1791008989586.jpg", label: "Konkan Coast", sub: "Mumbai ➔ Goa" },
+          { src: "/src/assets/images/kashmir_snow_train_1791009001352.jpg", label: "Kashmir Valley", sub: "Banihal ➔ Baramulla" },
+          { src: "/src/assets/images/vande_express_viaduct_1791012422831.jpg", label: "Southern Vande Bharat", sub: "Bengaluru ➔ Chennai" }
+        ].map((c, i) => (
+          <div key={i} className="relative rounded-3xl overflow-hidden border border-slate-800 group h-44 sm:h-52">
+            <img
+              src={c.src}
+              alt={c.label}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
+            <div className="absolute bottom-3 left-3 right-3">
+              <div className="text-sm font-black text-white">{c.label}</div>
+              <div className="text-[11px] font-mono text-amber-400">{c.sub}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* How Live Tracking Works, Delay Causes & Rail Helplines */}
+      <div className="rounded-3xl bg-slate-950 border border-slate-800 p-6 sm:p-8 space-y-6">
+        <div>
+          <span className="text-xs font-mono text-sky-400 font-bold uppercase tracking-widest block mb-1">
+            RTIS • GPS • CONTROL OFFICE DATA
+          </span>
+          <h2 className="text-2xl sm:text-3xl font-black text-white">
+            How Live Train Tracking Works
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">
+            Positions on the radar fuse three official data streams every few seconds:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">1. Loco GPS + RTIS Beacons</div>
+            <p className="text-slate-400 leading-relaxed">
+              Every electric locomotive carries a GPS-based Real-Time Information System unit that pings latitude, speed and halt status to the CRIS servers every 30 seconds. Gaps in tunnels are interpolated from the last known signal.
+            </p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">2. Control Office (NTES) Feed</div>
+            <p className="text-slate-400 leading-relaxed">
+              Section controllers log arrivals, departures and platform numbers into the National Train Enquiry System. Official delay certificates for office leave are generated from this feed, not from GPS estimates.
+            </p>
+          </div>
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2">
+            <div className="font-bold text-white text-sm">3. Crowd + Coach Sensors</div>
+            <p className="text-slate-400 leading-relaxed">
+              Fog-season, signal failures and priority freight crossings cause most delays. On Vande Bharat rakes, onboard IoT sensors add coach temperature, door status and pantry stock to the same dashboard.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+          <a href="tel:139" className="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-rose-600/50 transition-colors">
+            <div className="text-xl font-black text-amber-400 font-mono">139</div>
+            <div className="text-[10px] text-slate-400 mt-1">Enquiry • PNR • Complaints</div>
+          </a>
+          <a href="tel:138" className="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-rose-600/50 transition-colors">
+            <div className="text-xl font-black text-sky-400 font-mono">138</div>
+            <div className="text-[10px] text-slate-400 mt-1">Onboard Service & Cleanliness</div>
+          </a>
+          <a href="tel:182" className="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-rose-600/50 transition-colors">
+            <div className="text-xl font-black text-rose-400 font-mono">182</div>
+            <div className="text-[10px] text-slate-400 mt-1">Railway Security (RPF)</div>
+          </a>
+          <a href="tel:0755" className="p-4 rounded-2xl bg-slate-900 border border-slate-800 hover:border-rose-600/50 transition-colors">
+            <div className="text-xl font-black text-emerald-400 font-mono">0755</div>
+            <div className="text-[10px] text-slate-400 mt-1">Medical (139 ➔ Press 2)</div>
+          </a>
+        </div>
       </div>
 
     </div>

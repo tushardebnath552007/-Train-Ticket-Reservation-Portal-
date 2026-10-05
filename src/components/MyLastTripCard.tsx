@@ -62,11 +62,11 @@ export const MyLastTripCard: React.FC<MyLastTripCardProps> = ({
   };
 
   return (
-    <div className="relative overflow-hidden rounded-[2.5rem] border-2 border-amber-500/30 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6 sm:p-8 shadow-2xl transition-all hover:border-amber-500/50">
+    <div className="relative overflow-hidden rounded-[2.5rem] border-2 border-rose-600/30 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6 sm:p-8 shadow-2xl transition-all hover:border-rose-600/50">
       
       {/* Background Subtle Railway Grid Pattern & Glow */}
-      <div className="absolute -right-24 -top-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -right-24 -top-24 w-96 h-96 bg-rose-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="relative z-10 space-y-6">
         
@@ -74,7 +74,7 @@ export const MyLastTripCard: React.FC<MyLastTripCardProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-5">
           
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-inner">
+            <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/30 flex items-center justify-center text-amber-400 shadow-inner">
               <Ticket className="w-6 h-6" />
             </div>
             <div>
@@ -82,7 +82,7 @@ export const MyLastTripCard: React.FC<MyLastTripCardProps> = ({
                 <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-amber-400">
                   Dashboard History • Most Recent Journey
                 </span>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold bg-rose-600/20 text-amber-300 border border-rose-600/30">
                   PERSISTENT RECORD
                 </span>
               </div>
@@ -99,7 +99,7 @@ export const MyLastTripCard: React.FC<MyLastTripCardProps> = ({
             {/* PNR Chip with copy */}
             <div 
               onClick={handleCopyPnr}
-              className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-amber-500/60 cursor-pointer transition-all group"
+              className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-rose-600/60 cursor-pointer transition-all group"
               title="Click to copy 10-digit PNR"
             >
               <span className="text-[10px] font-mono text-slate-400 uppercase">PNR:</span>
@@ -183,7 +183,7 @@ export const MyLastTripCard: React.FC<MyLastTripCardProps> = ({
                     <span>{latestBooking.journeyDate}</span>
                   </div>
                   <div className="w-full h-1 bg-slate-800 rounded-full relative overflow-hidden">
-                    <div className="absolute inset-y-0 left-0 w-3/4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full animate-pulse"></div>
+                    <div className="absolute inset-y-0 left-0 w-3/4 bg-gradient-to-r from-rose-600 to-rose-500 rounded-full animate-pulse"></div>
                   </div>
                   <div className="text-[10px] font-mono text-emerald-400 mt-1.5 flex items-center justify-center gap-1">
                     <Train className="w-3 h-3" />
@@ -224,7 +224,7 @@ export const MyLastTripCard: React.FC<MyLastTripCardProps> = ({
                   className="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-800 flex items-center gap-2 text-xs font-mono"
                 >
                   <span className="text-slate-300 font-bold">{p.fullName}</span>
-                  <span className="px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-black border border-amber-500/30">
+                  <span className="px-1.5 py-0.5 rounded bg-rose-600/20 text-amber-300 text-[10px] font-black border border-rose-600/30">
                     Seat #{p.seatNumber} ({p.berthType})
                   </span>
                 </div>
@@ -275,7 +275,7 @@ export const MyLastTripCard: React.FC<MyLastTripCardProps> = ({
               <button
                 type="button"
                 onClick={() => onViewTicket(latestBooking)}
-                className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 transition-all cursor-pointer"
+                className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-rose-600 to-rose-700 hover:from-amber-400 hover:to-rose-500 text-white hover:text-slate-950 font-black text-xs flex items-center justify-center gap-2 shadow-lg shadow-rose-600/20 transition-all cursor-pointer"
               >
                 <Printer className="w-3.5 h-3.5" />
                 <span>View / Print Boarding Pass</span>

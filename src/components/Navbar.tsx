@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Train, ShieldCheck, Cpu, Users, MapPin, Radio, Compass, PhoneCall, Bell, Menu, X, ChevronDown, User, Search, Sparkles, Globe, Ticket, Calendar, Clock, LogOut, CheckCircle2 } from 'lucide-react';
 import { UserProfile } from '../types/user';
 
@@ -21,50 +21,40 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userDropdownOpen, setUserDropdownOpen] = useState(false);
-  const [port5500Online, setPort5500Online] = useState<boolean>(true);
-  const [port5500Latency, setPort5500Latency] = useState<number>(4);
-
-  useEffect(() => {
-    const pingPort5500 = async () => {
-      const t0 = performance.now();
-      try {
-        const res = await fetch('/health');
-        if (res.ok) {
-          const lat = Math.max(1, Math.round(performance.now() - t0));
-          setPort5500Online(true);
-          setPort5500Latency(lat);
-        } else {
-          setPort5500Online(false);
-        }
-      } catch {
-        setPort5500Online(false);
-      }
-    };
-
-    pingPort5500();
-    const interval = setInterval(pingPort5500, 10000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <header className="sticky top-0 z-50 transition-all pt-3 px-3 sm:px-6">
       
-      {/* Framer/Solidroad Style Floating Rounded Pill Navigation Container */}
-      <div className="max-w-7xl mx-auto rounded-full bg-slate-900/90 backdrop-blur-2xl border border-white/10 shadow-2xl px-4 sm:px-6 h-16 flex items-center justify-between">
-        
+      {/* Premium floating pill navigation with scenic picture backdrop */}
+      <div className="max-w-7xl mx-auto rounded-full relative overflow-hidden border border-rose-600/25 shadow-[0_8px_40px_-8px_rgba(225,29,72,0.35)] px-4 sm:px-6 h-16 sm:h-[4.5rem] flex items-center justify-between">
+        {/* Picture background + dark glass overlays */}
+        <img
+          src="/src/assets/images/winding_mountain_rail_hero_1791009627778.jpg"
+          alt=""
+          aria-hidden="true"
+          referrerPolicy="no-referrer"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/85 to-slate-950/95"></div>
+        <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-amber-400/80 to-transparent"></div>
+        <div className="absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent"></div>
+
         {/* Left Side Links */}
-        <div className="flex items-center gap-1 sm:gap-2">
+        <div className="relative flex items-center gap-1 sm:gap-2">
           
           {/* Brand Logo & Title (Solidroad style) */}
           <div 
             onClick={() => setActiveTab('search')}
             className="flex items-center gap-2.5 cursor-pointer group mr-2 sm:mr-4"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-amber-600 flex items-center justify-center text-slate-950 font-black shadow-md shadow-amber-500/20 group-hover:scale-105 transition-all">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-600 via-rose-500 to-rose-700 flex items-center justify-center text-white font-black shadow-md shadow-rose-600/20 group-hover:scale-105 transition-all">
               <Train className="w-5 h-5 text-slate-950" />
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="font-black text-base sm:text-lg tracking-tight text-white group-hover:text-amber-400 transition-colors">
+              <span
+                style={{ fontFamily: "'UnifrakturCook', serif" }}
+                className="text-xl sm:text-2xl tracking-wide bg-gradient-to-b from-amber-200 via-amber-400 to-rose-700 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(225,29,72,0.35)] group-hover:from-amber-100 group-hover:to-rose-600 transition-all"
+              >
                 RailFleet
               </span>
               <span className="hidden md:inline text-[9px] font-black px-1.5 py-0.5 rounded-full bg-white/10 text-amber-400 uppercase tracking-widest">
@@ -79,8 +69,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('search')}
               className={`px-3 py-1.5 rounded-full transition-all ${
                 activeTab === 'search'
-                  ? 'text-white bg-white/10 font-bold'
-                  : 'hover:text-white hover:bg-white/5'
+                  ? 'text-white bg-gradient-to-r from-rose-500 to-rose-700 font-black shadow-md shadow-rose-600/40'
+                  : 'hover:text-amber-300 hover:bg-rose-600/10'
               }`}
             >
               Corridors
@@ -102,8 +92,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('trains')}
               className={`px-3 py-1.5 rounded-full transition-all ${
                 activeTab === 'trains'
-                  ? 'text-white bg-white/10 font-bold'
-                  : 'hover:text-white hover:bg-white/5'
+                  ? 'text-white bg-gradient-to-r from-rose-500 to-rose-700 font-black shadow-md shadow-rose-600/40'
+                  : 'hover:text-amber-300 hover:bg-rose-600/10'
               }`}
             >
               Schedules
@@ -113,8 +103,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('dashboard')}
               className={`px-3 py-1.5 rounded-full transition-all ${
                 activeTab === 'dashboard'
-                  ? 'text-white bg-white/10 font-bold'
-                  : 'hover:text-white hover:bg-white/5'
+                  ? 'text-white bg-gradient-to-r from-rose-500 to-rose-700 font-black shadow-md shadow-rose-600/40'
+                  : 'hover:text-amber-300 hover:bg-rose-600/10'
               }`}
             >
               My Bookings
@@ -124,8 +114,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('admin')}
               className={`px-3 py-1.5 rounded-full transition-all ${
                 activeTab === 'admin'
-                  ? 'text-white bg-white/10 font-bold'
-                  : 'hover:text-white hover:bg-white/5'
+                  ? 'text-white bg-gradient-to-r from-rose-500 to-rose-700 font-black shadow-md shadow-rose-600/40'
+                  : 'hover:text-amber-300 hover:bg-rose-600/10'
               }`}
             >
               Operations
@@ -135,7 +125,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => setActiveTab('contact')}
               className={`px-3 py-1.5 rounded-full transition-all flex items-center gap-1.5 ${
                 activeTab === 'contact'
-                  ? 'text-amber-400 bg-amber-500/10 font-bold border border-amber-500/30'
+                  ? 'text-amber-400 bg-rose-600/10 font-bold border border-rose-600/30'
                   : 'hover:text-white hover:bg-white/5'
               }`}
             >
@@ -146,19 +136,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
 
         {/* Right Side Controls & Sign In Section */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          
-          {/* Live Port 5500 Connection Status Telemetry Badge */}
-          <div 
-            className="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/80 border border-slate-800 text-[11px] font-mono shadow-inner cursor-help"
-            title="Backend Secondary Server running on port 5500, synchronized via Vite proxy"
-          >
-            <span className={`w-2 h-2 rounded-full ${port5500Online ? 'bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse' : 'bg-rose-500'}`}></span>
-            <span className="text-slate-400 font-sans text-[10px]">Port 5500:</span>
-            <span className={port5500Online ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}>
-              {port5500Online ? `ACTIVE (${port5500Latency}ms)` : 'CONNECTING'}
-            </span>
-          </div>
+        <div className="relative flex items-center gap-2 sm:gap-3">
 
           {/* Engineering tools pills */}
           <button
@@ -177,7 +155,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 onClick={() => setUserDropdownOpen(!userDropdownOpen)}
                 className="flex items-center gap-2 pl-2 pr-3 py-1 rounded-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-bold text-slate-200 transition-colors"
               >
-                <div className="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs">
+                <div className="w-6 h-6 rounded-full bg-rose-600/20 text-amber-400 flex items-center justify-center font-bold text-xs">
                   {currentUser.name.charAt(0)}
                 </div>
                 <span className="hidden sm:inline font-medium">{currentUser.name.split(' ')[0]}</span>
@@ -250,34 +228,51 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-2 max-w-7xl mx-auto rounded-3xl bg-slate-900 border border-slate-800 p-4 space-y-2 text-xs font-bold text-white shadow-2xl">
+        <div className="lg:hidden mt-2 max-w-7xl mx-auto rounded-3xl overflow-hidden relative bg-slate-900 border border-rose-600/25 shadow-[0_8px_40px_-8px_rgba(225,29,72,0.3)] text-xs font-bold text-white">
+          <div className="relative h-20 overflow-hidden">
+            <img
+              src="/src/assets/images/classic_darjeeling_steam_1791013001.jpg"
+              alt=""
+              aria-hidden="true"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover object-center opacity-50"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+            <span
+              style={{ fontFamily: "'UnifrakturCook', serif" }}
+              className="absolute bottom-2 left-4 text-2xl bg-gradient-to-b from-amber-200 via-amber-400 to-rose-700 bg-clip-text text-transparent"
+            >
+              RailFleet
+            </span>
+          </div>
+          <div className="p-4 space-y-2">
           <button
             onClick={() => { setActiveTab('search'); setMobileMenuOpen(false); }}
-            className={`w-full text-left px-4 py-2 rounded-xl ${activeTab === 'search' ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`w-full text-left px-4 py-2 rounded-xl ${activeTab === 'search' ? 'bg-rose-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             Corridors & Route Search
           </button>
           <button
             onClick={() => { setActiveTab('tracking'); setMobileMenuOpen(false); }}
-            className={`w-full text-left px-4 py-2 rounded-xl flex items-center gap-2 ${activeTab === 'tracking' ? 'bg-amber-500 text-slate-950' : 'text-sky-400 hover:bg-slate-800'}`}
+            className={`w-full text-left px-4 py-2 rounded-xl flex items-center gap-2 ${activeTab === 'tracking' ? 'bg-rose-600 text-white' : 'text-sky-400 hover:bg-slate-800'}`}
           >
             <Radio className="w-3.5 h-3.5" /> Live Train Radar
           </button>
           <button
             onClick={() => { setActiveTab('trains'); setMobileMenuOpen(false); }}
-            className={`w-full text-left px-4 py-2 rounded-xl ${activeTab === 'trains' ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`w-full text-left px-4 py-2 rounded-xl ${activeTab === 'trains' ? 'bg-rose-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             Train Schedules
           </button>
           <button
             onClick={() => { setActiveTab('dashboard'); setMobileMenuOpen(false); }}
-            className={`w-full text-left px-4 py-2 rounded-xl ${activeTab === 'dashboard' ? 'bg-amber-500 text-slate-950' : 'text-slate-300 hover:bg-slate-800'}`}
+            className={`w-full text-left px-4 py-2 rounded-xl ${activeTab === 'dashboard' ? 'bg-rose-600 text-white' : 'text-slate-300 hover:bg-slate-800'}`}
           >
             My Bookings & PNR
           </button>
           <button
             onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }}
-            className={`w-full text-left px-4 py-2 rounded-xl flex items-center gap-2 ${activeTab === 'contact' ? 'bg-amber-500 text-slate-950' : 'text-amber-400 hover:bg-slate-800'}`}
+            className={`w-full text-left px-4 py-2 rounded-xl flex items-center gap-2 ${activeTab === 'contact' ? 'bg-rose-600 text-white' : 'text-amber-400 hover:bg-slate-800'}`}
           >
             <PhoneCall className="w-3.5 h-3.5" /> 24/7 Rail Madad & Contact
           </button>
@@ -287,6 +282,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Cpu className="w-3.5 h-3.5" /> Launch Concurrency Lab
           </button>
+          </div>
         </div>
       )}
 

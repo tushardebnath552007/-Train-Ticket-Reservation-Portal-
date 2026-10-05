@@ -232,7 +232,7 @@ export const StationWeatherWidget: React.FC<StationWeatherWidgetProps> = ({
   const getAqiBadgeColor = (aqi: number) => {
     if (aqi <= 50) return 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30';
     if (aqi <= 100) return 'bg-sky-500/15 text-sky-400 border-sky-500/30';
-    if (aqi <= 150) return 'bg-amber-500/15 text-amber-400 border-amber-500/30';
+    if (aqi <= 150) return 'bg-rose-600/15 text-amber-400 border-rose-600/30';
     return 'bg-rose-500/15 text-rose-400 border-rose-500/30';
   };
 
@@ -242,12 +242,12 @@ export const StationWeatherWidget: React.FC<StationWeatherWidgetProps> = ({
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+          <div className="w-11 h-11 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400">
             <Thermometer className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-rose-600/20 text-amber-300 border border-rose-600/30 uppercase tracking-wider">
                 JOURNEY CLIMATE ADVISORY
               </span>
               <span className="text-xs text-slate-400 font-mono hidden sm:inline">Date: {journeyDate}</span>
@@ -264,7 +264,7 @@ export const StationWeatherWidget: React.FC<StationWeatherWidgetProps> = ({
             onClick={() => setActiveTab('overview')}
             className={`px-3.5 py-1.5 rounded-lg transition-all ${
               activeTab === 'overview'
-                ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
+                ? 'bg-rose-600 text-white font-black shadow-sm'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
@@ -274,7 +274,7 @@ export const StationWeatherWidget: React.FC<StationWeatherWidgetProps> = ({
             onClick={() => setActiveTab('hourly')}
             className={`px-3.5 py-1.5 rounded-lg transition-all ${
               activeTab === 'hourly'
-                ? 'bg-amber-500 text-slate-950 font-black shadow-sm'
+                ? 'bg-rose-600 text-white font-black shadow-sm'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
