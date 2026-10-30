@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Mail, Lock, Phone, User, ShieldCheck, ArrowRight, CheckCircle2, Sparkles, KeyRound } from 'lucide-react';
 import { UserProfile, DEMO_USERS } from '../types/user';
+import { IconTile } from './ui/IconTile';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -114,9 +115,9 @@ export const AuthModal: React.FC<AuthModalProps> = ({
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors"
+          className="absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center group transition-colors"
         >
-          <X className="w-5 h-5" />
+          <IconTile icon={X} tone="slate" size="sm" />
         </button>
 
         {/* Brand header */}

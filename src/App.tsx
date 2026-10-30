@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
+import { SidebarNav } from './components/SidebarNav';
 import { Footer } from './components/Footer';
 import { SearchPage } from './components/SearchPage';
 import { TrainsMatrixPage } from './components/TrainsMatrixPage';
@@ -18,6 +18,13 @@ import { UserProfile, DEMO_USERS } from './types/user';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<'search' | 'trains' | 'seats' | 'checkout' | 'dashboard' | 'admin' | 'tracking' | 'contact'>('search');
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => window.innerWidth <= 768);
+
+  useEffect(() => {
+    const updateSidebarForViewport = () => setSidebarCollapsed(window.innerWidth <= 768);
+    window.addEventListener('resize', updateSidebarForViewport);
+    return () => window.removeEventListener('resize', updateSidebarForViewport);
+  }, []);
 
   // User Auth State
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => DEMO_USERS.traveler);
@@ -109,31 +116,38 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen text-slate-100 flex flex-col font-sans selection:bg-rose-600 selection:text-white relative">
-      {/* Full-site fixed picture background */}
-      <div className="fixed inset-0 -z-0 pointer-events-none" aria-hidden="true">
-        <img
-          src="/src/assets/images/vande_express_viaduct_1791012422831.jpg"
-          alt=""
-          referrerPolicy="no-referrer"
-          className="w-full h-[140vh] object-cover object-top opacity-60 blur-[2.5px] scale-105"
-        />
-        <div className="absolute inset-0 h-[140vh] bg-gradient-to-b from-[#070b13]/50 via-[#070b13]/68 to-[#070b13]/90"></div>
+    <div className="min-h-screen text-slate-100 flex flex-col font-sans selection:bg-amber-400 selection:text-slate-950 relative">
+      {/* Ambient backdrop: drifting brand-color auroras + blueprint rail grid */}
+      <div className="fixed inset-0 -z-0 pointer-events-none overflow-hidden bg-[#080d18]" aria-hidden="true">
+        {/* Aurora glow blobs — slow drift, brand palette */}
+        <div className="aurora-a absolute -top-44 -left-36 h-[36rem] w-[36rem] rounded-full bg-amber-500/12 blur-[120px]" />
+        <div className="aurora-b absolute -top-48 -right-24 h-[34rem] w-[34rem] rounded-full bg-sky-500/14 blur-[110px]" />
+        <div className="aurora-c absolute top-1/3 -right-40 h-[30rem] w-[30rem] rounded-full bg-rose-500/12 blur-[120px]" />
+        <div className="aurora-d absolute -bottom-56 -left-32 h-[34rem] w-[34rem] rounded-full bg-amber-500/10 blur-[110px]" />
+        <div className="aurora-e absolute -bottom-48 right-1/4 h-[28rem] w-[28rem] rounded-full bg-emerald-500/10 blur-[100px]" />
+        <div className="aurora-a absolute top-[45%] left-1/3 h-[26rem] w-[26rem] rounded-full bg-violet-500/8 blur-[120px]" />
+        {/* Blueprint grid + dot matrix + vignette */}
+        <div className="rail-grid absolute inset-0 opacity-[0.05]" />
+        <div className="rail-dots absolute inset-0 opacity-[0.05]" />
+        <div className="rail-vignette absolute inset-0" />
       </div>
       <div className="relative z-10 flex flex-col min-h-screen">
       
-      {/* Universal Stylish Top Navigation */}
-      <Navbar
+      {/* Left Sidebar Navigation */}
+      <SidebarNav
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         onOpenConcurrencyLab={() => setIsConcurrencyLabOpen(true)}
         currentUser={currentUser}
         onOpenAuthModal={(m) => { setAuthModalMode(m); setIsAuthModalOpen(true); }}
         onLogout={() => setCurrentUser(null)}
+        collapsed={sidebarCollapsed}
+        setCollapsed={setSidebarCollapsed}
       />
 
-      {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Main Content Area positioned to the right of Sidebar */}
+      <div className={`transition-all duration-300 flex-1 flex flex-col ${sidebarCollapsed ? 'pl-20' : 'pl-64'}`}>
+        <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         {/* Page 1: Home & Route Search Portal */}
         {activeTab === 'search' && (
@@ -236,6 +250,8 @@ export default function App() {
           <ContactPage onBackToHome={() => setActiveTab('search')} />
         )}
 
+        {/* Page 8: MineGuard AI Telemetry & Hazard Vision Pipeline */}
+
       </main>
 
       {/* Stylish Enterprise Footer on Every Page */}
@@ -269,6 +285,7 @@ export default function App() {
         initialMode={authModalMode}
       />
 
+      </div>
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Search, Ticket, Calendar, Clock, AlertCircle, Trash2, Printer, CheckCircle2, RotateCcw, User, ArrowRight, ShieldCheck, Download, Info, FileText, Luggage } from 'lucide-react';
+import { Search, Ticket, Calendar, Clock, AlertCircle, Trash2, Printer, CheckCircle2, RotateCcw, User, ArrowRight, ShieldCheck, Download, Info, FileText, Luggage, X } from 'lucide-react';
 import { Booking } from '../types/railway';
 import { railwayService } from '../services/railwayService';
+import { IconTile } from './ui/IconTile';
 
 interface DashboardPageProps {
   bookings: Booking[];
@@ -79,9 +80,9 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
           <img
             src="/src/assets/images/station_executive_lounge_1791008973049.jpg"
             alt="IRCTC Executive Lounge & Passenger Ledger"
-            className="w-full h-full object-cover object-center opacity-30"
+            className="w-full h-full object-cover object-center opacity-70"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-slate-950/15"></div>
         </div>
 
         <div className="relative z-10 p-6 sm:p-8">
@@ -90,8 +91,8 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
               <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest block mb-1">
                 National Ticket Ledger
               </span>
-              <h1 className="text-2xl sm:text-3xl font-black text-white flex items-center gap-2.5">
-                <Ticket className="w-8 h-8 text-amber-400" />
+              <h1 className="text-2xl sm:text-3xl font-black text-white display-gradient flex items-center gap-2.5">
+                <IconTile icon={Ticket} tone="amber" size="md" />
                 <span>User Booking Portal & PNR Lifecycle</span>
               </h1>
               <p className="text-xs sm:text-sm text-slate-300 mt-1">
@@ -126,7 +127,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
       {cancellationResult && (
         <div className="p-5 rounded-2xl bg-rose-600/10 border border-rose-600/30 flex items-start justify-between gap-3 text-xs">
           <div className="flex items-start gap-2.5 text-amber-300">
-            <RotateCcw className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
+            <IconTile icon={RotateCcw} tone="amber" size="md" className="mt-0.5" />
             <div>
               <div className="font-bold text-sm text-white">Cancellation & Instant Refund Executed</div>
               <p className="mt-0.5 leading-relaxed">{cancellationResult.message}</p>
@@ -141,7 +142,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
             onClick={() => setCancellationResult(null)}
             className="text-slate-400 hover:text-white font-bold"
           >
-            ✕
+            <X className="w-4 h-4" />
           </button>
         </div>
       )}
@@ -149,7 +150,9 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
       {/* Bookings Table / Cards Grid */}
       {filteredBookings.length === 0 ? (
         <div className="text-center py-16 px-4 bg-slate-900/50 rounded-3xl border border-dashed border-slate-800">
-          <Ticket className="w-12 h-12 text-slate-600 mx-auto mb-3" />
+          <div className="flex justify-center mb-3">
+            <IconTile icon={Ticket} tone="slate" size="lg" />
+          </div>
           <h3 className="text-lg font-bold text-white mb-1">No Reservations Found</h3>
           <p className="text-sm text-slate-400 max-w-md mx-auto">
             {searchTerm ? `No bookings matched your filter query '${searchTerm}'.` : 'You have not completed any train ticket reservations yet.'}
@@ -265,7 +268,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
       {/* Official Indian Railways Cancellation Refund Policy Chart */}
       <section className="bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl space-y-4">
         <div className="flex items-center gap-2.5">
-          <Info className="w-5 h-5 text-amber-400" />
+          <IconTile icon={Info} tone="amber" size="md" />
           <h3 className="text-base font-bold text-white">
             Official Indian Railways PRS Cancellation & Refund Schedule
           </h3>
@@ -319,9 +322,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
             {/* Header */}
             <div className="flex items-center justify-between border-b border-slate-800 pb-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400">
-                  <AlertCircle className="w-5 h-5 text-rose-400" />
-                </div>
+                <IconTile icon={AlertCircle} tone="rose" size="md" />
                 <div>
                   <h3 className="text-lg font-black text-white">Cancel Electronic Ticket</h3>
                   <span className="text-xs font-mono text-slate-400">PNR #{ticketToCancel.pnr}</span>
@@ -330,9 +331,9 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
               <button
                 type="button"
                 onClick={() => setTicketToCancel(null)}
-                className="w-7 h-7 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center text-xs font-bold cursor-pointer"
+                className="w-7 h-7 rounded-full flex items-center justify-center group cursor-pointer"
               >
-                ✕
+                <IconTile icon={X} tone="slate" size="xs" />
               </button>
             </div>
 
@@ -409,7 +410,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
           <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
             Your travel memories
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Relive Your Routes
           </h2>
         </div>
@@ -439,7 +440,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
           <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
             CRIS RESERVATION RULES REFERENCE
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             PNR Status Codes & Confirmation Probabilities
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -529,7 +530,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
             <span className="text-xs font-mono text-sky-400 font-bold uppercase tracking-widest block mb-1">
               PREMIER STATION AMENITIES
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
               IRCTC Executive Lounges & Cloak Rooms
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -582,7 +583,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
           <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest block mb-1">
             MONEY-BACK PLAYBOOK
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Refund Timelines, Failed Payments & Wallet Credits
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">

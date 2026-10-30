@@ -1,6 +1,7 @@
 import React from 'react';
-import { Ticket, Printer, Download, CheckCircle2, ShieldCheck, Train, Calendar, Clock, MapPin } from 'lucide-react';
+import { Ticket, Printer, Download, CheckCircle2, ShieldCheck, Train, Calendar, Clock, MapPin, X } from 'lucide-react';
 import { Booking } from '../types/railway';
+import { IconTile } from './ui/IconTile';
 
 interface BoardingPassModalProps {
   booking: Booking | null;
@@ -17,9 +18,7 @@ export const BoardingPassModal: React.FC<BoardingPassModalProps> = ({ booking, o
         {/* Top Header */}
         <div className="flex items-center justify-between border-b border-slate-800 pb-4">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-rose-600 flex items-center justify-center text-white font-black">
-              🚆
-            </div>
+            <IconTile icon={Train} tone="rose" size="sm" variant="solid" />
             <div>
               <span className="font-black text-sm text-white tracking-wide uppercase">
                 Indian Railways Electronic Reservation Slip (ERS)
@@ -39,9 +38,9 @@ export const BoardingPassModal: React.FC<BoardingPassModalProps> = ({ booking, o
 
           <button
             onClick={onClose}
-            className="w-7 h-7 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center text-xs font-bold"
+            className="w-7 h-7 rounded-full flex items-center justify-center group"
           >
-            ✕
+            <IconTile icon={X} tone="slate" size="xs" />
           </button>
         </div>
 

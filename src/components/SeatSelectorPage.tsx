@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Check, CheckCircle2, ShieldCheck, Info, Sparkles, User, Zap, AlertTriangle, Eye, HelpCircle } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 import { Train, Coach, Seat } from '../types/railway';
 
 interface SeatSelectorPageProps {
@@ -58,9 +59,9 @@ export const SeatSelectorPage: React.FC<SeatSelectorPageProps> = ({
                 : '/src/assets/images/luxury_coach_interior_1791007329531.jpg'
             }
             alt="Interior view of luxury railway carriage"
-            className="w-full h-full object-cover object-center opacity-40 transition-transform duration-700 hover:scale-105"
+            className="w-full h-full object-cover object-center opacity-70 transition-transform duration-700 hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
         </div>
 
         <div className="relative z-10 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -72,7 +73,7 @@ export const SeatSelectorPage: React.FC<SeatSelectorPageProps> = ({
               <span className="text-xs text-slate-400">Coach Code: {selectedCoach.coachCode}</span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl font-black text-white">
+            <h1 className="text-2xl sm:text-3xl font-black text-white display-gradient">
               {train.trainName} (#{train.trainNumber})
             </h1>
 
@@ -202,8 +203,8 @@ export const SeatSelectorPage: React.FC<SeatSelectorPageProps> = ({
           {/* Berth Orientation & Amenities Guide */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
-              <h4 className="font-bold text-white flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-amber-400" /> Lower Berths
+              <h4 className="font-bold text-white flex items-center gap-2">
+                <IconTile icon={CheckCircle2} tone="amber" size="sm" /> Lower Berths
               </h4>
               <p className="text-slate-400 leading-relaxed">
                 Prioritized automatically for senior citizens and expectant mothers during daytime journeys.
@@ -211,8 +212,8 @@ export const SeatSelectorPage: React.FC<SeatSelectorPageProps> = ({
             </div>
 
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
-              <h4 className="font-bold text-white flex items-center gap-1.5">
-                <Zap className="w-4 h-4 text-sky-400" /> Fast Charging Ports
+              <h4 className="font-bold text-white flex items-center gap-2">
+                <IconTile icon={Zap} tone="sky" size="sm" /> Fast Charging Ports
               </h4>
               <p className="text-slate-400 leading-relaxed">
                 110V/220V multi-pin socket and dedicated USB-C ports installed adjacent to every seat window.
@@ -220,8 +221,8 @@ export const SeatSelectorPage: React.FC<SeatSelectorPageProps> = ({
             </div>
 
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
-              <h4 className="font-bold text-white flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-emerald-400" /> Emergency Windows
+              <h4 className="font-bold text-white flex items-center gap-2">
+                <IconTile icon={ShieldCheck} tone="emerald" size="sm" /> Emergency Windows
               </h4>
               <p className="text-slate-400 leading-relaxed">
                 Seats #7 and #18 feature quick-break safety glass hammers for certified emergency egress.
@@ -237,7 +238,7 @@ export const SeatSelectorPage: React.FC<SeatSelectorPageProps> = ({
             
             <div className="border-b border-slate-800 pb-4">
               <h3 className="text-base font-bold text-white flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-amber-400" />
+                <IconTile icon={Sparkles} tone="amber" size="sm" />
                 <span>Selected Berths Allocation</span>
               </h3>
               <p className="text-xs text-slate-400 mt-1">
@@ -344,7 +345,7 @@ export const SeatSelectorPage: React.FC<SeatSelectorPageProps> = ({
           <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
             CARRIAGE SPECIFICATIONS & SAFETY SYSTEMS
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Coach Engineering & Emergency Protocol
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -393,7 +394,7 @@ export const SeatSelectorPage: React.FC<SeatSelectorPageProps> = ({
           <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
             STATUTORY ONBOARD CODE OF CONDUCT
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Berth Allocation & Nighttime Quiet Hours
           </h2>
         </div>
@@ -429,7 +430,7 @@ export const SeatSelectorPage: React.FC<SeatSelectorPageProps> = ({
             <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
               OFFICIAL IRCTC TARIFF
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
               Catering & Pantry Carriage Rate Card
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1">
@@ -486,7 +487,7 @@ export const SeatSelectorPage: React.FC<SeatSelectorPageProps> = ({
           <span className="text-xs font-mono text-sky-400 font-bold uppercase tracking-widest block mb-1">
             PASSENGER BERTH REFERENCE
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Berth Types, Coach Layouts & Luggage Rules
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">

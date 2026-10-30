@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sun, CloudSun, CloudRain, Cloud, Wind, Thermometer, Droplets, Eye, ArrowRight, ShieldAlert, Sparkles, CheckCircle2 } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 import { Station } from '../types/railway';
 
 interface StationWeatherWidgetProps {
@@ -214,18 +215,18 @@ export const StationWeatherWidget: React.FC<StationWeatherWidgetProps> = ({
       ? `${tempDiff}°C Cooler at Destination`
       : 'Identical Temperature at Destination';
 
-  const renderWeatherIcon = (iconType: string, className = 'w-7 h-7') => {
+  const renderWeatherIcon = (iconType: string) => {
     switch (iconType) {
       case 'sun':
-        return <Sun className={`${className} text-amber-400 animate-spin`} style={{ animationDuration: '20s' }} />;
+        return <IconTile icon={Sun} tone="amber" size="xl" variant="soft" iconClassName="animate-spin [animation-duration:20s]" />;
       case 'cloud-sun':
-        return <CloudSun className={`${className} text-sky-400`} />;
+        return <IconTile icon={CloudSun} tone="sky" size="xl" variant="soft" />;
       case 'rain':
-        return <CloudRain className={`${className} text-blue-400`} />;
+        return <IconTile icon={CloudRain} tone="blue" size="xl" variant="soft" />;
       case 'wind':
-        return <Wind className={`${className} text-teal-400`} />;
+        return <IconTile icon={Wind} tone="teal" size="xl" variant="soft" />;
       default:
-        return <Cloud className={`${className} text-slate-400`} />;
+        return <IconTile icon={Cloud} tone="slate" size="xl" variant="soft" />;
     }
   };
 
@@ -242,9 +243,7 @@ export const StationWeatherWidget: React.FC<StationWeatherWidgetProps> = ({
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400">
-            <Thermometer className="w-6 h-6" />
-          </div>
+          <IconTile icon={Thermometer} tone="amber" size="lg" variant="soft" />
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-rose-600/20 text-amber-300 border border-rose-600/30 uppercase tracking-wider">
@@ -300,9 +299,7 @@ export const StationWeatherWidget: React.FC<StationWeatherWidgetProps> = ({
                   Code: <strong>{sourceStation.code}</strong> • {sourceStation.city}, {sourceStation.state}
                 </span>
               </div>
-              <div className="p-3 rounded-2xl bg-slate-900 border border-slate-800">
-                {renderWeatherIcon(srcWeather.iconType)}
-              </div>
+              {renderWeatherIcon(srcWeather.iconType)}
             </div>
 
             {/* Temperature & Condition */}
@@ -336,7 +333,7 @@ export const StationWeatherWidget: React.FC<StationWeatherWidgetProps> = ({
 
             {/* Traveler Advice */}
             <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 text-[11px] text-slate-300 flex items-start gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+              <IconTile icon={Sparkles} tone="amber" size="xs" variant="soft" className="mt-0.5" />
               <span>{srcWeather.packingTip}</span>
             </div>
           </div>
@@ -371,9 +368,7 @@ export const StationWeatherWidget: React.FC<StationWeatherWidgetProps> = ({
                   Code: <strong>{destStation.code}</strong> • {destStation.city}, {destStation.state}
                 </span>
               </div>
-              <div className="p-3 rounded-2xl bg-slate-900 border border-slate-800">
-                {renderWeatherIcon(dstWeather.iconType)}
-              </div>
+              {renderWeatherIcon(dstWeather.iconType)}
             </div>
 
             {/* Temperature & Condition */}
@@ -407,7 +402,7 @@ export const StationWeatherWidget: React.FC<StationWeatherWidgetProps> = ({
 
             {/* Traveler Advice */}
             <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800/80 text-[11px] text-slate-300 flex items-start gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+              <IconTile icon={Sparkles} tone="emerald" size="xs" variant="soft" className="mt-0.5" />
               <span>{dstWeather.packingTip}</span>
             </div>
           </div>

@@ -20,6 +20,7 @@ import {
   ExternalLink,
   ShieldAlert
 } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 
 interface ContactPageProps {
   onBackToHome: () => void;
@@ -101,10 +102,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
           <img
             src="/src/assets/images/rail_madad_support_1791012407656.jpg"
             alt="Modern high-tech railway customer support control center"
-            className="w-full h-full object-cover object-center opacity-45 scale-100 transition-transform duration-1000"
+            className="w-full h-full object-cover object-center opacity-75 scale-100 transition-transform duration-1000"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/40"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/60 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-slate-950/25"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/45 to-transparent"></div>
         </div>
 
         <div className="relative z-10 p-6 sm:p-12 lg:p-16 max-w-3xl space-y-6">
@@ -113,7 +114,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
             <span>24x7 NATIONAL RAIL MADAD HELPLINE & CITIZEN CHARTER</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-black text-white display-gradient tracking-tight leading-tight">
             We are here to assist <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-rose-400 to-amber-200">
               every mile of your journey
@@ -144,9 +145,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
       <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         
         <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-3 relative overflow-hidden group hover:border-rose-600/50 transition-all">
-          <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
-            <PhoneCall className="w-6 h-6" />
-          </div>
+          <IconTile icon={PhoneCall} tone="amber" size="lg" />
           <div>
             <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">General Assistance</div>
             <div className="text-3xl font-black font-mono text-amber-400 mt-1">139</div>
@@ -157,9 +156,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
         </div>
 
         <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-3 relative overflow-hidden group hover:border-rose-500/50 transition-all">
-          <div className="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 group-hover:scale-110 transition-transform">
-            <ShieldAlert className="w-6 h-6" />
-          </div>
+          <IconTile icon={ShieldAlert} tone="rose" size="lg" />
           <div>
             <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">RPF Security Line</div>
             <div className="text-3xl font-black font-mono text-rose-400 mt-1">182</div>
@@ -170,9 +167,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
         </div>
 
         <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-3 relative overflow-hidden group hover:border-sky-500/50 transition-all">
-          <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform">
-            <AlertCircle className="w-6 h-6" />
-          </div>
+          <IconTile icon={AlertCircle} tone="sky" size="lg" />
           <div>
             <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Accident Relief</div>
             <div className="text-3xl font-black font-mono text-sky-400 mt-1">1072</div>
@@ -183,9 +178,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
         </div>
 
         <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-3 relative overflow-hidden group hover:border-emerald-500/50 transition-all">
-          <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
-            <Mail className="w-6 h-6" />
-          </div>
+          <IconTile icon={Mail} tone="emerald" size="lg" />
           <div>
             <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Official Support Email</div>
             <div className="text-sm font-bold text-slate-200 mt-2 truncate">care@railfleet.gov.in</div>
@@ -205,9 +198,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
           
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-rose-600 flex items-center justify-center text-white font-black">
-                🚆
-              </div>
+              <IconTile icon={Train} tone="rose" size="sm" variant="solid" />
               <div>
                 <h2 className="text-xl font-black text-white">File Rail Madad Service Ticket</h2>
                 <span className="text-xs font-mono text-slate-400">Directly routed to on-duty division controllers</span>
@@ -222,7 +213,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
           {submittedTicket && (
             <div className="p-5 rounded-2xl bg-emerald-500/10 border-2 border-emerald-500/30 space-y-3 animate-in zoom-in-95 duration-200">
               <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
-                <CheckCircle2 className="w-5 h-5" />
+                <IconTile icon={CheckCircle2} tone="emerald" size="sm" />
                 <span>Grievance Dispatched Successfully!</span>
               </div>
               <p className="text-xs text-slate-300">
@@ -377,7 +368,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
           
           <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800 space-y-4">
             <div className="flex items-center gap-2.5 border-b border-slate-800 pb-3">
-              <Building className="w-5 h-5 text-amber-400" />
+              <IconTile icon={Building} tone="amber" size="md" />
               <h3 className="text-base font-bold text-white">Central Railway Headquarters</h3>
             </div>
 
@@ -405,7 +396,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
           {/* Citizen Charter & SLA Box */}
           <div className="p-6 rounded-3xl bg-gradient-to-br from-rose-600/10 via-slate-950 to-slate-950 border border-rose-600/30 space-y-3">
             <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
-              <ShieldCheck className="w-4 h-4" />
+              <IconTile icon={ShieldCheck} tone="amber" size="sm" />
               <span>Indian Railways Citizen Charter 2026</span>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">
@@ -422,7 +413,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
         
         <div className="border-b border-slate-800 pb-4">
           <div className="flex items-center gap-2 text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">
-            <HelpCircle className="w-4 h-4" />
+            <IconTile icon={HelpCircle} tone="amber" size="sm" />
             <span>Passenger FAQ & Helpdesk Knowledge Base</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-black text-white mt-1">Frequently Asked Assistance Questions</h2>
@@ -487,7 +478,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
           <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
             STATUTORY REDRESSAL CHARTER
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             4-Tier Grievance Redressal Escalation Matrix
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -541,7 +532,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
             <span className="text-xs font-mono text-rose-400 font-bold uppercase tracking-widest block mb-1">
               LIFE-SAVING PROTOCOL
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
               Onboard Emergency Medical Relief & Doctor On-Call
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -587,7 +578,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onBackToHome }) => {
           <span className="text-xs font-mono text-sky-400 font-bold uppercase tracking-widest block mb-1">
             NATIONAL RAIL NETWORK DIRECTORY
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Zonal Railway Headquarters & Helplines
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">

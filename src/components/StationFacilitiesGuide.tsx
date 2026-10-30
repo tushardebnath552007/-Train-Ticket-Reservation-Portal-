@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Building2, Coffee, Wifi, Luggage, Accessibility, Car, Shield, PhoneCall, CheckCircle2, Sparkles, MapPin, ArrowRight, Eye } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 
 export const StationFacilitiesGuide: React.FC = () => {
   const [selectedStation, setSelectedStation] = useState<'NDLS' | 'HWH' | 'MMCT' | 'SBC' | 'MAS' | 'ADI'>('NDLS');
@@ -88,9 +89,7 @@ export const StationFacilitiesGuide: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400">
-            <Building2 className="w-6 h-6" />
-          </div>
+          <IconTile icon={Building2} tone="amber" size="lg" variant="soft" />
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-rose-600/20 text-amber-300 border border-rose-600/30 uppercase tracking-wider">
@@ -189,7 +188,7 @@ export const StationFacilitiesGuide: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
           <div>
             <div className="flex items-center gap-2.5">
-              <MapPin className="w-5 h-5 text-amber-400" />
+              <IconTile icon={MapPin} tone="amber" size="md" variant="soft" />
               <h3 className="text-xl font-black text-white">{current.name}</h3>
             </div>
             <span className="text-xs text-slate-400 mt-0.5 block font-mono">
@@ -209,7 +208,7 @@ export const StationFacilitiesGuide: React.FC = () => {
           
           <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 hover:border-rose-600/50 hover:bg-slate-900/80 transition-all duration-300">
             <div className="flex items-center gap-2 text-amber-400 font-bold text-xs">
-              <Coffee className="w-4 h-4" />
+              <IconTile icon={Coffee} tone="amber" size="xs" variant="soft" />
               <span>IRCTC Executive Lounge</span>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">{current.lounges}</p>
@@ -217,7 +216,7 @@ export const StationFacilitiesGuide: React.FC = () => {
 
           <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 hover:border-sky-500/50 hover:bg-slate-900/80 transition-all duration-300">
             <div className="flex items-center gap-2 text-sky-400 font-bold text-xs">
-              <Car className="w-4 h-4" />
+              <IconTile icon={Car} tone="sky" size="xs" variant="soft" />
               <span>Metro & Multi-Modal Transit</span>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">{current.metroLink}</p>
@@ -225,7 +224,7 @@ export const StationFacilitiesGuide: React.FC = () => {
 
           <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 hover:border-emerald-500/50 hover:bg-slate-900/80 transition-all duration-300">
             <div className="flex items-center gap-2 text-emerald-400 font-bold text-xs">
-              <Luggage className="w-4 h-4" />
+              <IconTile icon={Luggage} tone="emerald" size="xs" variant="soft" />
               <span>Cloakroom & Baggage Lockers</span>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">{current.cloakroom}</p>
@@ -233,7 +232,7 @@ export const StationFacilitiesGuide: React.FC = () => {
 
           <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 hover:border-purple-500/50 hover:bg-slate-900/80 transition-all duration-300">
             <div className="flex items-center gap-2 text-purple-400 font-bold text-xs">
-              <Accessibility className="w-4 h-4" />
+              <IconTile icon={Accessibility} tone="violet" size="xs" variant="soft" />
               <span>Senior & Divyangjan Support</span>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">{current.divyangjan}</p>
@@ -241,7 +240,7 @@ export const StationFacilitiesGuide: React.FC = () => {
 
           <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 hover:border-rose-500/50 hover:bg-slate-900/80 transition-all duration-300">
             <div className="flex items-center gap-2 text-rose-400 font-bold text-xs">
-              <Coffee className="w-4 h-4" />
+              <IconTile icon={Coffee} tone="rose" size="xs" variant="soft" />
               <span>Food Plaza & Dining Vendors</span>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">{current.foodPlaza}</p>
@@ -249,7 +248,7 @@ export const StationFacilitiesGuide: React.FC = () => {
 
           <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 hover:border-rose-500/50 hover:bg-slate-900/80 transition-all duration-300">
             <div className="flex items-center gap-2 text-rose-400 font-bold text-xs">
-              <Shield className="w-4 h-4" />
+              <IconTile icon={Shield} tone="rose" size="xs" variant="soft" />
               <span>Emergency First Aid & Police</span>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">{current.medical}</p>

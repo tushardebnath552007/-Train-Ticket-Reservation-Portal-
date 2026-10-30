@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Calculator, Luggage, IndianRupee, Info, CheckCircle2, AlertTriangle, ShieldCheck, ArrowRight } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 
 export const FareAndBaggageCalculator: React.FC = () => {
   const [distanceKm, setDistanceKm] = useState<number>(750);
@@ -58,9 +59,7 @@ export const FareAndBaggageCalculator: React.FC = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400">
-            <Calculator className="w-6 h-6" />
-          </div>
+          <IconTile icon={Calculator} tone="amber" size="lg" />
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-rose-600/20 text-amber-300 border border-rose-600/30 uppercase tracking-wider">
@@ -84,7 +83,7 @@ export const FareAndBaggageCalculator: React.FC = () => {
         {/* Left Side: Fare Calculator (7 cols) */}
         <div className="lg:col-span-7 rounded-3xl bg-slate-950 border border-slate-800 p-6 sm:p-8 space-y-6">
           <h3 className="text-base font-black text-white flex items-center gap-2">
-            <IndianRupee className="w-5 h-5 text-amber-400" />
+            <IconTile icon={IndianRupee} tone="amber" size="sm" />
             <span>Interactive Corridor Fare Simulator</span>
           </h3>
 
@@ -178,7 +177,7 @@ export const FareAndBaggageCalculator: React.FC = () => {
         {/* Right Side: Baggage Allowance & Excess Calculator (5 cols) */}
         <div className="lg:col-span-5 rounded-3xl bg-slate-950 border border-slate-800 p-6 sm:p-8 space-y-6">
           <h3 className="text-base font-black text-white flex items-center gap-2">
-            <Luggage className="w-5 h-5 text-sky-400" />
+            <IconTile icon={Luggage} tone="sky" size="sm" />
             <span>Luggage Rules & Free Allowance</span>
           </h3>
 
@@ -190,9 +189,7 @@ export const FareAndBaggageCalculator: React.FC = () => {
                 <span className="text-[10px] text-slate-500 uppercase font-mono block">Class {selectedClass} Allowance</span>
                 <span className="text-xl font-black text-emerald-400 font-mono">{allowedLimit} KG FREE</span>
               </div>
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-                <CheckCircle2 className="w-5 h-5" />
-              </div>
+              <IconTile icon={CheckCircle2} tone="emerald" size="md" />
             </div>
 
             {/* Baggage Weight Simulator */}
@@ -216,7 +213,7 @@ export const FareAndBaggageCalculator: React.FC = () => {
             {excessWeight > 0 ? (
               <div className="p-4 rounded-2xl bg-rose-600/10 border border-rose-600/30 text-xs space-y-1">
                 <div className="font-bold text-amber-400 flex items-center gap-1.5">
-                  <AlertTriangle className="w-4 h-4" /> Excess Baggage: {excessWeight} kg
+                  <IconTile icon={AlertTriangle} tone="amber" size="sm" /> Excess Baggage: {excessWeight} kg
                 </div>
                 <p className="text-slate-300">
                   Excess baggage booking fee at parcel office: <strong className="text-white font-mono">₹{excessBaggageFee}</strong> (₹35/kg rate).
@@ -225,7 +222,7 @@ export const FareAndBaggageCalculator: React.FC = () => {
             ) : (
               <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-xs space-y-1">
                 <div className="font-bold text-emerald-400 flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4" /> Within Permissible Free Allowance
+                  <IconTile icon={ShieldCheck} tone="emerald" size="sm" /> Within Permissible Free Allowance
                 </div>
                 <p className="text-slate-300">
                   Zero surcharge. You can carry your suitcases directly inside coach berths.

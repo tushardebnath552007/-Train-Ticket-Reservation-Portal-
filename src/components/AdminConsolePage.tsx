@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Shield, TrendingUp, Users, Train as TrainIcon, Activity, PlusCircle, Database, RotateCcw, CheckCircle2, Clock, Server } from 'lucide-react';
 import { AdminMetrics, AuditLog, Station, CoachClass, TrainType } from '../types/railway';
 import { railwayService } from '../services/railwayService';
+import { IconTile } from './ui/IconTile';
 
 interface AdminConsolePageProps {
   metrics: AdminMetrics;
@@ -131,8 +132,8 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
               <span className="text-xs text-slate-400">Railway Staff & Dispatch Operations</span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl font-black text-white flex items-center gap-3">
-              <Activity className="w-8 h-8 text-amber-400" />
+            <h1 className="text-2xl sm:text-3xl font-black text-white display-gradient flex items-center gap-3">
+              <IconTile icon={Activity} tone="amber" size="lg" />
               <span>Fleet Administration & Concurrency Telemetry</span>
             </h1>
 
@@ -188,7 +189,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
           <div className="flex items-center justify-between border-b border-slate-800 pb-4">
             <div>
               <h2 className="text-lg font-bold text-white flex items-center gap-2">
-                <PlusCircle className="w-5 h-5 text-amber-400" />
+                <IconTile icon={PlusCircle} tone="amber" size="md" />
                 <span>Add New Train Schedule to Relational Inventory</span>
               </h2>
               <p className="text-xs text-slate-400 mt-0.5">
@@ -354,9 +355,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
       <section className="bg-slate-900/90 border border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xl space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-3">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-              <Server className="w-4 h-4" />
-            </div>
+            <IconTile icon={Server} tone="emerald" size="sm" />
             <div>
               <h3 className="text-sm font-bold text-white flex items-center gap-2">
                 <span>Infrastructure Topology: Port 3000 (UI Ingress) ➔ Port 5500 (Express Backend)</span>
@@ -413,7 +412,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
         <div className="p-5 rounded-3xl bg-slate-900 border border-slate-800 shadow-md">
           <div className="flex items-center justify-between text-slate-400 text-xs uppercase font-semibold mb-2">
             <span>Operational Fleet</span>
-            <TrainIcon className="w-4 h-4 text-amber-400" />
+            <IconTile icon={TrainIcon} tone="amber" size="md" />
           </div>
           <div className="text-3xl font-black text-white font-mono">
             {metrics.activeTrains}
@@ -426,7 +425,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
         <div className="p-5 rounded-3xl bg-slate-900 border border-slate-800 shadow-md">
           <div className="flex items-center justify-between text-slate-400 text-xs uppercase font-semibold mb-2">
             <span>Overall Occupancy</span>
-            <Users className="w-4 h-4 text-sky-400" />
+            <IconTile icon={Users} tone="sky" size="md" />
           </div>
           <div className="text-3xl font-black text-sky-400 font-mono">
             {metrics.occupancyRatePercent}%
@@ -439,7 +438,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
         <div className="p-5 rounded-3xl bg-slate-900 border border-slate-800 shadow-md">
           <div className="flex items-center justify-between text-slate-400 text-xs uppercase font-semibold mb-2">
             <span>Total Gross Revenue</span>
-            <TrendingUp className="w-4 h-4 text-amber-400" />
+            <IconTile icon={TrendingUp} tone="amber" size="md" />
           </div>
           <div className="text-3xl font-black text-amber-400 font-mono">
             ₹{metrics.totalRevenue.toLocaleString()}
@@ -452,7 +451,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
         <div className="p-5 rounded-3xl bg-slate-900 border border-slate-800 shadow-md">
           <div className="flex items-center justify-between text-slate-400 text-xs uppercase font-semibold mb-2">
             <span>Concurrency Isolation</span>
-            <Shield className="w-4 h-4 text-emerald-400" />
+            <IconTile icon={Shield} tone="emerald" size="md" />
           </div>
           <div className="text-2xl font-black text-emerald-400 font-mono">
             EXCLUSIVE
@@ -469,7 +468,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
             <h2 className="text-lg font-bold text-white flex items-center gap-2">
-              <Database className="w-5 h-5 text-amber-400" />
+              <IconTile icon={Database} tone="amber" size="md" />
               <span>SQLite Exclusive Lock Audit Trail</span>
             </h2>
             <p className="text-xs text-slate-400 mt-0.5">
@@ -538,7 +537,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
             <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest block mb-1">
               CRIS DATA ENGINEERING ARCHITECTURE
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
               7 Normalized Relational Tables & Transaction Locking
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -628,7 +627,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
             <span className="text-xs font-mono text-sky-400 font-bold uppercase tracking-widest block mb-1">
               AUTOMATIC TRAIN PROTECTION (ATP)
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
               Indigenous Kavach TCAS Telemetry Status
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -671,7 +670,7 @@ export const AdminConsolePage: React.FC<AdminConsolePageProps> = ({
           <span className="text-xs font-mono text-purple-400 font-bold uppercase tracking-widest block mb-1">
             OPERATIONS REFERENCE
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Fleet KPI Glossary: What Each Metric Means
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">

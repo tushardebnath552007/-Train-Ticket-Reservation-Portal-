@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Search, Ticket, CheckCircle2, AlertCircle, Clock, ShieldCheck, ArrowRight, User, RefreshCw, FileText } from 'lucide-react';
+import { Search, Ticket, CheckCircle2, AlertCircle, Clock, ShieldCheck, ArrowRight, User, RefreshCw, FileText, X } from 'lucide-react';
 import { Booking } from '../types/railway';
 import { railwayService } from '../services/railwayService';
+import { IconTile } from './ui/IconTile';
 
 interface PnrStatusWidgetProps {
   onViewBookingDetails?: (booking: Booking) => void;
@@ -46,9 +47,7 @@ export const PnrStatusWidget: React.FC<PnrStatusWidgetProps> = ({ onViewBookingD
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400">
-            <Ticket className="w-6 h-6" />
-          </div>
+          <IconTile icon={Ticket} tone="amber" size="lg" />
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-rose-600/20 text-amber-300 border border-rose-600/30 uppercase tracking-wider">
@@ -91,7 +90,7 @@ export const PnrStatusWidget: React.FC<PnrStatusWidgetProps> = ({ onViewBookingD
                 }}
                 className="absolute right-4 top-4 text-slate-400 hover:text-white text-xs font-bold"
               >
-                ✕
+                <X className="w-3.5 h-3.5" />
               </button>
             )}
           </div>
@@ -225,7 +224,9 @@ export const PnrStatusWidget: React.FC<PnrStatusWidgetProps> = ({ onViewBookingD
 
       {hasSearched && !searchedBooking && (
         <div className="p-6 rounded-2xl bg-slate-950 border border-dashed border-slate-800 text-center space-y-2">
-          <AlertCircle className="w-8 h-8 text-amber-400 mx-auto" />
+          <div className="flex justify-center">
+            <IconTile icon={AlertCircle} tone="amber" size="lg" />
+          </div>
           <h4 className="text-sm font-bold text-white">PNR Not Found in Central Database</h4>
           <p className="text-xs text-slate-400 max-w-md mx-auto">
             No booking record exists for PNR <code>{pnrInput}</code>. Try searching with one of the quick test PNRs above or book a new ticket.

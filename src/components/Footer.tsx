@@ -13,6 +13,7 @@ import {
   MessageCircle,
   Share2
 } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 
 interface FooterProps {
   onNavigateToContact?: () => void;
@@ -65,9 +66,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Brand & Mission & Social Media Icons (Col 1-2) */}
           <div className="lg:col-span-2 space-y-5">
             <div className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-600 to-rose-700 flex items-center justify-center text-white font-black shadow-md shadow-rose-600/20">
-                <Train className="w-5 h-5 text-slate-950" />
-              </div>
+              <IconTile icon={Train} tone="rose" size="md" variant="solid" />
               <div>
                 <span className="font-extrabold text-base tracking-tight text-white">
                   RailFleet Express
@@ -94,7 +93,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://twitter.com/RailMinIndia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-rose-600 hover:bg-rose-600/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-rose-600 hover:bg-rose-600/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm hover:shadow-lg hover:shadow-rose-500/25"
                   title="Twitter / X (@RailMinIndia)"
                   aria-label="Twitter / X"
                 >
@@ -108,7 +107,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://facebook.com/RailMinIndia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-sky-500 hover:bg-sky-500/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-sky-500 hover:bg-sky-500/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm hover:shadow-lg hover:shadow-sky-500/25"
                   title="Facebook (Ministry of Railways)"
                   aria-label="Facebook"
                 >
@@ -122,7 +121,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://youtube.com/@RailMinIndia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-rose-500 hover:bg-rose-500/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-rose-500 hover:bg-rose-500/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm hover:shadow-lg hover:shadow-rose-500/25"
                   title="YouTube (Indian Railways Channel)"
                   aria-label="YouTube"
                 >
@@ -136,7 +135,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://instagram.com/railminindia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-pink-500 hover:bg-pink-500/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-pink-500 hover:bg-pink-500/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm hover:shadow-lg hover:shadow-pink-500/25"
                   title="Instagram (@railminindia)"
                   aria-label="Instagram"
                 >
@@ -150,7 +149,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://t.me/railminindia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-sky-400 hover:bg-sky-400/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
+                  className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 hover:border-sky-400 hover:bg-sky-400/10 text-slate-400 hover:text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm hover:shadow-lg hover:shadow-sky-400/25"
                   title="Telegram News Channel"
                   aria-label="Telegram"
                 >
@@ -223,7 +222,7 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <div className="space-y-2 text-[11px] text-slate-400">
               <div className="flex items-center gap-1.5 text-emerald-400 font-semibold">
-                <ShieldCheck className="w-3.5 h-3.5" />
+                <IconTile icon={ShieldCheck} tone="emerald" size="xs" variant="soft" />
                 <span>Zero Double-Booking Guarantee</span>
               </div>
               <p className="text-[11px] leading-relaxed">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Train as TrainIcon, Clock, Radio, ArrowRight, Zap, CheckCircle2, Search } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 import { Train } from '../types/railway';
 
 interface StationDepartureBoardProps {
@@ -97,9 +98,7 @@ export const StationDepartureBoard: React.FC<StationDepartureBoardProps> = ({
       {/* Top Station Board Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-800">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-rose-600/10 border border-rose-600/30 flex items-center justify-center text-amber-400">
-            <Radio className="w-5 h-5 animate-pulse" />
-          </div>
+          <IconTile icon={Radio} tone="amber" size="md" variant="soft" pulse />
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-black text-amber-400 uppercase tracking-widest">

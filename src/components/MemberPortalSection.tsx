@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldCheck, User, Sparkles, CheckCircle2, ArrowRight, Wallet, Ticket, KeyRound, Award, Lock } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 import { UserProfile, DEMO_USERS } from '../types/user';
 
 interface MemberPortalSectionProps {
@@ -105,7 +106,7 @@ export const MemberPortalSection: React.FC<MemberPortalSectionProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
               <div className="font-bold text-white flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" /> 1-Click Tatkal Auto-Fill
+                <IconTile icon={CheckCircle2} tone="emerald" size="xs" variant="soft" /> 1-Click Tatkal Auto-Fill
               </div>
               <p className="text-slate-400">
                 Pre-saved passenger manifest ready for 10:00 AM booking rush with zero manual entry delay.
@@ -114,7 +115,7 @@ export const MemberPortalSection: React.FC<MemberPortalSectionProps> = ({
 
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
               <div className="font-bold text-white flex items-center gap-1.5">
-                <Wallet className="w-4 h-4 text-amber-400" /> Instant RailPass Wallet
+                <IconTile icon={Wallet} tone="amber" size="xs" variant="soft" /> Instant RailPass Wallet
               </div>
               <p className="text-slate-400">
                 Zero PG failure rate with direct wallet debit and instant 60-second cancellation refunds.
@@ -123,7 +124,7 @@ export const MemberPortalSection: React.FC<MemberPortalSectionProps> = ({
 
             <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
               <div className="font-bold text-white flex items-center gap-1.5">
-                <Award className="w-4 h-4 text-purple-400" /> Complimentary Lounge Pass
+                <IconTile icon={Award} tone="violet" size="xs" variant="soft" /> Complimentary Lounge Pass
               </div>
               <p className="text-slate-400">
                 2 free IRCTC Executive Lounge visits per quarter at New Delhi, Howrah, and Mumbai Central.
@@ -171,19 +172,19 @@ export const MemberPortalSection: React.FC<MemberPortalSectionProps> = ({
             </div>
             <div className="space-y-3 text-xs">
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <IconTile icon={CheckCircle2} tone="emerald" size="xs" variant="soft" className="mt-0.5" />
                 <span className="text-slate-200"><strong>₹500 Welcome Travel Credit</strong> credited instantly upon phone verification.</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <IconTile icon={CheckCircle2} tone="emerald" size="xs" variant="soft" className="mt-0.5" />
                 <span className="text-slate-200"><strong>Zero Booking Fees:</strong> No payment gateway surcharges on UPI & debit cards.</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <IconTile icon={CheckCircle2} tone="emerald" size="xs" variant="soft" className="mt-0.5" />
                 <span className="text-slate-200"><strong>Auto Lower Berth Allocation</strong> preference for senior citizens and families.</span>
               </div>
               <div className="flex items-start gap-2.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                <IconTile icon={CheckCircle2} tone="emerald" size="xs" variant="soft" className="mt-0.5" />
                 <span className="text-slate-200"><strong>Live Delay WhatsApp SMS Alerts</strong> with automated reschedule protection.</span>
               </div>
             </div>

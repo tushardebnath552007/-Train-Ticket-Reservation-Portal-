@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Shield, Lock, CreditCard, CheckCircle2, AlertTriangle, UserCheck, Sparkles, Coffee, ShieldCheck, Tag, HeartHandshake, Check } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 import { Train, Coach, Seat, Passenger } from '../types/railway';
 import { railwayService } from '../services/railwayService';
 
@@ -127,9 +128,9 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
           <img
             src="/src/assets/images/kashmir_snow_train_1791009001352.jpg"
             alt="Scenic high-speed train corridor"
-            className="w-full h-full object-cover object-center opacity-30"
+            className="w-full h-full object-cover object-center opacity-70"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
         </div>
 
         <div className="relative z-10 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -143,7 +144,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
                 <span>BERTH HOLD: 09:54</span>
               </span>
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black text-white">
+            <h1 className="text-2xl sm:text-3xl font-black text-white display-gradient">
               Passenger Manifest & Atomic Transaction Commitment
             </h1>
             <p className="text-xs sm:text-sm text-slate-300 mt-1">
@@ -162,7 +163,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
 
       {errorMessage && (
         <div className="p-5 rounded-2xl bg-rose-950/40 border-2 border-rose-800/80 flex items-start gap-3.5 text-sm text-rose-300">
-          <AlertTriangle className="w-6 h-6 text-rose-400 shrink-0 mt-0.5" />
+          <IconTile icon={AlertTriangle} tone="rose" size="md" />
           <div>
             <div className="font-bold text-base text-white">Transaction Aborted (Atomic Rollback)</div>
             <p className="text-xs mt-1 text-rose-300 leading-relaxed">{errorMessage}</p>
@@ -179,7 +180,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
             {/* Primary Contact Details */}
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
               <h2 className="text-base font-black text-white flex items-center gap-2">
-                <UserCheck className="w-5 h-5 text-amber-400" />
+                <IconTile icon={UserCheck} tone="amber" size="md" />
                 <span>Primary Lead Contact (Ticket PNR & SMS Delivery)</span>
               </h2>
 
@@ -229,7 +230,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
             {/* Passenger Manifest Lines */}
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
               <h2 className="text-base font-black text-white flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-amber-400" />
+                <IconTile icon={Sparkles} tone="amber" size="md" />
                 <span>Traveler Identification Manifest ({passengers.length} Berth Allocations)</span>
               </h2>
 
@@ -294,7 +295,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
               <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                 <h2 className="text-base font-black text-white flex items-center gap-2">
-                  <Coffee className="w-5 h-5 text-amber-400" />
+                  <IconTile icon={Coffee} tone="amber" size="md" />
                   <span>IRCTC Gourmet E-Catering On-Board Meals</span>
                 </h2>
                 <span className="text-xs font-mono text-amber-400 font-bold">₹160 / meal</span>
@@ -343,7 +344,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
             {/* Travel Insurance & Auto-Upgrade Checkboxes */}
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
               <h2 className="text-base font-black text-white flex items-center gap-2">
-                <HeartHandshake className="w-5 h-5 text-emerald-400" />
+                <IconTile icon={HeartHandshake} tone="emerald" size="md" />
                 <span>Value Added Preferences</span>
               </h2>
 
@@ -383,7 +384,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
             {/* Payment Method Selector */}
             <div className="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl space-y-4">
               <h2 className="text-base font-black text-white flex items-center gap-2">
-                <CreditCard className="w-5 h-5 text-sky-400" />
+                <IconTile icon={CreditCard} tone="sky" size="md" />
                 <span>Instant Payment Settlement (Simulation)</span>
               </h2>
 
@@ -564,7 +565,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
             <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest block mb-1">
               OPTIONAL PASSENGER COVERAGE SCHEDULE
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
               National Railway Passenger Travel Insurance
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -609,7 +610,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
           <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
             PRS CANCELLATION CHARTER
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Clerkage Deductions & Refund Timetable
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -660,7 +661,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
       {/* Legal & Anti-Scalping Advisory under Section 143 */}
       <section className="p-6 rounded-3xl bg-slate-900/80 border border-slate-800 space-y-2 text-xs text-slate-400">
         <h4 className="font-bold text-white text-sm flex items-center gap-2">
-          <Shield className="w-4 h-4 text-amber-400" />
+          <IconTile icon={Shield} tone="amber" size="sm" />
           <span>Statutory Warning Against Unauthorized Ticket Scalping</span>
         </h4>
         <p className="leading-relaxed">
@@ -674,7 +675,7 @@ export const CheckoutPage: React.FC<CheckoutPageProps> = ({
           <span className="text-xs font-mono text-sky-400 font-bold uppercase tracking-widest block mb-1">
             MANDATORY TRAVEL DOCUMENTATION
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             ID Proofs, Boarding Rules & Missed-Train TDR
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">

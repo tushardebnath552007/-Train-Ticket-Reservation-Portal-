@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Search, Calendar, MapPin, ArrowRightLeft, Shield, Zap, Sparkles, Database, CheckCircle2, Train as TrainIcon, Radio, Clock, Coffee, Wifi, Luggage, Award, ChevronDown, ChevronUp, AlertCircle, ArrowRight, Star, Heart, Tag, Send, Compass } from 'lucide-react';
+import { Search, Calendar, MapPin, ArrowRightLeft, Shield, Zap, Sparkles, Database, CheckCircle2, Train as TrainIcon, Radio, Clock, Coffee, Wifi, Luggage, Award, ChevronDown, ChevronUp, AlertCircle, ArrowRight, Star, Heart, Tag, Send, Compass, Mountain } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 import { Station, Train, Booking } from '../types/railway';
 import { UserProfile } from '../types/user';
 import { LiveTrainMap } from './LiveTrainMap';
@@ -182,7 +183,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
   ];
 
   return (
-    <div className="space-y-20">
+    <div className="space-y-14 lg:space-y-20">
       
       {/* Handcrafted Breadcrumbs Trail */}
       <div className="flex items-center gap-2 text-[11px] font-mono text-slate-400">
@@ -194,7 +195,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
       </div>
 
       {/* Solidroad / Framer Style Scenic Hero Banner */}
-      <section className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-slate-950 shadow-2xl">
+      <section className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950 shadow-2xl shadow-black/30">
         
         {/* Full-bleed Winding Mountain Rail Landscape Photography Background */}
         <div className="absolute inset-0 z-0">
@@ -210,12 +211,12 @@ export const SearchPage: React.FC<SearchPageProps> = ({
         </div>
 
         {/* Content Container (Center aligned Solidroad style) */}
-        <div className="relative z-10 p-6 sm:p-12 lg:p-16 flex flex-col items-center text-center space-y-8 min-h-[580px] justify-center">
+        <div className="relative z-10 p-6 sm:p-12 lg:p-16 flex flex-col items-center text-center space-y-7 sm:space-y-8 min-h-[460px] sm:min-h-[540px] justify-center">
           
           <div className="max-w-3xl space-y-4 pt-4">
             
             {/* Center Heading */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12] drop-shadow-md">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white display-gradient tracking-tight leading-[1.12] drop-shadow-md">
               Train and travel across India's <br className="hidden sm:inline" />
               high-speed corridors
             </h1>
@@ -230,10 +231,10 @@ export const SearchPage: React.FC<SearchPageProps> = ({
           <div className="w-full max-w-xl relative">
             <form
               onSubmit={handleHeroSearchSubmit}
-              className="p-1.5 sm:p-2 rounded-full bg-white/95 backdrop-blur-xl shadow-2xl border border-white/40 flex items-center justify-between gap-2 transition-all focus-within:ring-4 focus-within:ring-rose-600/30"
+              className="p-1.5 sm:p-2 rounded-full bg-white/95 backdrop-blur-xl shadow-2xl border border-white/40 flex items-center justify-between gap-2 transition-all focus-within:ring-4 focus-within:ring-amber-400/40 focus-within:shadow-amber-500/20"
             >
               <div className="flex items-center gap-2 pl-3 sm:pl-4 flex-1">
-                <Search className="w-4 h-4 text-rose-600 shrink-0" />
+                <Search className="w-4 h-4 text-amber-600 shrink-0" />
                 <input
                   type="text"
                   value={heroSearchQuery}
@@ -260,7 +261,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
               </div>
               <button
                 type="submit"
-                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-rose-600 hover:bg-amber-400 text-white hover:text-slate-950 font-black text-xs flex items-center gap-1.5 shadow-md shadow-rose-600/20 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 hover:shadow-lg hover:shadow-amber-400/30 text-slate-950 font-extrabold text-xs flex items-center gap-1.5 shadow-md shadow-amber-600/20 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0"
               >
                 <span>Find trains</span>
                 <span className="text-[10px]">➔</span>
@@ -296,7 +297,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                           className="p-2.5 rounded-xl hover:bg-slate-900 border border-transparent hover:border-slate-800 cursor-pointer flex items-center justify-between text-xs text-white transition-colors"
                         >
                           <div className="flex items-center gap-2">
-                            <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                            <IconTile icon={MapPin} tone="amber" size="xs" />
                             <div>
                               <span className="font-bold">{st.name}</span>
                               <span className="text-slate-400 text-[11px] block">{st.city}, {st.state}</span>
@@ -331,7 +332,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                           className="p-2.5 rounded-xl hover:bg-slate-900 border border-transparent hover:border-slate-800 cursor-pointer flex items-center justify-between text-xs text-white transition-colors"
                         >
                           <div className="flex items-center gap-2">
-                            <TrainIcon className="w-3.5 h-3.5 text-sky-400" />
+                            <IconTile icon={TrainIcon} tone="sky" size="xs" />
                             <div>
                               <span className="font-bold">{tr.trainName}</span>
                               <span className="text-slate-400 text-[11px] block">
@@ -387,7 +388,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
       )}
 
       {/* Deep Route Booking Console (Station Pickers, Class & Quotas) */}
-      <section className="bg-slate-950/90 backdrop-blur-2xl border-2 border-slate-800/90 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
+      <section className="bg-slate-950/90 backdrop-blur-2xl border-2 border-slate-700/90 hover:border-rose-600/30 transition-colors rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-6">
         
         {/* Top Quota Pills */}
         <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
@@ -405,8 +406,8 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                 onClick={() => setQuota(q.id)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all ${
                   quota === q.id
-                    ? 'bg-rose-600 text-white shadow-md shadow-rose-600/20'
-                    : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white'
+                    ? 'bg-gradient-to-r from-rose-500 to-pink-600 shadow-md shadow-rose-500/30 text-white'
+                    : 'bg-slate-900 text-slate-400 border border-slate-800 hover:bg-slate-800 hover:border-slate-600 hover:text-amber-300'
                 }`}
               >
                 {q.label}
@@ -451,7 +452,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
               <button
                 type="button"
                 onClick={handleSwapStations}
-                className="w-12 h-12 rounded-2xl bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 flex items-center justify-center transition-all hover:rotate-180 duration-300 shadow-md"
+                className="w-12 h-12 rounded-2xl bg-slate-800 hover:bg-rose-600/20 hover:border-rose-500/50 hover:text-rose-400 hover:shadow-md hover:shadow-rose-500/20 text-amber-400 border border-slate-700 flex items-center justify-center transition-all hover:rotate-180 duration-300 shadow-md"
                 title="Swap Station Direction"
               >
                 <ArrowRightLeft className="w-5 h-5" />
@@ -515,8 +516,8 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                   onClick={() => setCoachClass(tier.id)}
                   className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all ${
                     coachClass === tier.id
-                      ? 'bg-rose-600 text-white shadow-md shadow-rose-600/20 font-black'
-                      : 'bg-slate-900 text-slate-400 border border-slate-800 hover:text-white hover:border-slate-700'
+                      ? 'bg-gradient-to-r from-rose-500 to-pink-600 text-white shadow-md shadow-rose-500/20 font-black'
+                      : 'bg-slate-900 text-slate-400 border border-slate-800 hover:bg-slate-800 hover:border-slate-600 hover:text-amber-300 hover:shadow-sm'
                   }`}
                 >
                   {tier.label}
@@ -527,7 +528,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             <div className="sm:col-span-4">
               <button
                 type="submit"
-                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-rose-600 via-rose-500 to-rose-700 hover:from-amber-400 hover:to-rose-500 text-white hover:text-slate-950 font-black text-sm flex items-center justify-center gap-2.5 shadow-2xl shadow-rose-600/30 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-rose-500 via-pink-600 to-rose-700 hover:from-amber-400 hover:via-orange-400 hover:to-rose-500 hover:shadow-xl hover:shadow-amber-400/20 text-white hover:text-slate-950 font-black text-sm flex items-center justify-center gap-2.5 shadow-2xl shadow-rose-600/30 transition-all hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
               >
                 <span>Search Available Trains</span>
                 <ArrowRight className="w-5 h-5" />
@@ -594,7 +595,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
               Postcards from the network
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">Moments on the Network</h2>
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">Moments on the Network</h2>
           </div>
           <span className="text-[11px] font-mono text-slate-500 hidden sm:block">swipe ➔</span>
         </div>
@@ -608,7 +609,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             { src: "/src/assets/images/classic_darjeeling_steam_1791013001.jpg", label: "Darjeeling steam" },
             { src: "/src/assets/images/station_executive_lounge_1791008973049.jpg", label: "Executive lounges" }
           ].map((m, i) => (
-            <div key={i} className="relative shrink-0 w-56 sm:w-64 h-40 sm:h-44 rounded-3xl overflow-hidden border border-slate-800 group">
+            <div key={i} className="relative shrink-0 w-56 sm:w-64 h-40 sm:h-44 rounded-3xl overflow-hidden border border-slate-800 hover:border-amber-500/40 hover:shadow-xl hover:shadow-amber-500/20 group transition-all duration-300">
               <img
                 src={m.src}
                 alt={m.label}
@@ -616,7 +617,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                 className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
-              <div className="absolute bottom-2.5 left-3 text-xs font-bold text-white drop-shadow">{m.label}</div>
+              <div className="absolute bottom-2.5 left-3 text-xs font-bold text-white drop-shadow group-hover:text-amber-300 transition-colors">{m.label}</div>
             </div>
           ))}
         </div>
@@ -627,10 +628,10 @@ export const SearchPage: React.FC<SearchPageProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div className="flex items-center gap-2 text-xs font-mono text-sky-400 font-bold uppercase tracking-wider">
-              <Radio className="w-4 h-4 animate-pulse" />
+              <IconTile icon={Radio} tone="sky" size="sm" pulse />
               <span>Real-Time Train Information System (RTIS)</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">Live National Train Tracking Map</h2>
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">Live National Train Tracking Map</h2>
             <p className="text-xs sm:text-sm text-slate-400">
               Interactive satellite telemetry tracking Indian Railways high-speed corridors with live speed, route progression, and scheduled halts.
             </p>
@@ -638,7 +639,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
 
           <button
             onClick={onOpenLiveMapTab}
-            className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-amber-400 text-xs font-bold flex items-center gap-2 transition-all self-start sm:self-auto shadow-sm"
+            className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-amber-500/10 border border-slate-800 hover:border-amber-500/40 text-amber-400 hover:text-amber-300 hover:shadow-md hover:shadow-amber-500/10 text-xs font-bold flex items-center gap-2 transition-all self-start sm:self-auto shadow-sm"
           >
             <span>Open Dedicated Map Radar</span>
             <span>➔</span>
@@ -672,8 +673,9 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                 className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-mono font-bold text-amber-400 border border-rose-600/30">
-                🏔️ Mountain Railway Corridor
+              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-mono font-bold text-amber-400 border border-rose-600/30 flex items-center gap-1.5">
+                <IconTile icon={Mountain} tone="amber" size="xs" />
+                Mountain Railway Corridor
               </div>
             </div>
             <div className="p-6 space-y-3">
@@ -702,8 +704,9 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                 className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-mono font-bold text-sky-400 border border-sky-500/30">
-                ⭐ First Class Private Coupe
+              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-mono font-bold text-sky-400 border border-sky-500/30 flex items-center gap-1.5">
+                <IconTile icon={Star} tone="sky" size="xs" />
+                First Class Private Coupe
               </div>
             </div>
             <div className="p-6 space-y-3">
@@ -732,8 +735,9 @@ export const SearchPage: React.FC<SearchPageProps> = ({
                 className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-mono font-bold text-emerald-400 border border-emerald-500/30">
-                🚆 160 km/h Bullet Corridors
+              <div className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md px-3.5 py-1 rounded-full text-[11px] font-mono font-bold text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
+                <IconTile icon={TrainIcon} tone="emerald" size="xs" />
+                160 km/h Bullet Corridors
               </div>
             </div>
             <div className="p-6 space-y-3">
@@ -790,40 +794,32 @@ export const SearchPage: React.FC<SearchPageProps> = ({
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800/80 space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 font-bold">
-              <Shield className="w-6 h-6" />
-            </div>
+          <div className="group p-6 rounded-3xl bg-slate-950 border border-slate-800/80 space-y-3 hover:border-emerald-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-emerald-500/10 transition-all duration-300">
+            <IconTile icon={Shield} tone="emerald" size="lg" />
             <h3 className="text-base font-black text-white">Zero Double-Booking</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
               Serialized SQLite <code>BEGIN EXCLUSIVE</code> transaction locks eliminate concurrency collisions during Tatkal surges.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800/80 space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/20 flex items-center justify-center text-amber-400 font-bold">
-              <Clock className="w-6 h-6" />
-            </div>
+          <div className="group p-6 rounded-3xl bg-slate-950 border border-slate-800/80 space-y-3 hover:border-rose-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-rose-500/10 transition-all duration-300">
+            <IconTile icon={Clock} tone="rose" size="lg" />
             <h3 className="text-base font-black text-white">99.8% Punctuality Index</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
               Real-time satellite GPS tracking with automatic signal prioritization across all high-speed corridors.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800/80 space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 font-bold">
-              <Zap className="w-6 h-6" />
-            </div>
+          <div className="group p-6 rounded-3xl bg-slate-950 border border-slate-800/80 space-y-3 hover:border-sky-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-500/10 transition-all duration-300">
+            <IconTile icon={Zap} tone="sky" size="lg" />
             <h3 className="text-base font-black text-white">Instant UPI Refunds</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
               Automated 85% cancellation refunds returned to your source account within 60 seconds of ticket cancellation.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-slate-950 border border-slate-800/80 space-y-3">
-            <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 font-bold">
-              <Award className="w-6 h-6" />
-            </div>
+          <div className="group p-6 rounded-3xl bg-slate-950 border border-slate-800/80 space-y-3 hover:border-purple-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-purple-500/10 transition-all duration-300">
+            <IconTile icon={Award} tone="violet" size="lg" />
             <h3 className="text-base font-black text-white">FSSAI Gourmet Dining</h3>
             <p className="text-xs text-slate-400 leading-relaxed">
               Piping hot regional delicacies and kulhad masala chai prepared in central railway base kitchens and delivered to your seat.
@@ -839,7 +835,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
               VERIFIED PASSENGER VOICES
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">4.9 / 5 Rating from 2.4M Passengers</h2>
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">4.9 / 5 Rating from 2.4M Passengers</h2>
           </div>
           <div className="flex items-center gap-1 text-amber-400">
             {[...Array(5)].map((_, i) => (
@@ -849,7 +845,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-3">
+          <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-3 hover:border-amber-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
             <div className="flex items-center gap-1 text-amber-400 text-xs">
               {'★★★★★'}
             </div>
@@ -862,7 +858,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             </div>
           </div>
 
-          <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-3">
+          <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-3 hover:border-amber-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
             <div className="flex items-center gap-1 text-amber-400 text-xs">
               {'★★★★★'}
             </div>
@@ -875,7 +871,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             </div>
           </div>
 
-          <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-3">
+          <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 space-y-3 hover:border-amber-500/30 hover:-translate-y-1 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300">
             <div className="flex items-center gap-1 text-amber-400 text-xs">
               {'★★★★★'}
             </div>
@@ -896,7 +892,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
           <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
             HELP & KNOWLEDGE BASE
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">Frequently Asked Questions</h2>
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">Frequently Asked Questions</h2>
         </div>
 
         <div className="space-y-3">
@@ -933,7 +929,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
               RESERVATION TIMINGS & QUOTA POLICY
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
               Tatkal & Premium Tatkal Operating Windows
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -1013,7 +1009,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
           <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
             STATUTORY TRAVEL GUIDELINES
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Free Luggage Allowance & Carriage Limits
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -1084,30 +1080,30 @@ export const SearchPage: React.FC<SearchPageProps> = ({
           <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest block mb-1">
             NATIONAL NETWORK METRICS 2026
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Indian Railways Operational Footprint
           </h2>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1 hover:border-amber-500/30 hover:bg-gradient-to-br hover:from-slate-900 hover:to-amber-500/5 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300 cursor-default">
             <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Network Track Length</div>
-            <div className="text-2xl sm:text-3xl font-black text-white font-mono">108,706 <span className="text-xs text-amber-400 font-sans">KM</span></div>
+            <div className="text-2xl sm:text-3xl font-black text-white display-gradient font-mono">108,706 <span className="text-xs text-amber-400 font-sans">KM</span></div>
             <div className="text-[11px] text-emerald-400 font-semibold">96.8% Broad Gauge Electrified</div>
           </div>
-          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1 hover:border-amber-500/30 hover:bg-gradient-to-br hover:from-slate-900 hover:to-amber-500/5 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300 cursor-default">
             <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Daily Passenger Volume</div>
-            <div className="text-2xl sm:text-3xl font-black text-white font-mono">24.2 <span className="text-xs text-amber-400 font-sans">Million</span></div>
+            <div className="text-2xl sm:text-3xl font-black text-white display-gradient font-mono">24.2 <span className="text-xs text-amber-400 font-sans">Million</span></div>
             <div className="text-[11px] text-slate-400">Across 7,325 Operational Stations</div>
           </div>
-          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1 hover:border-amber-500/30 hover:bg-gradient-to-br hover:from-slate-900 hover:to-amber-500/5 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300 cursor-default">
             <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Kavach TCAS Deployed</div>
-            <div className="text-2xl sm:text-3xl font-black text-white font-mono">14,200 <span className="text-xs text-amber-400 font-sans">KM</span></div>
+            <div className="text-2xl sm:text-3xl font-black text-white display-gradient font-mono">14,200 <span className="text-xs text-amber-400 font-sans">KM</span></div>
             <div className="text-[11px] text-sky-400 font-semibold">Automatic Anti-Collision Active</div>
           </div>
-          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1">
+          <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-1 hover:border-amber-500/30 hover:bg-gradient-to-br hover:from-slate-900 hover:to-amber-500/5 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-amber-500/10 transition-all duration-300 cursor-default">
             <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Vande Bharat Corridors</div>
-            <div className="text-2xl sm:text-3xl font-black text-white font-mono">102 <span className="text-xs text-amber-400 font-sans">Rakes</span></div>
+            <div className="text-2xl sm:text-3xl font-black text-white display-gradient font-mono">102 <span className="text-xs text-amber-400 font-sans">Rakes</span></div>
             <div className="text-[11px] text-amber-400 font-semibold">160 km/h Semi-High Speed Service</div>
           </div>
         </div>

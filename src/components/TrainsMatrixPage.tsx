@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { ArrowLeft, Clock, Filter, ArrowUpDown, Shield, AlertCircle, Train as TrainIcon, Sparkles, Radio, ChevronDown, ChevronUp, Coffee, CheckCircle2, MapPin, Zap, Search } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 import { Train, Coach } from '../types/railway';
 
 interface TrainsMatrixPageProps {
@@ -77,9 +78,9 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
             src="/src/assets/images/modern_rail_terminal_1791007356836.jpg"
             alt="Modern railway station platform terminal with express trains"
             referrerPolicy="no-referrer"
-            className="w-full h-full object-cover object-center opacity-30"
+            className="w-full h-full object-cover object-center opacity-70"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
         </div>
 
         <div className="relative z-10 p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -87,7 +88,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
             <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest block mb-1">
               Live Relational Matrix
             </span>
-            <h1 className="text-2xl sm:text-3xl font-black text-white flex items-center gap-3">
+            <h1 className="text-2xl sm:text-3xl font-black text-white display-gradient flex items-center gap-3">
               <span>{sourceCode}</span>
               <span className="text-amber-400">➔</span>
               <span>{destCode}</span>
@@ -135,22 +136,30 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
           <span className="text-slate-400 font-bold flex items-center gap-1 mr-1">
             <Filter className="w-3.5 h-3.5 text-amber-400" /> Filter:
           </span>
-          {[
+          {([
             { id: 'ALL', label: 'All Fleet Types' },
-            { id: 'VANDE_BHARAT', label: '⚡ Vande Bharat' },
+            { id: 'VANDE_BHARAT', label: 'Vande Bharat', icon: Zap },
             { id: 'SUPERFAST_EXPRESS', label: 'Superfast / Rajdhani' },
             { id: 'SHATABDI', label: 'Shatabdi Express' },
             { id: 'TEJAS', label: 'Tejas Superfast' }
-          ].map(btn => (
+          ] as { id: string; label: string; icon?: React.ElementType }[]).map(btn => (
             <button
               key={btn.id}
               onClick={() => setSelectedTypeFilter(btn.id)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all ${
                 selectedTypeFilter === btn.id
                   ? 'bg-rose-600 text-white shadow-sm'
                   : 'bg-slate-950 text-slate-400 border border-slate-800 hover:text-white'
               }`}
             >
+              {btn.icon && (
+                <IconTile
+                  icon={btn.icon}
+                  tone="amber"
+                  size="xs"
+                  variant={selectedTypeFilter === btn.id ? 'solid' : 'soft'}
+                />
+              )}
               {btn.label}
             </button>
           ))}
@@ -189,7 +198,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
       {/* Train Schedule Cards List */}
       {filteredTrains.length === 0 ? (
         <div className="text-center py-16 px-4 bg-slate-900/50 rounded-3xl border border-dashed border-slate-800">
-          <AlertCircle className="w-12 h-12 text-slate-600 mx-auto mb-3" />
+          <IconTile icon={AlertCircle} tone="slate" size="lg" className="mx-auto mb-3" />
           <h3 className="text-lg font-bold text-white mb-1">No Matching Trains Found</h3>
           <p className="text-sm text-slate-400 mb-6 max-w-md mx-auto">
             No active schedules match your chosen corridor. Try switching to a popular route like NDLS ➔ HWH or NDLS ➔ MMCT.
@@ -293,7 +302,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
                   
                   {/* Origin */}
                   <div className="sm:col-span-4">
-                    <div className="text-2xl sm:text-3xl font-black text-white font-mono">
+                    <div className="text-2xl sm:text-3xl font-black text-white display-gradient font-mono">
                       {train.departureTime}
                     </div>
                     <div className="text-sm font-bold text-slate-200">
@@ -320,7 +329,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
 
                   {/* Destination */}
                   <div className="sm:col-span-4 sm:text-right">
-                    <div className="text-2xl sm:text-3xl font-black text-white font-mono">
+                    <div className="text-2xl sm:text-3xl font-black text-white display-gradient font-mono">
                       {train.arrivalTime}
                     </div>
                     <div className="text-sm font-bold text-slate-200">
@@ -485,7 +494,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
             <span className="text-xs font-mono text-amber-400 font-bold uppercase tracking-widest block mb-1">
               FLEET ROLLING STOCK BENCHMARK
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-white">
+            <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
               Indian Railways Premier Express Categories
             </h2>
             <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
@@ -603,7 +612,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
       {/* Reservation Charting Timelines & Final Waitlist Clearance Rules */}
       <section className="bg-slate-950 border border-slate-800 rounded-[2.5rem] p-6 sm:p-10 shadow-2xl space-y-4">
         <div className="flex items-center gap-2 text-xs font-mono text-amber-400 font-bold uppercase tracking-wider">
-          <Clock className="w-4 h-4" />
+          <IconTile icon={Clock} tone="amber" size="sm" />
           <span>OFFICIAL PRS CHARTING DIRECTIVE</span>
         </div>
         <h3 className="text-xl sm:text-2xl font-black text-white">
@@ -620,7 +629,7 @@ export const TrainsMatrixPage: React.FC<TrainsMatrixPageProps> = ({
           <span className="text-xs font-mono text-emerald-400 font-bold uppercase tracking-widest block mb-1">
             BOOKING QUOTAS & FARE RULES
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             Reservation Quotas, Flexi Fares & Travel Concessions
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">

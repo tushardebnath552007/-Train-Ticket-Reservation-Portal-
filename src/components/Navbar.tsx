@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Train, ShieldCheck, Cpu, Users, MapPin, Radio, Compass, PhoneCall, Bell, Menu, X, ChevronDown, User, Search, Sparkles, Globe, Ticket, Calendar, Clock, LogOut, CheckCircle2 } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 import { UserProfile } from '../types/user';
 
 interface NavbarProps {
@@ -33,9 +34,9 @@ export const Navbar: React.FC<NavbarProps> = ({
           alt=""
           aria-hidden="true"
           referrerPolicy="no-referrer"
-          className="absolute inset-0 w-full h-full object-cover object-center opacity-40"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-80"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/85 to-slate-950/95"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-900/60 to-slate-950/85"></div>
         <div className="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-amber-400/80 to-transparent"></div>
         <div className="absolute inset-x-8 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-400/30 to-transparent"></div>
 
@@ -47,13 +48,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => setActiveTab('search')}
             className="flex items-center gap-2.5 cursor-pointer group mr-2 sm:mr-4"
           >
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-rose-600 via-rose-500 to-rose-700 flex items-center justify-center text-white font-black shadow-md shadow-rose-600/20 group-hover:scale-105 transition-all">
-              <Train className="w-5 h-5 text-slate-950" />
-            </div>
+            <IconTile icon={Train} tone="rose" size="md" variant="solid" />
             <div className="flex items-center gap-1.5">
               <span
-                style={{ fontFamily: "'UnifrakturCook', serif" }}
-                className="text-xl sm:text-2xl tracking-wide bg-gradient-to-b from-amber-200 via-amber-400 to-rose-700 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(225,29,72,0.35)] group-hover:from-amber-100 group-hover:to-rose-600 transition-all"
+                className="brand-wordmark text-xl sm:text-2xl tracking-tight bg-gradient-to-b from-amber-200 via-amber-400 to-rose-700 bg-clip-text text-transparent drop-shadow-[0_2px_8px_rgba(225,29,72,0.35)] group-hover:from-amber-100 group-hover:to-rose-600 transition-all"
               >
                 RailFleet
               </span>
@@ -174,21 +172,21 @@ export const Navbar: React.FC<NavbarProps> = ({
                     onClick={() => { setActiveTab('dashboard'); setUserDropdownOpen(false); }}
                     className="w-full text-left px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-2"
                   >
-                    <Ticket className="w-3.5 h-3.5 text-amber-400" />
+                    <IconTile icon={Ticket} tone="amber" size="xs" variant="soft" />
                     <span>My Bookings & PNR</span>
                   </button>
                   <button
                     onClick={() => { setActiveTab('admin'); setUserDropdownOpen(false); }}
                     className="w-full text-left px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800 flex items-center gap-2"
                   >
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                    <IconTile icon={ShieldCheck} tone="emerald" size="xs" variant="soft" />
                     <span>Fleet Console</span>
                   </button>
                   <button
                     onClick={() => { onLogout(); setUserDropdownOpen(false); }}
                     className="w-full text-left px-3 py-2 rounded-xl text-rose-400 hover:bg-rose-500/10 flex items-center gap-2 pt-1 border-t border-slate-800"
                   >
-                    <LogOut className="w-3.5 h-3.5" />
+                    <IconTile icon={LogOut} tone="rose" size="xs" variant="soft" />
                     <span>Sign Out</span>
                   </button>
                 </div>
@@ -235,12 +233,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               alt=""
               aria-hidden="true"
               referrerPolicy="no-referrer"
-              className="w-full h-full object-cover object-center opacity-50"
+              className="w-full h-full object-cover object-center opacity-85"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/45 to-transparent"></div>
             <span
-              style={{ fontFamily: "'UnifrakturCook', serif" }}
-              className="absolute bottom-2 left-4 text-2xl bg-gradient-to-b from-amber-200 via-amber-400 to-rose-700 bg-clip-text text-transparent"
+              className="brand-wordmark absolute bottom-2 left-4 text-2xl bg-gradient-to-b from-amber-200 via-amber-400 to-rose-700 bg-clip-text text-transparent"
             >
               RailFleet
             </span>
@@ -256,7 +253,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => { setActiveTab('tracking'); setMobileMenuOpen(false); }}
             className={`w-full text-left px-4 py-2 rounded-xl flex items-center gap-2 ${activeTab === 'tracking' ? 'bg-rose-600 text-white' : 'text-sky-400 hover:bg-slate-800'}`}
           >
-            <Radio className="w-3.5 h-3.5" /> Live Train Radar
+            <IconTile icon={Radio} tone="sky" size="xs" variant={activeTab === 'tracking' ? 'solid' : 'soft'} pulse={activeTab !== 'tracking'} /> Live Train Radar
           </button>
           <button
             onClick={() => { setActiveTab('trains'); setMobileMenuOpen(false); }}
@@ -274,13 +271,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => { setActiveTab('contact'); setMobileMenuOpen(false); }}
             className={`w-full text-left px-4 py-2 rounded-xl flex items-center gap-2 ${activeTab === 'contact' ? 'bg-rose-600 text-white' : 'text-amber-400 hover:bg-slate-800'}`}
           >
-            <PhoneCall className="w-3.5 h-3.5" /> 24/7 Rail Madad & Contact
+            <IconTile icon={PhoneCall} tone="amber" size="xs" variant={activeTab === 'contact' ? 'solid' : 'soft'} /> 24/7 Rail Madad & Contact
           </button>
           <button
             onClick={() => { onOpenConcurrencyLab(); setMobileMenuOpen(false); }}
             className="w-full text-left px-4 py-2 rounded-xl text-emerald-400 hover:bg-slate-800 flex items-center gap-2"
           >
-            <Cpu className="w-3.5 h-3.5" /> Launch Concurrency Lab
+            <IconTile icon={Cpu} tone="emerald" size="xs" variant="solid" /> Launch Concurrency Lab
           </button>
           </div>
         </div>

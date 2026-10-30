@@ -2,8 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { 
   MapPin, Navigation, Compass, Clock, Zap, AlertCircle, CheckCircle2, 
   Shield, Radio, Train as TrainIcon, Wind, Thermometer, Volume2, Search, 
-  ZoomIn, ZoomOut, Play, Pause, RefreshCw, Eye, ArrowRight, Activity, Gauge
+  ZoomIn, ZoomOut, Play, Pause, RefreshCw, Eye, ArrowRight, Activity, Gauge, X
 } from 'lucide-react';
+import { IconTile } from './ui/IconTile';
 import { Train } from '../types/railway';
 
 interface LiveTrainMapProps {
@@ -271,9 +272,7 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
       {/* Header & RTIS Satellite Telemetry Badge */}
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-slate-800 pb-5">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-2xl bg-rose-600/10 border border-rose-600/30 flex items-center justify-center text-amber-400">
-            <Radio className="w-6 h-6 animate-pulse" />
-          </div>
+          <IconTile icon={Radio} tone="amber" size="lg" pulse />
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs font-mono font-black px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5 uppercase">
@@ -387,7 +386,7 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
               onClick={() => setRadarSearchQuery('')}
               className="absolute right-3 top-2.5 text-slate-500 hover:text-white text-xs"
             >
-              ✕
+              <X className="w-3.5 h-3.5" />
             </button>
           )}
         </div>
@@ -612,7 +611,7 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
         {/* Bottom Left Map Legend */}
         <div className="absolute bottom-4 left-4 p-3 rounded-2xl bg-slate-950/85 backdrop-blur-md border border-slate-800 text-[10px] font-mono text-slate-400 space-y-1 hidden sm:block">
           <div className="text-white font-bold uppercase tracking-wider mb-1 flex items-center gap-1.5">
-            <Activity className="w-3 h-3 text-emerald-400" />
+            <IconTile icon={Activity} tone="emerald" size="xs" />
             <span>Radar Legend</span>
           </div>
           <div className="flex items-center gap-2">
@@ -732,7 +731,7 @@ export const LiveTrainMap: React.FC<LiveTrainMapProps> = ({
           <span className="text-xs font-mono text-sky-400 font-bold uppercase tracking-widest block mb-1">
             RTIS • GPS • CONTROL OFFICE DATA
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-white">
+          <h2 className="text-2xl sm:text-3xl font-black text-white display-gradient">
             How Live Train Tracking Works
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl">

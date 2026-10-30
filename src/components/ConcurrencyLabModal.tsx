@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Cpu, Play, CheckCircle2, XCircle, AlertTriangle, ShieldCheck, Zap, RotateCcw } from 'lucide-react';
+import { Cpu, Play, CheckCircle2, XCircle, AlertTriangle, ShieldCheck, Zap, RotateCcw, X } from 'lucide-react';
 import { railwayService } from '../services/railwayService';
+import { IconTile } from './ui/IconTile';
 
 interface ConcurrencyLabModalProps {
   isOpen: boolean;
@@ -123,9 +124,7 @@ export const ConcurrencyLabModal: React.FC<ConcurrencyLabModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between border-b border-slate-800 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
-              <Cpu className="w-5 h-5 animate-pulse" />
-            </div>
+            <IconTile icon={Cpu} tone="emerald" size="md" pulse />
             <div>
               <h2 className="text-xl font-bold text-white flex items-center gap-2">
                 <span>Concurrency Stress Testing & Race Condition Lab</span>
@@ -137,9 +136,9 @@ export const ConcurrencyLabModal: React.FC<ConcurrencyLabModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center text-sm font-bold"
+            className="w-8 h-8 rounded-full flex items-center justify-center group"
           >
-            ✕
+            <IconTile icon={X} tone="slate" size="sm" />
           </button>
         </div>
 

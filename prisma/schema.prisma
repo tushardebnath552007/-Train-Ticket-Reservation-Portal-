@@ -1,0 +1,103 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  bookings  Booking[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+model Station {
+  code      String   @id
+  name      String
+  city      String
+  departures TrainStation[] @relation("DepartureStation")
+  arrivals   TrainStation[] @relation("ArrivalStation")
+}
+
+model Train {
+  trainNo   String   @id
+  name      String
+  stations  TrainStation[]
+  seats     Seat[]
+  bookings  Booking[]
+}
+
+model TrainStation {
+  id             String   @id @default(uuid())
+  trainNo        String
+  stationCode    String
+  arrivalTime    String?
+  departureTime  String?
+  haltDuration   Int?
+  dayCount       Int
+  distance       Int
+  isSource       Boolean  @default(false)
+  isDestination  Boolean  @default(false)
+
+  train   Train   @relation(fields: [trainNo], references: [trainNo])
+  station Station @relation(name: "DepartureStation", fields: [stationCode], references: [code]) // using departure generically
+}
+
+model Seat {
+  id        String   @id @default(uuid())
+  trainNo   String
+  coachCode String
+  seatNo    String
+  berthType String
+  class     String   // e.g., 3A, 2A, SL
+  baseFare  Float
+
+  train     Train    @relation(fields: [trainNo], references: [trainNo])
+}
+
+model Booking {
+  id              String   @id @default(uuid())
+  pnr             String   @unique
+  userId          String
+  trainNo         String
+  journeyDate     DateTime
+  sourceCode      String
+  destinationCode String
+  totalFare       Float
+  status          BookingStatus @default(CONFIRMED)
+  createdAt       DateTime @default(now())
+
+  user       User       @relation(fields: [userId], references: [id])
+  train      Train      @relation(fields: [trainNo], references: [trainNo])
+  passengers Passenger[]
+}
+
+enum BookingStatus {
+  CONFIRMED
+  CANCELLED
+  WAITLISTED
+}
+
+model Passenger {
+  id        String   @id @default(uuid())
+  bookingId String
+  name      String
+  age       Int
+  gender    String
+  seatNo    String
+  coachCode String
+
+  booking Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+}
