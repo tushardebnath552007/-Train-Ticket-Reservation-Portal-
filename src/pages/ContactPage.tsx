@@ -20,7 +20,7 @@ import {
   ExternalLink,
   ShieldAlert
 } from 'lucide-react';
-import { IconTile } from './ui/IconTile';
+import { IconTile } from '../components/ui/IconTile';
 
 interface ContactPageProps {
   onBackToHome: () => void;

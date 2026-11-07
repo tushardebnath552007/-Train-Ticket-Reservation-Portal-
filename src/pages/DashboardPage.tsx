@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Search, Ticket, Calendar, Clock, AlertCircle, Trash2, Printer, CheckCircle2, RotateCcw, User, ArrowRight, ShieldCheck, Download, Info, FileText, Luggage, X } from 'lucide-react';
 import { Booking } from '../types/railway';
 import { railwayService } from '../services/railwayService';
-import { IconTile } from './ui/IconTile';
+import { IconTile } from '../components/ui/IconTile';
 
 interface DashboardPageProps {
   bookings: Booking[];

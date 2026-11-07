@@ -18,7 +18,7 @@ A train ticket reservation and dynamic fleet management system built as a 2nd-ye
 ## Tech Stack
 
 - Frontend: React + Vite + Tailwind CSS (`src/`), served on port 3000
-- Secondary mock API: Node + Express (`server_5500.ts`), port 5500
+- Secondary mock API: Node + Express (`server/server_5500.ts`), port 5500
 - Backend: FastAPI (Python) + Pydantic, port 8000
 - Database: SQLite3 (`railway.db`) with foreign keys ON and CHECK constraints
 
@@ -121,10 +121,12 @@ CREATE TABLE passengers (
 
 ```
 backend/   FastAPI service (main.py, models.py, crud.py, database.py)
-src/       React frontend (components, services, types)
+src/       React frontend (pages/, components/, services/, data/, types/, styles/, assets/)
 frontend/  Vanilla HTML reference UI
+server/    Express mock API (server_5500.ts) + routes/, lib/, middleware/
 tests/     API + concurrency stress tests
-server_5500.ts  Secondary Express mock API
+docs/      Project handoff notes
+public/    Static assets (favicon)
 ```
 
 ## How to Run

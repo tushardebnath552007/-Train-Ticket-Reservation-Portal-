@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { ArrowLeft, Clock, Filter, ArrowUpDown, Shield, AlertCircle, Train as TrainIcon, Sparkles, Radio, ChevronDown, ChevronUp, Coffee, CheckCircle2, MapPin, Zap, Search } from 'lucide-react';
-import { IconTile } from './ui/IconTile';
+import { IconTile } from '../components/ui/IconTile';
 import { Train, Coach } from '../types/railway';
 
 interface TrainsMatrixPageProps {

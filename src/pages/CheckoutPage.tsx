@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Shield, Lock, CreditCard, CheckCircle2, AlertTriangle, UserCheck, Sparkles, Coffee, ShieldCheck, Tag, HeartHandshake, Check } from 'lucide-react';
-import { IconTile } from './ui/IconTile';
+import { IconTile } from '../components/ui/IconTile';
 import { Train, Coach, Seat, Passenger } from '../types/railway';
 import { railwayService } from '../services/railwayService';
 

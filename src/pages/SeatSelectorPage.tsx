@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowLeft, Check, CheckCircle2, ShieldCheck, Info, Sparkles, User, Zap, AlertTriangle, Eye, HelpCircle } from 'lucide-react';
-import { IconTile } from './ui/IconTile';
+import { IconTile } from '../components/ui/IconTile';
 import { Train, Coach, Seat } from '../types/railway';
 
 interface SeatSelectorPageProps {

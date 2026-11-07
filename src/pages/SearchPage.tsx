@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { Search, Calendar, MapPin, ArrowRightLeft, Shield, Zap, Sparkles, Database, CheckCircle2, Train as TrainIcon, Radio, Clock, Coffee, Wifi, Luggage, Award, ChevronDown, ChevronUp, AlertCircle, ArrowRight, Star, Heart, Tag, Send, Compass, Mountain } from 'lucide-react';
-import { IconTile } from './ui/IconTile';
+import { IconTile } from '../components/ui/IconTile';
 import { Station, Train, Booking } from '../types/railway';
 import { UserProfile } from '../types/user';
 import { LiveTrainMap } from './LiveTrainMap';
-import { StationDepartureBoard } from './StationDepartureBoard';
-import { StationWeatherWidget } from './StationWeatherWidget';
-import { PnrStatusWidget } from './PnrStatusWidget';
-import { FareAndBaggageCalculator } from './FareAndBaggageCalculator';
-import { StationFacilitiesGuide } from './StationFacilitiesGuide';
-import { HeritageRailwaysSection } from './HeritageRailwaysSection';
-import { KavachSafetyShowcase } from './KavachSafetyShowcase';
-import { ScenicGatewaysShowcase } from './ScenicGatewaysShowcase';
-import { MemberPortalSection } from './MemberPortalSection';
-import { MyLastTripCard } from './MyLastTripCard';
+import { StationDepartureBoard } from '../components/StationDepartureBoard';
+import { StationWeatherWidget } from '../components/StationWeatherWidget';
+import { PnrStatusWidget } from '../components/PnrStatusWidget';
+import { FareAndBaggageCalculator } from '../components/FareAndBaggageCalculator';
+import { StationFacilitiesGuide } from '../components/StationFacilitiesGuide';
+import { HeritageRailwaysSection } from '../components/HeritageRailwaysSection';
+import { KavachSafetyShowcase } from '../components/KavachSafetyShowcase';
+import { ScenicGatewaysShowcase } from '../components/ScenicGatewaysShowcase';
+import { MemberPortalSection } from '../components/MemberPortalSection';
+import { MyLastTripCard } from '../components/MyLastTripCard';
 
 interface SearchPageProps {
   stations: Station[];

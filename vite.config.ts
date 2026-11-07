@@ -19,7 +19,7 @@ function ensureBackend5500Plugin(): Plugin {
           console.log('[Backend 5500] Port 5500 inactive, spawning server_5500.ts...');
           try {
             const npxCmd = process.platform === 'win32' ? 'npx.cmd' : 'npx';
-            const child = spawn(npxCmd, ['tsx', 'server_5500.ts'], {
+            const child = spawn(npxCmd, ['tsx', 'server/server_5500.ts'], {
               stdio: 'ignore',
               detached: true,
               shell: true,

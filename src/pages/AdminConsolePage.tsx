@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Shield, TrendingUp, Users, Train as TrainIcon, Activity, PlusCircle, Database, RotateCcw, CheckCircle2, Clock, Server } from 'lucide-react';
 import { AdminMetrics, AuditLog, Station, CoachClass, TrainType } from '../types/railway';
 import { railwayService } from '../services/railwayService';
-import { IconTile } from './ui/IconTile';
+import { IconTile } from '../components/ui/IconTile';
 
 interface AdminConsolePageProps {
   metrics: AdminMetrics;

@@ -4,7 +4,7 @@ import {
   Shield, Radio, Train as TrainIcon, Wind, Thermometer, Volume2, Search, 
   ZoomIn, ZoomOut, Play, Pause, RefreshCw, Eye, ArrowRight, Activity, Gauge, X
 } from 'lucide-react';
-import { IconTile } from './ui/IconTile';
+import { IconTile } from '../components/ui/IconTile';
 import { Train } from '../types/railway';
 
 interface LiveTrainMapProps {
