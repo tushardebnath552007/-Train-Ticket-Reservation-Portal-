@@ -218,7 +218,7 @@ export const SearchPage: React.FC<SearchPageProps> = ({
             {/* Center Heading */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white display-gradient tracking-tight leading-[1.12] drop-shadow-md">
               Train and travel across India's <br className="hidden sm:inline" />
-              high-speed corridors
+              <span className="heading-accent">high-speed corridors</span>
             </h1>
 
             {/* Subheading */}
